@@ -58,7 +58,10 @@ export default function TestimonialsPage() {
 
                 <div className="flex items-center gap-3 pt-2 border-t border-border">
                   <Avatar className="h-10 w-10">
-                    <AvatarImage src={testimonial.avatar} />
+                    <AvatarImage
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                    />{" "}
                     <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                       {testimonial.initials}
                     </AvatarFallback>

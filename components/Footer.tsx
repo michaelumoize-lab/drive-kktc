@@ -34,7 +34,7 @@ export default function Footer() {
                 height={88}
                 className="h-12 w-auto"
                 priority
-              />
+              />{" "}
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
               Curated driving routes and travel guides for Northern Cyprus.

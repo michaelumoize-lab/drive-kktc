@@ -70,7 +70,7 @@ export default function RootLayout({
         >
           <TopBar />
           <Navbar />
-          <main className="flex-grow">{children}</main>
+          {children}
           <Footer />
           <BackToTop />
         </ThemeProvider>

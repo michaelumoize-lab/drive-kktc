@@ -127,13 +127,8 @@ export default function RouteCard({ route }: { route: Route }) {
           {/* CTA */}
           <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
             <div>
-              <span className="text-xs text-muted-foreground line-through">
-                Free
-              </span>
-              <span className="text-sm font-bold text-foreground ml-2">
-                Free
-              </span>
-            </div>
+              <span className="text-sm font-bold text-foreground">Free</span>
+            </div>{" "}
             <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
               View Route
               <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

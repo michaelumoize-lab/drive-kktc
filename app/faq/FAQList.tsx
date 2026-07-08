@@ -79,10 +79,14 @@ export default function FAQList() {
             <Card
               key={index}
               className="cursor-pointer hover:shadow-md transition-shadow"
-              onClick={() => toggle(index)}
             >
               <CardContent className="p-5">
-                <div className="flex items-start justify-between gap-4">
+                <button
+                  type="button"
+                  className="w-full flex items-start justify-between gap-4 text-left"
+                  aria-expanded={openIndex === index}
+                  onClick={() => toggle(index)}
+                >
                   <h3 className="font-semibold text-foreground">
                     {faq.question}
                   </h3>
@@ -91,7 +95,7 @@ export default function FAQList() {
                   ) : (
                     <ChevronRight className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                   )}
-                </div>
+                </button>
                 {openIndex === index && (
                   <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                     {faq.answer}
@@ -99,7 +103,7 @@ export default function FAQList() {
                 )}
               </CardContent>
             </Card>
-          ))}
+          ))}{" "}
         </div>
       </div>
     </main>
