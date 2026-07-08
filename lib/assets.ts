@@ -24,3 +24,11 @@ export const HERO_IMAGES = [
 
 // Route map images (placeholder – update as you add routes)
 export const ROUTE_MAP = "/images/maps/route1.png";
+
+export const ROUTE_KYRENIA = "/images/routes/kyrenia-loop.jpg";
+export const ROUTE_FAMAGUSTA = "/images/routes/famagusta-loop.jpg";
+export const ROUTE_KARPAZ = "/images/routes/karpaz-loop.jpg";
+export const ROUTE_NICOSIA = "/images/routes/nicosia-loop.jpg";
+export const ROUTE_GUZELYURT = "/images/routes/guzelyurt-loop.jpg";
+
+export const SITE_URL = "https://drive-kktc.com";

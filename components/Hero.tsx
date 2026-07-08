@@ -10,8 +10,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { HERO_BG, HERO_IMAGES } from "@/lib/assets";
@@ -89,21 +87,15 @@ export default function Hero() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious
-            className="left-4 md:left-8 hidden md:flex bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 border-0"
-            aria-label="Previous image"
-          />
-          <CarouselNext
-            className="right-4 md:right-8 hidden md:flex bg-white/20 backdrop-blur-sm text-white hover:bg-white/40 border-0"
-            aria-label="Next image"
-          />
+          {/* Arrows removed – only dot indicators remain */}
         </Carousel>
       </div>
 
-      {/* Overlay: fixed black gradient — intentional, this sits on a photo, not the page bg, so it stays constant across light/dark mode */}
+      {/* Overlay: fixed black gradient — sits on the photo, not page background */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-10" />
 
-      <div className="relative container mx-auto px-4 z-20">
+      {/* Content container with top/bottom padding */}
+      <div className="relative container mx-auto px-4 z-20 py-8 md:py-12">
         <div className="max-w-3xl space-y-6 text-white">
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full border border-primary/30">
             <MapPin className="h-4 w-4 text-primary" />
@@ -161,7 +153,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Carousel dot indicators — visible on all breakpoints, since prev/next arrows are desktop-only */}
+      {/* Carousel dot indicators */}
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2"
         role="tablist"
