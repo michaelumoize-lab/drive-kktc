@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { TopBar } from "@/components/TopBar";
+import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const outfitHeading = Outfit({
   subsets: ["latin"],
@@ -60,7 +62,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <TopBar />
         <Navbar />
-        {children}
+        <main className="flex-grow">{children}</main>
+        <Footer />
+        <BackToTop />
       </body>
     </html>
   );
