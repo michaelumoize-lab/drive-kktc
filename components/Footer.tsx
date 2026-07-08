@@ -129,6 +129,14 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
+                  href="/routes" // ✅ Link to all routes page
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  View All Routes
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/routes/kyrenia-heritage-coastal"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >

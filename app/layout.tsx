@@ -3,9 +3,10 @@ import { Geist, Geist_Mono, DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
-import { TopBar } from "@/components/TopBar";
+import TopBar from "@/components/TopBar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const outfitHeading = Outfit({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "h-full",
         "antialiased",
@@ -60,11 +62,18 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
-        <TopBar />
-        <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <BackToTop />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TopBar />
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <BackToTop />
+        </ThemeProvider>
       </body>
     </html>
   );
