@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, Globe } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -20,19 +20,21 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { LOGO } from "@/lib/assets";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Explore Itineraries", href: "/#routes" },
+    { name: "Explore Itineraries", href: "/routes" },
     { name: "About", href: "/about" },
     { name: "Testimonials", href: "/testimonials" },
     { name: "Driving Guide", href: "/guide" },
+    { name: "FAQ", href: "/faq" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 dark:bg-background/80">
       <div className="container mx-auto flex h-22 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
@@ -65,13 +67,10 @@ export default function Navbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Button variant="ghost" size="sm" className="gap-1 hidden lg:flex">
-            <Globe className="h-4 w-4" />
-            <span>EN | TRY 8</span>
-          </Button>
+          <ThemeToggle />
 
           <Button asChild className="hidden lg:inline-flex">
-            <Link href="/#routes">Get Started</Link>
+            <Link href="/routes">Get Started</Link>
           </Button>
         </nav>
 
@@ -85,7 +84,7 @@ export default function Navbar() {
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-[300px] sm:w-[350px] p-4 sm:p-6"
+            className="w-[300px] sm:w-[350px] border-l border-border/50 bg-background p-4 sm:p-6"
           >
             <SheetHeader className="mb-4">
               <SheetTitle className="flex items-center gap-2">
@@ -109,17 +108,14 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <hr className="my-2" />
-              <div className="flex items-center gap-2 px-4 py-2 text-sm">
-                <Globe className="h-4 w-4" />
-                <span>EN | TRY 8</span>
-              </div>
+              <hr className="my-2 border-border/50" />
+              <ThemeToggle />
               <Button
                 asChild
                 className="mt-2 mx-4"
                 onClick={() => setIsOpen(false)}
               >
-                <Link href="/#routes">Get Started</Link>
+                <Link href="/routes">Get Started</Link>
               </Button>
             </div>
           </SheetContent>

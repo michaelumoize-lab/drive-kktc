@@ -3,6 +3,7 @@ import { routes } from "@/data/routes";
 import RouteCard from "@/components/RouteCard";
 
 export default function RoutesGrid() {
+  // Show all routes on homepage
   return (
     <section id="routes" className="py-20 container mx-auto px-4">
       <h2 className="text-3xl font-bold mb-2 text-foreground">

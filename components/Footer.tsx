@@ -34,7 +34,7 @@ export default function Footer() {
                 height={88}
                 className="h-12 w-auto"
                 priority
-              />
+              />{" "}
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
               Curated driving routes and travel guides for Northern Cyprus.
@@ -127,6 +127,14 @@ export default function Footer() {
               Popular Routes
             </h2>
             <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/routes" // ✅ Link to all routes page
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  View All Routes
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/routes/kyrenia-heritage-coastal"

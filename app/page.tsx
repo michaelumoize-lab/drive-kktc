@@ -1,5 +1,6 @@
 // app/page.tsx
 import Hero from "@/components/Hero";
+import Newsletter from "@/components/Newsletter";
 import RoutesGrid from "@/components/RoutesGrid";
 import Testimonials from "@/components/Testimonials";
 
@@ -9,6 +10,7 @@ export default function HomePage() {
       <Hero />
       <RoutesGrid />
       <Testimonials />
+      <Newsletter />
     </main>
   );
 }

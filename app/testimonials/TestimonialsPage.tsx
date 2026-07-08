@@ -1,39 +1,38 @@
-// components/Testimonials.tsx
+// components/TestimonialsPage.tsx
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 
-export default function Testimonials() {
-  // Get the first 3 testimonials for the homepage
-  const featuredTestimonials = testimonials.slice(0, 3);
-
+export default function TestimonialsPage() {
   return (
-    <section className="py-16 bg-muted/30">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-            Testimonials
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-            What Our Travelers Say
-          </h3>
-          <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Real stories from real road-trippers who explored Northern Cyprus
-            with our guides.
-          </p>
+    <main className="min-h-screen bg-background">
+      {/* Hero */}
+      <section className="relative py-20 bg-primary/5">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Testimonials
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Hear what our travelers have to say about their Northern Cyprus
+              adventures.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredTestimonials.map((testimonial) => (
+      {/* Testimonials Grid */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {testimonials.map((testimonial) => (
             <Card
               key={testimonial.id}
-              className="bg-card hover:shadow-lg transition-shadow duration-300 border-border"
+              className="bg-card hover:shadow-lg transition-shadow duration-300 border-border h-full"
             >
               <CardContent className="p-6 space-y-4">
-                {/* Quote */}
                 <blockquote className="text-muted-foreground text-sm leading-relaxed">
                   <span className="text-primary text-2xl font-serif">
                     &ldquo;
@@ -44,7 +43,6 @@ export default function Testimonials() {
                   </span>
                 </blockquote>
 
-                {/* Rating */}
                 <div className="flex text-yellow-400">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -58,10 +56,12 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Author */}
                 <div className="flex items-center gap-3 pt-2 border-t border-border">
                   <Avatar className="h-10 w-10">
-                    <AvatarImage src={testimonial.avatar} />
+                    <AvatarImage
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                    />{" "}
                     <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                       {testimonial.initials}
                     </AvatarFallback>
@@ -82,20 +82,7 @@ export default function Testimonials() {
             </Card>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-10">
-          <p className="text-sm text-muted-foreground">
-            Join thousands of happy travelers exploring Northern Cyprus.
-          </p>
-          <a
-            href="#routes"
-            className="inline-block mt-3 text-primary font-semibold hover:underline"
-          >
-            Start Your Journey →
-          </a>
-        </div>
       </div>
-    </section>
+    </main>
   );
 }

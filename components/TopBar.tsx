@@ -1,7 +1,7 @@
 // components/TopBar.tsx
 import { Gift } from "lucide-react";
 
-export function TopBar() {
+export default function TopBar() {
   return (
     <div className="bg-primary text-primary-foreground text-sm py-2 px-4 text-center">
       <div className="container mx-auto flex items-center justify-center gap-2">
