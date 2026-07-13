@@ -14,10 +14,10 @@ import {
   ArrowLeft,
   Calendar,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShareButton } from "@/components/ShareButton";
+import { StopCard } from "@/components/StopCard"; // ✅ Import StopCard
 
 // Generate static paths for all routes
 export function generateStaticParams() {
@@ -72,7 +72,7 @@ export default async function RoutePage({
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-end bg-background overflow-hidden">
+      <section className="relative h-[50vh] min-h-100 flex items-end bg-background overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={route.heroImage}
@@ -147,58 +147,7 @@ export default async function RoutePage({
               </h2>
               <div className="space-y-6">
                 {route.stops.map((stop, index) => (
-                  <Card key={index} className="overflow-hidden">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
-                          {index + 1}
-                        </div>
-                        <div className="flex-1 space-y-3">
-                          <h3 className="text-xl font-semibold text-foreground">
-                            {stop.name}
-                          </h3>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {stop.description}
-                          </p>
-
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm bg-muted/30 p-3 rounded-lg">
-                            {stop.visitTime && (
-                              <div className="flex items-center gap-2 text-muted-foreground">
-                                <Clock className="h-3.5 w-3.5 text-primary" />
-                                <span>{stop.visitTime}</span>
-                              </div>
-                            )}
-                            {stop.openingHours &&
-                              stop.openingHours !== "24/7" && (
-                                <div className="flex items-center gap-2 text-muted-foreground">
-                                  <Clock className="h-3.5 w-3.5 text-primary" />
-                                  <span>{stop.openingHours}</span>
-                                </div>
-                              )}
-                            {stop.entranceFee && (
-                              <div className="flex items-center gap-2 text-muted-foreground">
-                                <DollarSign className="h-3.5 w-3.5 text-primary" />
-                                <span>{stop.entranceFee}</span>
-                              </div>
-                            )}
-                          </div>
-
-                          {stop.tip && (
-                            <div className="bg-primary/5 border border-primary/20 rounded-lg p-3">
-                              <p className="text-sm flex items-start gap-2">
-                                <span className="text-primary font-semibold">
-                                  💡 Tip:
-                                </span>
-                                <span className="text-muted-foreground">
-                                  {stop.tip}
-                                </span>
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <StopCard key={index} stop={stop} index={index} />
                 ))}
               </div>
             </div>
@@ -306,20 +255,28 @@ export default async function RoutePage({
 
             <ShareButton title={route.title} />
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-3 text-foreground">
-                  Route Map
-                </h3>
-                <div className="aspect-video w-full bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
-                  <div className="text-center">
-                    <MapPin className="h-8 w-8 mx-auto mb-2 text-primary/40" />
-                    <p className="text-sm">Google Map Embed</p>
-                    <p className="text-xs">(Coming Soon)</p>
+            {route.mapEmbedUrl && (
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-foreground">
+                    Route Map
+                  </h3>
+                  <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
+                    <iframe
+                      src={route.mapEmbedUrl}
+                      className="w-full h-full"
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`${route.title} Map`}
+                    />
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                  <p className="text-xs text-muted-foreground mt-2">
+                    📍 Click markers for stop details • Zoom in to explore
+                  </p>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </section>
