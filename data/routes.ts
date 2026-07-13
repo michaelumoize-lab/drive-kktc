@@ -402,7 +402,7 @@ export const routes: Route[] = [
     distance: "3 km",
     rating: 5,
     mapEmbedUrl:
-      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
+      "https://www.google.com/maps/d/embed?mid=1QK4X4mZ0V5k0oPjVYiX3lTlF1nU",
     intro:
       "Nicosia, the world's last divided capital, offers a fascinating blend of cultures, religions, and architectural styles. This loop takes you through the heart of the old city, from the Ottoman-era Büyük Han to the Gothic Selimiye Mosque, past the Byzantine Bedesten, through the Venetian city walls, and into the bustling local market. Everything is within walking distance, making this the perfect city exploration route that can be completed in just a few hours, giving you a deep insight into the city's rich and layered history.",
     stops: [
@@ -414,6 +414,13 @@ export const routes: Route[] = [
         openingHours: "8:00 AM – 8:00 PM (cafes until late)",
         entranceFee: "Free",
         tip: "Climb to the upper floor and walk around the arcade for an excellent view of the courtyard. The souvenir shops inside sell genuine local crafts, not mass-produced items – look for traditional hand-painted ceramics.",
+        images: [
+          "/images/routes/nicosia/büyük-han/1.jpg",
+          "/images/routes/nicosia/büyük-han/2.jpg",
+          "/images/routes/nicosia/büyük-han/3.jpg",
+          "/images/routes/nicosia/büyük-han/4.jpg",
+          "/images/routes/nicosia/büyük-han/5.jpg",
+        ],
       },
       {
         name: "Selimiye Mosque",
@@ -423,6 +430,13 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 6:00 PM (not during prayer times)",
         entranceFee: "Free (donations appreciated)",
         tip: "Remove your shoes before entering and dress modestly. Look up at the Gothic ceilings and try to spot the Islamic calligraphy mixed with Christian motifs – it's a unique blend you won't see anywhere else.",
+        images: [
+          "/images/routes/nicosia/selimiye-mosque/1.jpg",
+          "/images/routes/nicosia/selimiye-mosque/2.jpg",
+          "/images/routes/nicosia/selimiye-mosque/3.jpg",
+          "/images/routes/nicosia/selimiye-mosque/4.jpg",
+          "/images/routes/nicosia/selimiye-mosque/5.jpg",
+        ],
       },
       {
         name: "Bedesten",
@@ -432,6 +446,12 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 6:00 PM (exhibition hours)",
         entranceFee: "Free",
         tip: "Check if there's an ongoing exhibition – the acoustics in the building are incredible for classical music and cultural events.",
+        images: [
+          "/images/routes/nicosia/bedesten/1.jpg",
+          "/images/routes/nicosia/bedesten/2.jpg",
+          "/images/routes/nicosia/bedesten/3.jpg",
+          "/images/routes/nicosia/bedesten/4.jpg",
+        ],
       },
       {
         name: "Kyrenia Gate",
@@ -441,6 +461,13 @@ export const routes: Route[] = [
         openingHours: "24/7",
         entranceFee: "Free",
         tip: "Take a moment to walk on the city walls near the gate for a panoramic view of both the old and new parts of the city.",
+        images: [
+          "/images/routes/nicosia/kyrenia-gate/1.jpg",
+          "/images/routes/nicosia/kyrenia-gate/2.jpg",
+          "/images/routes/nicosia/kyrenia-gate/3.jpg",
+          "/images/routes/nicosia/kyrenia-gate/4.jpg",
+          "/images/routes/nicosia/kyrenia-gate/5.jpg",
+        ],
       },
       {
         name: "Bandabuliya Market",
@@ -450,6 +477,15 @@ export const routes: Route[] = [
         openingHours: "8:00 AM – 7:00 PM (closed on Sundays)",
         entranceFee: "Free",
         tip: "Try the freshly made halloumi cheese and the traditional Cypriot pastries. Also, sample the local olives and pick up some dried fruits for a snack. The market is also excellent for photography with its colorful stalls and bustling atmosphere.",
+        images: [
+          "/images/routes/nicosia/bandabuliya-market/1.jpg",
+          "/images/routes/nicosia/bandabuliya-market/2.jpg",
+          "/images/routes/nicosia/bandabuliya-market/3.jpg",
+          "/images/routes/nicosia/bandabuliya-market/4.jpg",
+          "/images/routes/nicosia/bandabuliya-market/5.jpg",
+          "/images/routes/nicosia/bandabuliya-market/6.jpg",
+          "/images/routes/nicosia/bandabuliya-market/7.jpg",
+        ],
       },
     ],
     practicalInfo: {
@@ -498,6 +534,7 @@ export const routes: Route[] = [
         openingHours: "24/7 (Museums have set hours)",
         entranceFee: "Free to walk around town",
         tip: "Visit the town during the annual Citrus Festival in May or June, when the streets fill with music, dance, and the sweet aroma of orange blossoms.",
+        images: ["/images/routes/guzelyurt/güzelyurt-town-centre/1.jpg"],
       },
       {
         name: "St. Mamas Church",
@@ -507,6 +544,13 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "Free (donations appreciated)",
         tip: "Look for the icon of St. Mamas with a lion – according to legend, he tamed a lion that was terrorizing the village, and the lion became his companion.",
+        images: [
+          "/images/routes/guzelyurt/st-mamas-church/1.jpg",
+          "/images/routes/guzelyurt/st-mamas-church/2.jpg",
+          "/images/routes/guzelyurt/st-mamas-church/3.jpg",
+          "/images/routes/guzelyurt/st-mamas-church/4.jpg",
+          "/images/routes/guzelyurt/st-mamas-church/5.jpg",
+        ],
       },
       {
         name: "Güzelyurt Archaeology & Nature Museum",
@@ -516,6 +560,12 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€2",
         tip: "The highlight is the collection of terracotta figurines from the 6th century BC – these are some of the finest examples of Cypro-Archaic art ever found on the island.",
+        images: [
+          "/images/routes/guzelyurt/güzelyurt-archaeology/1.jpg",
+          "/images/routes/guzelyurt/güzelyurt-archaeology/2.jpg",
+          "/images/routes/guzelyurt/güzelyurt-archaeology/3.jpg",
+          "/images/routes/guzelyurt/güzelyurt-archaeology/4.jpg",
+        ],
       },
       {
         name: "Soli Ancient City",
@@ -525,6 +575,12 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€3",
         tip: "Don't miss the Roman theatre's mosaic floors – the geometric patterns are incredibly well-preserved. Climb to the top tier of the theatre for the best view of the basilica and the sea.",
+        images: [
+          "/images/routes/guzelyurt/soli-ancient-city/1.jpg",
+          "/images/routes/guzelyurt/soli-ancient-city/2.jpg",
+          "/images/routes/guzelyurt/soli-ancient-city/3.jpg",
+          "/images/routes/guzelyurt/soli-ancient-city/4.jpg",
+        ],
       },
       {
         name: "Vouni Palace",
@@ -534,6 +590,13 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€3",
         tip: "Bring binoculars – on a clear day, you can see the Kyrenia Mountains and even the outline of the Karpaz Peninsula in the distance. The sunset from here is spectacular.",
+        images: [
+          "/images/routes/guzelyurt/vouni-palace/1.jpg",
+          "/images/routes/guzelyurt/vouni-palace/2.jpg",
+          "/images/routes/guzelyurt/vouni-palace/3.jpg",
+          "/images/routes/guzelyurt/vouni-palace/4.jpg",
+          "/images/routes/guzelyurt/vouni-palace/5.jpg",
+        ],
       },
     ],
     practicalInfo: {
