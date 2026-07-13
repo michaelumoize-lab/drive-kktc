@@ -9,11 +9,12 @@ export interface Route {
   duration: string;
   distance: string;
   rating: number;
+  mapEmbedUrl: string;
   intro: string;
   stops: {
     name: string;
     description: string;
-    image?: string;
+    images?: string[];
     visitTime?: string;
     openingHours?: string;
     entranceFee?: string;
@@ -46,6 +47,8 @@ export const routes: Route[] = [
     duration: "1 Day",
     distance: "45 km",
     rating: 5,
+    mapEmbedUrl:
+      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
     intro:
       "This route combines Northern Cyprus' most famous harbour, a medieval castle, a stunning hilltop abbey, a mountain fortress, and a protected turtle beach. Perfect for history lovers and nature enthusiasts alike, the Kyrenia Heritage & Coastal Loop offers a day of diverse experiences within a short driving distance from the picturesque Kyrenia Harbour. From the ancient walls of Kyrenia Castle to the serene atmosphere of Bellapais Abbey, and from the panoramic views of St. Hilarion to the pristine sands of Alagadi Beach, this route showcases the best of the Kyrenia region in one unforgettable journey.",
     stops: [
@@ -57,6 +60,14 @@ export const routes: Route[] = [
         openingHours: "24/7 (Restaurants open until late)",
         entranceFee: "Free",
         tip: "Visit early morning (7-9 AM) for the best photos of the harbour with the mountains in the background – the light is perfect and the harbour is quiet.",
+        // ✅ Add images array
+        images: [
+          "/images/routes/kyrenia/kyrenia-harbour/1.jpg",
+          "/images/routes/kyrenia/kyrenia-harbour/2.jpg",
+          "/images/routes/kyrenia/kyrenia-harbour/3.jpg",
+          "/images/routes/kyrenia/kyrenia-harbour/4.jpg",
+          "/images/routes/kyrenia/kyrenia-harbour/5.jpg",
+        ],
       },
       {
         name: "Kyrenia Castle",
@@ -66,6 +77,14 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€3 (€1.50 for students)",
         tip: "The Shipwreck Museum is the highlight – don't rush through it. The preserved 4th-century BC shipwreck is one of the best-preserved ancient ships ever found.",
+        images: [
+          "/images/routes/kyrenia/kyrenia-castle/1.jpg",
+          "/images/routes/kyrenia/kyrenia-castle/2.jpg",
+          "/images/routes/kyrenia/kyrenia-castle/3.jpg",
+          "/images/routes/kyrenia/kyrenia-castle/4.jpg",
+          "/images/routes/kyrenia/kyrenia-castle/5.jpg",
+          "/images/routes/kyrenia/kyrenia-castle/6.jpg",
+        ],
       },
       {
         name: "Bellapais Abbey",
@@ -75,6 +94,13 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€2.50",
         tip: "Climb to the top of the abbey's watchtower for the best view – you can see clear across to the Mediterranean Sea on a clear day. Visit around sunset for a truly magical experience.",
+        images: [
+          "/images/routes/kyrenia/bellapais-abbey/1.jpg",
+          "/images/routes/kyrenia/bellapais-abbey/2.jpg",
+          "/images/routes/kyrenia/bellapais-abbey/3.jpg",
+          "/images/routes/kyrenia/bellapais-abbey/4.jpg",
+          "/images/routes/kyrenia/bellapais-abbey/5.jpg",
+        ],
       },
       {
         name: "St. Hilarion Castle",
@@ -84,6 +110,11 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€3",
         tip: "Arrive early (8:30 AM) to avoid the crowds and the heat. The climb is steep, so wear comfortable shoes and bring water. The view from the Queen's Window is where the Snow White legend comes from – it's breathtaking.",
+        images: [
+          "/images/routes/kyrenia/st-hilarion-castle/1.jpg",
+          "/images/routes/kyrenia/st-hilarion-castle/2.jpg",
+          "/images/routes/kyrenia/st-hilarion-castle/3.jpg",
+        ],
       },
       {
         name: "Alagadi Turtle Beach",
@@ -93,6 +124,11 @@ export const routes: Route[] = [
         openingHours: "24/7 (day access)",
         entranceFee: "Free",
         tip: "Visit early morning or late evening to see the turtle nests. If you're lucky, you might see hatchlings making their way to the sea between July and September. Don't use flash photography near the nests.",
+        images: [
+          "/images/routes/kyrenia/alagadi-turtle-beach/1.jpg",
+          "/images/routes/kyrenia/alagadi-turtle-beach/2.jpeg",
+          "/images/routes/kyrenia/alagadi-turtle-beach/3.jpg",
+        ],
       },
     ],
     practicalInfo: {
@@ -127,6 +163,8 @@ export const routes: Route[] = [
     duration: "1 Day",
     distance: "15 km",
     rating: 5,
+    mapEmbedUrl:
+      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
     intro:
       "Famagusta is a city where history comes alive around every corner. This loop takes you through 3,000 years of history, from the ancient city of Salamis to the medieval walls of Famagusta, the Venetian fortress of Othello Castle, and the haunting viewpoint over Varosha. This is one of the richest historical routes in North Cyprus, offering a deep dive into the ancient civilizations and medieval kingdoms that shaped the region.",
     stops: [
@@ -138,6 +176,13 @@ export const routes: Route[] = [
         openingHours: "24/7 (Walls accessible at all times)",
         entranceFee: "Free to walk the walls",
         tip: "Start early at the walls before the midday heat. The view from the south wall at sunrise is spectacular, with the sun rising over the Mediterranean.",
+        images: [
+          "/images/routes/famagusta/famagusta-walled-city/1.jpg",
+          "/images/routes/famagusta/famagusta-walled-city/2.jpg",
+          "/images/routes/famagusta/famagusta-walled-city/3.jpg",
+          "/images/routes/famagusta/famagusta-walled-city/4.jpg",
+          "/images/routes/famagusta/famagusta-walled-city/5.jpg",
+        ],
       },
       {
         name: "Othello Castle",
@@ -147,6 +192,13 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€2",
         tip: "Climb to the top of the sea-facing wall for the best view. The dramatic silhouette of the castle against the sunset is one of Famagusta's iconic images.",
+        images: [
+          "/images/routes/famagusta/othello-castle/1.jpg",
+          "/images/routes/famagusta/othello-castle/2.jpg",
+          "/images/routes/famagusta/othello-castle/3.jpg",
+          "/images/routes/famagusta/othello-castle/4.jpg",
+          "/images/routes/famagusta/othello-castle/5.jpg",
+        ],
       },
       {
         name: "Ancient Salamis",
@@ -156,6 +208,14 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€3",
         tip: "Bring a hat and water – there's little shade. The gymnasium and the Roman theatre are the most impressive sights. Visit in the late afternoon when the sun lights up the marble columns with a golden hue.",
+        images: [
+          "/images/routes/famagusta/ancient-salamis/1.jpg",
+          "/images/routes/famagusta/ancient-salamis/2.jpg",
+          "/images/routes/famagusta/ancient-salamis/3.jpg",
+          "/images/routes/famagusta/ancient-salamis/4.jpg",
+          "/images/routes/famagusta/ancient-salamis/5.jpg",
+          "/images/routes/famagusta/ancient-salamis/6.jpg",
+        ],
       },
       {
         name: "St. Barnabas Monastery",
@@ -165,6 +225,14 @@ export const routes: Route[] = [
         openingHours: "9:00 AM – 5:00 PM (Closed Mondays)",
         entranceFee: "€2",
         tip: "The icon collection in the museum is world-class – take time to admire the Byzantine-style religious paintings, some dating back to the 12th century.",
+        images: [
+          "/images/routes/famagusta/st-barnabas-monastery/1.jpg",
+          "/images/routes/famagusta/st-barnabas-monastery/3.jpg",
+          "/images/routes/famagusta/st-barnabas-monastery/4.jpg",
+          "/images/routes/famagusta/st-barnabas-monastery/5.jpg",
+          "/images/routes/famagusta/st-barnabas-monastery/6.jpg",
+          "/images/routes/famagusta/st-barnabas-monastery/7.jpg",
+        ],
       },
       {
         name: "Varosha Viewpoint",
@@ -174,6 +242,13 @@ export const routes: Route[] = [
         openingHours: "24/7 (Viewing from designated areas)",
         entranceFee: "Free",
         tip: "The best time to visit is late afternoon when the setting sun creates dramatic shadows across the abandoned buildings. Photography is allowed from the designated viewing areas.",
+        images: [
+          "/images/routes/famagusta/varosha-viewpoint/1.jpg",
+          "/images/routes/famagusta/varosha-viewpoint/2.jpg",
+          "/images/routes/famagusta/varosha-viewpoint/3.jpg",
+          "/images/routes/famagusta/varosha-viewpoint/4.jpg",
+          "/images/routes/famagusta/varosha-viewpoint/5.jpg",
+        ],
       },
     ],
     practicalInfo: {
@@ -210,53 +285,87 @@ export const routes: Route[] = [
     duration: "1 Day",
     distance: "80 km",
     rating: 5,
+    mapEmbedUrl:
+      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
     intro:
       "The Karpaz Peninsula is North Cyprus' last wilderness – a remote, unspoiled paradise where wild donkeys roam freely, golden beaches stretch for miles, and time seems to stand still. This loop takes you through the heart of the peninsula, from the traditional village of Dipkarpaz to the iconic Apostolos Andreas Monastery, past the wild donkey herds to Golden Beach, and along the northern coast. This is arguably the most scenic route in all of North Cyprus and offers a true escape from the modern world.",
     stops: [
       {
-        name: "Dipkarpaz Village",
+        name: "Dipkarpaz Village & Local Life",
         description:
-          "Start your journey in this traditional village, the largest settlement on the Karpaz Peninsula. Dipkarpaz (meaning 'flat hill') is known for its friendly locals, traditional Cypriot houses, and the beautiful 18th-century church of Agios Synesios. The village serves as the perfect base for exploring the peninsula. Visit the local market to stock up on supplies, and admire the unique architecture that blends Greek and Ottoman influences.",
+          "Start your journey in this traditional village, the largest settlement on the Karpaz Peninsula. Dipkarpaz (meaning 'flat hill') is known for its friendly locals, traditional Cypriot houses, and the beautiful 18th-century church of Agios Synesios. The village serves as the perfect base for exploring the peninsula – it's your last chance to fill up with petrol and stock up on supplies before heading into the wilderness. Stroll through the village to encounter traditional stone houses, local tavernas, and a glimpse into authentic Cypriot life.",
         visitTime: "30-45 minutes",
         openingHours: "24/7 (Markets open during daytime)",
         entranceFee: "Free",
-        tip: "Buy a traditional 'halloumi' cheese from the village dairy shop – it's made fresh daily and is one of the best in all of Cyprus. Also, try the locally produced olive oil.",
+        tip: "Buy a traditional 'halloumi' cheese from the village dairy shop – it's made fresh daily and is one of the best in all of Cyprus. Also, try the locally produced olive oil. This is your last opportunity for fuel and supplies before heading deeper into the peninsula.",
+        images: [
+          "/images/routes/karpaz/dipkarpaz-village/1.jpg",
+          "/images/routes/karpaz/dipkarpaz-village/2.jpg",
+          "/images/routes/karpaz/dipkarpaz-village/3.jpg",
+          "/images/routes/karpaz/dipkarpaz-village/4.jpg",
+        ],
       },
       {
-        name: "Golden Beach",
+        name: "Golden Beach (Altınkum)",
         description:
-          "Often described as one of the most beautiful beaches in the Mediterranean, Golden Beach stretches for 3 kilometers of pristine, golden sand. The beach is backed by sand dunes and is largely undeveloped, preserving its natural beauty. The water is shallow, warm, and crystal clear, making it perfect for swimming. The beach is also a nesting site for sea turtles, adding to its protected status.",
+          "Often described as one of the most beautiful beaches in the Mediterranean, Golden Beach stretches for 3 kilometers of pristine, golden sand. The beach is backed by sand dunes and is largely undeveloped, preserving its natural beauty. The water is shallow, warm, and crystal clear, making it perfect for swimming. The beach is also a nesting site for sea turtles, adding to its protected status. Wild donkeys sometimes wander onto the sand, creating unforgettable Mediterranean moments.",
         visitTime: "2-3 hours (or more for swimming)",
         openingHours: "24/7",
         entranceFee: "Free",
         tip: "Arrive as early as possible (before 9 AM) to experience the beach almost entirely to yourself – the tranquility is unmatched. Don't forget to bring plenty of water, sunscreen, and snacks, as there are no facilities.",
+        images: [
+          "/images/routes/karpaz/golden-beach/1.jpg",
+          "/images/routes/karpaz/golden-beach/2.jpg",
+          "/images/routes/karpaz/golden-beach/3.jpg",
+          "/images/routes/karpaz/golden-beach/4.jpg",
+          "/images/routes/karpaz/golden-beach/5.jpg",
+        ],
       },
       {
-        name: "Wild Donkey Area",
+        name: "Karpaz National Park – Wild Donkey Protection Area",
         description:
-          "The Karpaz Peninsula is famous for its herds of wild donkeys that roam freely across the landscape. These donkeys are descendants of animals used in agriculture and are now protected. You'll see them grazing, crossing the road, and interacting with each other. This is one of the few places in the world where you can encounter wild donkeys in their natural habitat. Visitors are advised to admire them from a distance and not to feed them.",
-        visitTime: "15-30 minutes (or more if spotting)",
+          "The Karpaz National Park is a stunning 200-square-kilometer protected area where wild donkeys roam freely across the landscape. These donkeys are descendants of animals used in agriculture and are now protected. You'll see them grazing, crossing the road, and interacting with each other – they've become conditioned to tourists and may even approach your car for food. This is one of the few places in the world where you can encounter wild donkeys in their natural habitat. The country road leading to the park is quite scenic, very lush and dotted with wildflowers in season.",
+        visitTime: "1-2 hours",
         openingHours: "24/7",
         entranceFee: "Free",
-        tip: "The best places to spot donkeys are along the road from Dipkarpaz to the monastery, especially near the windmills around the 15-kilometer marker. Bring a zoom lens if you're interested in photography.",
+        tip: "The best places to spot donkeys are along the road from Dipkarpaz to the monastery, especially near the windmills around the 15-kilometer marker. Bring a zoom lens if you're interested in photography, and consider bringing carrots or fruit to feed the friendly donkeys!",
+        images: [
+          "/images/routes/karpaz/karpaz-national-park/1.jpg",
+          "/images/routes/karpaz/karpaz-national-park/2.jpg",
+          "/images/routes/karpaz/karpaz-national-park/3.jpg",
+          "/images/routes/karpaz/karpaz-national-park/4.jpg",
+          "/images/routes/karpaz/karpaz-national-park/5.jpg",
+        ],
       },
       {
         name: "Apostolos Andreas Monastery",
         description:
-          "This iconic monastery sits at the very tip of the Karpaz Peninsula, at the northeastern point of Cyprus. The monastery is dedicated to St. Andrew and is a significant pilgrimage site for Orthodox Christians. The monastery's beautiful dome and bell tower are visible from miles away. Inside, you'll find a stunning iconostasis and the spring of St. Andrew, which is said to have healing properties.",
+          "This iconic monastery sits at the very tip of the Karpaz Peninsula, at the northeastern point of Cyprus. The monastery is dedicated to St. Andrew and is a significant pilgrimage site for Orthodox Christians. The monastery's beautiful dome and bell tower are visible from miles away. Inside, you'll find a stunning iconostasis and the spring of St. Andrew, which is said to have healing properties. The approach road is rough in places but you don't need a 4x4 if you take it steady.",
         visitTime: "1 hour",
         openingHours: "9:00 AM – 5:00 PM",
         entranceFee: "Free (donations welcomed)",
         tip: "Climb to the top of the bell tower for an unobstructed panoramic view of the peninsula and the Mediterranean Sea stretching to Turkey. The view at sunset is particularly breathtaking.",
+        images: [
+          "/images/routes/karpaz/apostolos-andreas-monastery/1.jpg",
+          "/images/routes/karpaz/apostolos-andreas-monastery/2.jpg",
+          "/images/routes/karpaz/apostolos-andreas-monastery/3.jpg",
+          "/images/routes/karpaz/apostolos-andreas-monastery/4.jpg",
+          "/images/routes/karpaz/apostolos-andreas-monastery/5.jpg",
+        ],
       },
       {
-        name: "Ayios Philon",
+        name: "Ayios Philon (Agios Philon)",
         description:
-          "Located on the northern coast of the Karpaz Peninsula, Ayios Philon is the site of a 12th-century Byzantine church built on the remains of a 4th-century basilica. The ruins sit on a hilltop overlooking the Mediterranean, offering stunning coastal views. The church ruins, including the beautiful stonework and the partly intact apse, are fascinating to explore. The location is peaceful and off the main tourist path, making it a hidden gem.",
+          "Located on the northern coast of the Karpaz Peninsula, Ayios Philon is the site of a 12th-century Byzantine church built on the remains of a 4th-century basilica. It's one of the few Orthodox churches in Cyprus built in the Romanesque rather than the Byzantine style. The ruins sit on a hilltop overlooking the Mediterranean, offering stunning coastal views. The church ruins, including the beautiful stonework and the partly intact apse, are fascinating to explore. Beside and around Ayios Philon are the remains of Greco-Roman Karpasia and a fifth-century AD cathedral. The location is peaceful and off the main tourist path, making it a hidden gem.",
         visitTime: "30-45 minutes",
         openingHours: "24/7",
         entranceFee: "Free",
         tip: "The viewpoint from the church ruins offers one of the most spectacular sunset spots on the entire peninsula – bring a picnic and watch the sun sink into the sea.",
+        images: [
+          "/images/routes/karpaz/ayios-philon/1.jpg",
+          "/images/routes/karpaz/ayios-philon/2.jpg",
+          "/images/routes/karpaz/ayios-philon/3.jpg",
+        ],
       },
     ],
     practicalInfo: {
@@ -292,6 +401,8 @@ export const routes: Route[] = [
     duration: "Half Day",
     distance: "3 km",
     rating: 5,
+    mapEmbedUrl:
+      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
     intro:
       "Nicosia, the world's last divided capital, offers a fascinating blend of cultures, religions, and architectural styles. This loop takes you through the heart of the old city, from the Ottoman-era Büyük Han to the Gothic Selimiye Mosque, past the Byzantine Bedesten, through the Venetian city walls, and into the bustling local market. Everything is within walking distance, making this the perfect city exploration route that can be completed in just a few hours, giving you a deep insight into the city's rich and layered history.",
     stops: [
@@ -374,6 +485,8 @@ export const routes: Route[] = [
     duration: "1 Day",
     distance: "35 km",
     rating: 4,
+    mapEmbedUrl:
+      "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
     intro:
       "This loop takes you through the heart of North Cyprus' archaeological heritage, visiting some of the most important ancient sites on the island. From the ancient city of Soli to the hilltop palace of Vouni, and from the Byzantine church of St. Mamas to the fascinating museums of Güzelyurt, this route offers a deep dive into the ancient civilizations that flourished on the island. The journey also passes through the scenic countryside, with views of the mountains and the sea, providing a glimpse of rural Cypriot life.",
     stops: [
