@@ -17,7 +17,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShareButton } from "@/components/ShareButton";
-import { StopCard } from "@/components/StopCard"; // ✅ Import StopCard
+import { StopCard } from "@/components/StopCard";
+import { RouteTimeline } from "@/components/RouteTimeline";
 
 // Generate static paths for all routes
 export function generateStaticParams() {
@@ -26,7 +27,6 @@ export function generateStaticParams() {
   }));
 }
 
-// Generate metadata – async because params is a Promise
 export async function generateMetadata({
   params,
 }: {
@@ -140,6 +140,14 @@ export default async function RoutePage({
                 {route.intro}
               </p>
             </div>
+
+            {/* ✅ Add RouteTimeline */}
+            {route.suggestedStart && (
+              <RouteTimeline
+                stops={route.stops}
+                suggestedStart={route.suggestedStart}
+              />
+            )}
 
             <div>
               <h2 className="text-2xl font-bold mb-6 text-foreground">

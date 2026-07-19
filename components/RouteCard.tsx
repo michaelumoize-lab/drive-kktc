@@ -1,19 +1,17 @@
 // components/RouteCard.tsx
-import Link from "next/link";
-import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 import { Route } from "@/data/routes";
 import {
-  MapPin,
-  Clock,
-  Car,
   Calendar,
-  Navigation,
-  Utensils,
+  Clock,
   Hotel,
-  Star,
+  MapPin,
+  Navigation,
   TrendingUp,
+  Utensils,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function RouteCard({ route }: { route: Route }) {
   // Calculate difficulty based on distance with better readability
@@ -35,6 +33,25 @@ export default function RouteCard({ route }: { route: Route }) {
       label: "Relaxed",
       color: "bg-blue-500/30 text-blue-200 border-blue-500/50",
     };
+  };
+
+  // ✨ NEW: Extract entrance fee info from route data
+  const getEntranceFee = (route: Route) => {
+    const feeText = route.practicalInfo.entranceFees;
+
+    // If it says "free", return "Free"
+    if (feeText.toLowerCase().includes("free")) {
+      return "Free";
+    }
+
+    // Try to extract the first Euro amount (e.g., €3, €2.50)
+    const match = feeText.match(/€(\d+(?:\.\d+)?)/);
+    if (match) {
+      return `From €${match[1]}`;
+    }
+
+    // Fallback: show the raw text (truncated if too long)
+    return feeText.length > 20 ? feeText.slice(0, 18) + "…" : feeText;
   };
 
   const difficulty = getDifficulty();
@@ -60,7 +77,6 @@ export default function RouteCard({ route }: { route: Route }) {
               {route.title}
             </h3>
             <div className="flex items-center gap-2 mt-1">
-              {/* ✅ Difficulty Badge - now with better contrast */}
               <Badge
                 variant="secondary"
                 className={`text-xs font-medium ${difficulty.color} border backdrop-blur-sm`}
@@ -127,8 +143,11 @@ export default function RouteCard({ route }: { route: Route }) {
           {/* CTA */}
           <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
             <div>
-              <span className="text-sm font-bold text-foreground">Free</span>
-            </div>{" "}
+              {/* ✅ Dynamically displays the correct price from route data */}
+              <span className="text-sm font-bold text-foreground">
+                {getEntranceFee(route)}
+              </span>
+            </div>
             <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
               View Route
               <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
