@@ -12,52 +12,57 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getDictionary, Locale } from "@/lib/i18n";
 
-export default function RouteCard({ route }: { route: Route }) {
-  // Calculate difficulty based on distance with better readability
+export default function RouteCard({
+  route,
+  lang = "tr",
+}: {
+  route: Route;
+  lang?: Locale;
+}) {
+  const dict = getDictionary(lang);
+
+  // Calculate difficulty based on distance
   const getDifficulty = () => {
     const distance = parseInt(route.distance);
     if (distance > 100) {
       return {
-        label: "Moderate",
+        label: dict.common.difficulty.moderate,
         color: "bg-yellow-500/30 text-yellow-200 border-yellow-500/50",
       };
     }
     if (distance > 50) {
       return {
-        label: "Easy",
+        label: dict.common.difficulty.easy,
         color: "bg-green-500/30 text-green-200 border-green-500/50",
       };
     }
     return {
-      label: "Relaxed",
+      label: dict.common.difficulty.relaxed,
       color: "bg-blue-500/30 text-blue-200 border-blue-500/50",
     };
   };
 
-  // ✨ NEW: Extract entrance fee info from route data
   const getEntranceFee = (route: Route) => {
     const feeText = route.practicalInfo.entranceFees;
 
-    // If it says "free", return "Free"
     if (feeText.toLowerCase().includes("free")) {
-      return "Free";
+      return dict.common.free;
     }
 
-    // Try to extract the first Euro amount (e.g., €3, €2.50)
     const match = feeText.match(/€(\d+(?:\.\d+)?)/);
     if (match) {
-      return `From €${match[1]}`;
+      return `${dict.common.from} €${match[1]}`;
     }
 
-    // Fallback: show the raw text (truncated if too long)
     return feeText.length > 20 ? feeText.slice(0, 18) + "…" : feeText;
   };
 
   const difficulty = getDifficulty();
 
   return (
-    <Link href={`/routes/${route.slug}`} className="group block h-full">
+    <Link href={`/${lang}/routes/${route.slug}`} className="group block h-full">
       <div className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col border border-border">
         {/* Image Container */}
         <div className="relative h-56 w-full overflow-hidden">
@@ -117,11 +122,11 @@ export default function RouteCard({ route }: { route: Route }) {
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Calendar className="h-3.5 w-3.5 text-primary" />
-              <span>Spring • Autumn</span>
+              <span>{dict.routesGrid.springAutumn}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-primary" />
-              <span>{route.stops.length} Stops</span>
+              <span>{route.stops.length} {dict.common.waypoints}</span>
             </div>
           </div>
 
@@ -129,28 +134,27 @@ export default function RouteCard({ route }: { route: Route }) {
           <div className="flex flex-wrap gap-3 mb-4 text-xs text-muted-foreground pt-3 border-t border-border">
             <span className="flex items-center gap-1">
               <MapPin className="h-3 w-3 text-primary" />
-              {route.stops.length} Iconic Spots
+              {route.stops.length} {dict.routesGrid.iconicSpots}
             </span>
             <span className="flex items-center gap-1">
               <Utensils className="h-3 w-3 text-primary" />
-              Local Eats
+              {dict.routesGrid.localEats}
             </span>
             <span className="flex items-center gap-1">
               <Hotel className="h-3 w-3 text-primary" />
-              Great Stays
+              {dict.routesGrid.greatStays}
             </span>
           </div>
 
           {/* CTA */}
           <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
             <div>
-              {/* ✅ Dynamically displays the correct price from route data */}
               <span className="text-sm font-bold text-foreground">
                 {getEntranceFee(route)}
               </span>
             </div>
             <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-              View Route
+              {dict.routesGrid.viewRoute}
               <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </span>
           </div>

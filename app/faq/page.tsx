@@ -1,12 +1,20 @@
 // app/faq/page.tsx
-import FAQList from "./FAQList";
+"use client";
 
-export const metadata = {
-  title: "Frequently Asked Questions – Drive KKTC",
-  description:
-    "Find answers to commonly asked questions about driving routes, road conditions, and planning your Northern Cyprus road trip.",
-};
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function FAQPage() {
-  return <FAQList />;
+export default function FAQRedirect() {
+  const router = useRouter();
+
+  useEffect(() => {
+    try {
+      const lang = localStorage.getItem("drive_kktc_lang");
+      router.replace(lang === "en" ? "/en/faq" : "/tr/faq");
+    } catch {
+      router.replace("/tr/faq");
+    }
+  }, [router]);
+
+  return null;
 }

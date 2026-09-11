@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive North Cyprus — Kuzey Kıbrıs'ı Keşfetmenin En Güzel Yolları</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ocean / terra / sky palette */
+    --ocean-deep:#0d3b4a;
+    --ocean:#14657a;
+    --ocean-bright:#1d8ca6;
+    --sky:#7fbecf;
+    --sky-pale:#d6ebf1;
+    --terra:#c96a4a;
+    --terra-deep:#a24b2f;
+    --terra-pale:#f2d8ce;
+    --sand:#f6f1e7;
+    --sand-deep:#ece3d2;
+    --ink:#12262c;
+    --ink-soft:#3c5057;
+    --paper:#fbf8f1;
+    --line:rgba(13,59,74,.14);
+
+    --f-display:'Playfair Display',Georgia,serif;
+    --f-body:'DM Sans',system-ui,sans-serif;
+    --f-mono:'DM Mono',ui-monospace,monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--f-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--terra);color:var(--sand)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:clamp(24px,6vw,90px);
+    background:
+      radial-gradient(120% 90% at 80% 10%, rgba(29,140,166,.35), transparent 55%),
+      linear-gradient(165deg,var(--ocean-deep) 0%,var(--ocean) 55%,#0a2f3b 100%);
+    color:var(--sand);
+    overflow:hidden;
+  }
+  /* layered coastline waves */
+  .hero-waves{position:absolute;inset:0;pointer-events:none;opacity:.5}
+  .hero-waves svg{position:absolute;bottom:0;width:140%;left:-20%}
+  .w1{animation:drift 22s ease-in-out infinite alternate}
+  .w2{animation:drift 30s ease-in-out infinite alternate-reverse}
+  .w3{animation:drift 40s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:translateX(0)}to{transform:translateX(6%)}}
+
+  .hero-eyebrow{
+    font-family:var(--f-mono);
+    font-size:.78rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--sky);
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:26px;
+  }
+  .hero-eyebrow::before{content:"";width:46px;height:1px;background:var(--sky);opacity:.6}
+
+  .hero-title{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(3.4rem,11vw,9rem);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+    position:relative;
+  }
+  .hero-title em{
+    font-style:italic;
+    font-weight:600;
+    color:var(--terra);
+  }
+  .hero-sub{
+    font-family:var(--f-display);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(1.15rem,2.6vw,1.8rem);
+    color:var(--sky-pale);
+    max-width:24ch;
+    margin-bottom:38px;
+  }
+  .hero-lede{
+    max-width:52ch;
+    font-size:1.02rem;
+    color:rgba(214,235,241,.82);
+    margin-bottom:44px;
+  }
+  .hero-stats{
+    display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,64px);
+    position:relative;z-index:2;
+  }
+  .stat{position:relative}
+  .stat-num{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(2.2rem,5vw,3.4rem);
+    line-height:1;
+    color:var(--sand);
+  }
+  .stat-num .plus{color:var(--terra);font-style:italic}
+  .stat-label{
+    font-family:var(--f-mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--sky);
+    margin-top:8px;
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:30px;left:50%;transform:translateX(-50%);
+    font-family:var(--f-mono);font-size:.68rem;letter-spacing:.28em;
+    text-transform:uppercase;color:rgba(214,235,241,.55);
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    z-index:2;
+  }
+  .scroll-hint .dot{width:1px;height:34px;background:linear-gradient(var(--sky),transparent);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  /* ---------- INTRO NOTE ---------- */
+  .note-band{
+    background:var(--terra);
+    color:var(--sand);
+    padding:clamp(18px,3vw,26px) clamp(24px,6vw,90px);
+    font-family:var(--f-mono);
+    font-size:.82rem;
+    letter-spacing:.02em;
+    display:flex;gap:14px;align-items:baseline;
+  }
+  .note-band b{font-weight:500;color:var(--paper)}
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:clamp(56px,8vw,110px) clamp(24px,6vw,90px)}
+  .section-head{max-width:900px;margin-bottom:clamp(40px,6vw,64px)}
+  .kicker{
+    font-family:var(--f-mono);
+    font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--terra-deep);
+    display:flex;align-items:center;gap:12px;margin-bottom:20px;
+  }
+  .kicker::before{content:"";width:32px;height:1px;background:var(--terra)}
+  .section-title{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(2rem,5vw,3.4rem);
+    line-height:1.02;
+    letter-spacing:-.015em;
+    margin-bottom:18px;
+  }
+  .section-title em{font-style:italic;color:var(--ocean-bright)}
+  .section-desc{font-size:1.05rem;color:var(--ink-soft);max-width:58ch}
+
+  /* ---------- THEME FILTER ---------- */
+  .filters{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin-top:36px;
+  }
+  .chip{
+    font-family:var(--f-mono);
+    font-size:.76rem;letter-spacing:.06em;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:transparent;color:var(--ink-soft);
+    cursor:pointer;transition:all .22s ease;
+    text-transform:uppercase;
+  }
+  .chip:hover{border-color:var(--ocean-bright);color:var(--ocean)}
+  .chip.active{background:var(--ocean-deep);color:var(--sand);border-color:var(--ocean-deep)}
+
+  /* ---------- REGION NAV ---------- */
+  .region-nav{
+    display:flex;gap:8px;flex-wrap:wrap;
+    position:sticky;top:0;z-index:40;
+    background:rgba(251,248,241,.9);
+    backdrop-filter:blur(12px);
+    padding:14px clamp(24px,6vw,90px);
+    border-bottom:1px solid var(--line);
+  }
+  .region-nav a{
+    font-family:var(--f-mono);
+    font-size:.74rem;letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);text-decoration:none;
+    padding:6px 12px;border-radius:6px;transition:all .2s;
+    white-space:nowrap;
+  }
+  .region-nav a:hover{background:var(--sand-deep);color:var(--ocean)}
+
+  /* ---------- REGION BLOCK ---------- */
+  .region{padding:clamp(52px,7vw,96px) clamp(24px,6vw,90px);border-top:1px solid var(--line)}
+  .region:nth-of-type(even){background:var(--sand)}
+  .region-header{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:clamp(20px,4vw,48px);
+    align-items:end;
+    margin-bottom:clamp(36px,5vw,56px);
+    padding-bottom:28px;
+    border-bottom:2px solid var(--ink);
+  }
+  .region-index{
+    font-family:var(--f-display);
+    font-weight:700;font-style:italic;
+    font-size:clamp(3rem,8vw,5.5rem);
+    line-height:.8;color:var(--terra);
+  }
+  .region-name{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(1.9rem,5vw,3rem);
+    line-height:1;letter-spacing:-.01em;
+  }
+  .region-en{
+    font-family:var(--f-mono);
+    font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ocean-bright);margin-top:6px;
+  }
+  .region-tagline{
+    font-family:var(--f-display);
+    font-style:italic;font-size:clamp(1.05rem,2.4vw,1.4rem);
+    color:var(--ink-soft);margin-top:14px;max-width:46ch;
+  }
+  .region-desc{
+    grid-column:1/-1;
+    font-size:1rem;color:var(--ink-soft);
+    max-width:64ch;margin-top:4px;
+  }
+  .region-essentials{
+    grid-column:1/-1;
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;
+  }
+  .essential{
+    font-family:var(--f-mono);font-size:.72rem;
+    padding:5px 12px;background:var(--sky-pale);color:var(--ocean-deep);
+    border-radius:4px;letter-spacing:.02em;
+  }
+
+  /* ---------- ROUTE CARDS ---------- */
+  .routes-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:clamp(18px,2.4vw,28px);
+  }
+  .route-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:28px 26px 26px;
+    position:relative;
+    display:flex;flex-direction:column;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;
+    overflow:hidden;
+  }
+  .region:nth-of-type(even) .route-card{background:var(--paper)}
+  .route-card::before{
+    content:"";position:absolute;top:0;left:0;width:100%;height:3px;
+    background:linear-gradient(90deg,var(--ocean-bright),var(--terra));
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
+  }
+  .route-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px -20px rgba(13,59,74,.4);
+    border-color:transparent;
+  }
+  .route-card:hover::before{transform:scaleX(1)}
+
+  .route-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:14px;margin-bottom:16px;
+  }
+  .route-title{
+    font-family:var(--f-display);
+    font-weight:600;font-size:1.35rem;line-height:1.15;
+    letter-spacing:-.01em;
+  }
+  .route-themes{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
+  .theme-tag{
+    font-family:var(--f-mono);font-size:.66rem;
+    letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 9px;border-radius:3px;
+    border:1px solid var(--line);color:var(--ink-soft);
+  }
+  .theme-tag[data-t="history"]{background:#efe4d6;border-color:transparent;color:var(--terra-deep)}
+  .theme-tag[data-t="coast"]{background:var(--sky-pale);border-color:transparent;color:var(--ocean)}
+  .theme-tag[data-t="nature"]{background:#dfeadb;border-color:transparent;color:#3f6b3a}
+  .theme-tag[data-t="food"]{background:#f3e2d0;border-color:transparent;color:#9a5a26}
+  .theme-tag[data-t="scenic"]{background:#e8e0ee;border-color:transparent;color:#6b4a86}
+  .theme-tag[data-t="nightlife"]{background:#dde0ea;border-color:transparent;color:#3a4470}
+
+  .route-meta{
+    display:flex;gap:16px;font-family:var(--f-mono);
+    font-size:.72rem;color:var(--ink-soft);margin-bottom:16px;
+    padding-bottom:16px;border-bottom:1px dashed var(--line);
+  }
+  .route-meta span{display:flex;align-items:center;gap:6px}
+  .route-meta svg{width:13px;height:13px;stroke:var(--ocean-bright);fill:none;stroke-width:1.6}
+
+  .route-summary{font-size:.95rem;color:var(--ink-soft);margin-bottom:18px;flex-grow:1}
+
+  .route-stops{margin-bottom:16px}
+  .stops-label{
+    font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--terra-deep);margin-bottom:10px;
+  }
+  .stops-flow{display:flex;flex-wrap:wrap;align-items:center;gap:4px 2px;font-size:.86rem}
+  .stop{
+    color:var(--ink);padding:2px 0;
+  }
+  .stop-arrow{color:var(--ocean-bright);margin:0 5px;font-size:.9em}
+
+  .route-tip{
+    background:linear-gradient(var(--sand),var(--sand-deep));
+    border-left:3px solid var(--terra);
+    padding:12px 14px;border-radius:0 4px 4px 0;
+    font-size:.85rem;color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .route-tip b{
+    font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--terra-deep);
+    display:block;margin-bottom:5px;font-weight:500;
+  }
+
+  /* proposers credit */
+  .route-credit{
+    margin-top:auto;padding-top:14px;border-top:1px solid var(--line);
+  }
+  .credit-label{
+    font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ocean-bright);
+    margin-bottom:8px;display:flex;align-items:center;gap:7px;
+  }
+  .credit-label .cn{
+    background:var(--ocean-deep);color:var(--sand);
+    border-radius:100px;padding:1px 8px;font-size:.62rem;letter-spacing:.02em;
+  }
+  .credit-names{display:flex;flex-wrap:wrap;gap:5px}
+  .credit-names span{
+    font-family:var(--f-mono);font-size:.68rem;
+    color:var(--ink-soft);
+    background:var(--paper);border:1px solid var(--line);
+    padding:2px 8px;border-radius:3px;
+  }
+  .region:nth-of-type(even) .credit-names span{background:var(--sand)}
+
+  .route-card.hidden{display:none}
+
+  /* ---------- SIGNATURE ROUTES ---------- */
+  .signature{
+    background:linear-gradient(165deg,var(--ocean-deep),#0a2f3b);
+    color:var(--sand);
+  }
+  .signature .kicker{color:var(--sky)}
+  .signature .kicker::before{background:var(--sky)}
+  .signature .section-title{color:var(--sand)}
+  .signature .section-title em{color:var(--terra)}
+  .signature .section-desc{color:rgba(214,235,241,.78)}
+  .sig-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:clamp(18px,2.4vw,26px);margin-top:48px;
+  }
+  .sig-card{
+    border:1px solid rgba(127,190,207,.28);
+    border-radius:3px;padding:32px 28px;
+    background:rgba(127,190,207,.05);
+    transition:background .3s,transform .3s,border-color .3s;
+    position:relative;
+  }
+  .sig-card:hover{background:rgba(127,190,207,.1);transform:translateY(-4px);border-color:var(--sky)}
+  .sig-days{
+    font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--terra);margin-bottom:18px;
+  }
+  .sig-title{
+    font-family:var(--f-display);font-weight:600;font-size:1.7rem;
+    line-height:1.1;margin-bottom:8px;
+  }
+  .sig-subtitle{
+    font-family:var(--f-display);font-style:italic;font-size:1rem;
+    color:var(--sky);margin-bottom:18px;
+  }
+  .sig-summary{font-size:.92rem;color:rgba(214,235,241,.8);margin-bottom:22px}
+  .sig-arc{display:flex;flex-direction:column;gap:0}
+  .sig-stop{
+    display:flex;align-items:center;gap:12px;
+    padding:7px 0;font-size:.85rem;
+    border-top:1px solid rgba(127,190,207,.16);
+  }
+  .sig-stop:first-child{border-top:none}
+  .sig-dot{
+    width:8px;height:8px;border-radius:50%;
+    border:1.5px solid var(--terra);flex-shrink:0;
+  }
+  .sig-stop:first-child .sig-dot{background:var(--terra)}
+  .sig-credit{margin-top:22px;padding-top:16px;border-top:1px solid rgba(127,190,207,.2)}
+  .sig-credit-label{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:7px}
+  .sig-credit-names{font-family:var(--f-mono);font-size:.72rem;color:rgba(214,235,241,.7);line-height:1.7}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);color:var(--sand-deep);
+    padding:clamp(48px,7vw,80px) clamp(24px,6vw,90px);
+  }
+  .foot-top{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;
+    padding-bottom:40px;border-bottom:1px solid rgba(246,241,231,.14);
+  }
+  .foot-logo{
+    font-family:var(--f-display);font-weight:700;font-size:2.4rem;
+    letter-spacing:-.01em;
+  }
+  .foot-logo em{font-style:italic;color:var(--terra)}
+  .foot-tag{
+    font-family:var(--f-display);font-style:italic;
+    color:var(--sky);font-size:1.1rem;margin-top:6px;
+  }
+  .foot-meta{
+    font-family:var(--f-mono);font-size:.76rem;
+    color:rgba(246,241,231,.6);text-align:right;line-height:1.9;
+  }
+  .foot-bottom{
+    padding-top:28px;
+    font-family:var(--f-mono);font-size:.72rem;
+    color:rgba(246,241,231,.45);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+
+  @media(max-width:640px){
+    .region-header{grid-template-columns:1fr}
+    .region-index{font-size:3.4rem}
+    .route-meta{flex-wrap:wrap;gap:10px}
+    .foot-meta{text-align:left}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-waves">
+    <svg class="w3" viewBox="0 0 1440 200" preserveAspectRatio="none"><path d="M0,120 C240,60 480,180 720,120 C960,60 1200,160 1440,110 L1440,200 L0,200 Z" fill="#0a2f3b" opacity="0.6"/></svg>
+    <svg class="w2" viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0,90 C300,140 540,40 780,90 C1020,140 1200,50 1440,90 L1440,160 L0,160 Z" fill="#14657a" opacity="0.5"/></svg>
+    <svg class="w1" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,60 C360,10 600,100 900,60 C1140,28 1320,80 1440,55 L1440,120 L0,120 Z" fill="#1d8ca6" opacity="0.45"/></svg>
+  </div>
+
+  <div class="hero-eyebrow">Kuzey Kıbrıs · Rota Kataloğu</div>
+  <h1 class="hero-title">Drive <em>North Cyprus</em></h1>
+  <p class="hero-sub">Adayı keşfetmenin en güzel yolları.</p>
+  <p class="hero-lede">Limandan dağa, antik kentten vahşi yarımadaya — Kuzey Kıbrıs'ın her köşesini bölge bölge, tema tema düzenlenmiş rotalarla dolaşın. Japonya'nın Drive Japan'ından ilham alan, yerinde bilgiyle kürelenmiş bir yol rehberi.</p>
+
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Bölge</div></div>
+    <div class="stat"><div class="stat-num">36</div><div class="stat-label">Kürelenmiş Rota</div></div>
+    <div class="stat"><div class="stat-num">29</div><div class="stat-label">Katkıda Bulunan</div></div>
+    <div class="stat"><div class="stat-num">168</div><div class="stat-label">Öneri Tarandı</div></div>
+  </div>
+
+  <div class="scroll-hint">Kaydır<div class="dot"></div></div>
+</header>
+
+<div class="note-band">
+  <b>Nasıl derlendi?</b>
+  <span>29 stajyerin önerdiği 168 rota tarandı; bölge ve temaya göre kürelendi. Aynı fikri birden çok kişi önerdiğinde rotalar birleştirildi — ama her katkı sahibi rotanın altında anılıyor.</span>
+</div>
+
+<!-- ============ REGION NAV ============ -->
+<nav class="region-nav" id="regionNav"></nav>
+
+<!-- ============ INTRO / FILTER ============ -->
+<section class="section" id="explore">
+  <div class="section-head">
+    <div class="kicker">Rotalar</div>
+    <h2 class="section-title">Bölge bölge, <em>tema tema</em> Kuzey Kıbrıs</h2>
+    <p class="section-desc">Aynı yerler onlarca kez önerildi — biz onları en iyi haliyle bir araya getirdik. Temaya göre süzün, ilgi alanınıza uyan rotayı bulun.</p>
+    <div class="filters" id="filters"></div>
+  </div>
+</section>
+
+<!-- ============ REGIONS (injected) ============ -->
+<main id="regions"></main>
+
+<!-- ============ SIGNATURE ROUTES ============ -->
+<section class="section signature" id="signature">
+  <div class="section-head">
+    <div class="kicker">Çok Günlük</div>
+    <h2 class="section-title">İmza <em>yolculuklar</em></h2>
+    <p class="section-desc">Tek bölgeye sığmayan, otelden otele planlanmış büyük rotalar. Adanın tamamını, mutfağını ya da ışığını takip edenler için.</p>
+  </div>
+  <div class="sig-grid" id="sigGrid"></div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo">Drive <em>North Cyprus</em></div>
+      <div class="foot-tag">Adayı keşfetmenin en güzel yolları.</div>
+    </div>
+    <div class="foot-meta">
+      Stajyer Rota Projesi<br>
+      Drive Japan modelinden ilham alınmıştır<br>
+      Kürelenmiş &amp; kategorize edilmiş katalog
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Drive North Cyprus</span>
+    <span>Playfair Display · DM Sans · DM Mono</span>
+  </div>
+</footer>
+
+<script>
+const DATA = null; // injected below
+</script>
+<script id="dataScript">window.__DRIVE_DATA__ = {
+  "meta": {
+    "title": "Drive North Cyprus",
+    "subtitle": "Kuzey Kıbrıs'ı keşfetmenin en güzel yolları",
+    "totalSubmitted": 168,
+    "curated": 40,
+    "interns": 29,
+    "note": "29 stajyerin önerdiği 168 rota; bölge ve temaya göre kürelendi. Aynı fikri birden çok stajyer önerdiğinde rotalar birleştirildi, ama her katkı sahibi rota altında anılıyor."
+  },
+  "regions": [
+    { "id": "lefkosa", "name": "Lefkoşa", "en": "Nicosia", "index": "01",
+      "tagline": "Avrupa'nın son bölünmüş başkenti",
+      "description": "Osmanlı hanları, Gotik kilise-camiler, kapalı çarşılar ve Yeşil Hat boyunca uzanan bir tarih. Çoğu adım yürünerek keşfedilir.",
+      "essentials": ["Büyük Han", "Selimiye Camii", "Bandabuliya", "Girne Kapısı", "Bedesten"] },
+    { "id": "girne", "name": "Girne", "en": "Kyrenia", "index": "02",
+      "tagline": "Liman, kale ve dağların buluştuğu kıyı",
+      "description": "Nal biçimli tarihi liman, Haçlı kalesi, Gotik manastır ve Beşparmak Dağları'nın panoramaları. Adanın en klasik rotalarının doğduğu yer.",
+      "essentials": ["Girne Limanı", "Girne Kalesi", "Bellapais Manastırı", "St. Hilarion", "Batık Gemi Müzesi"] },
+    { "id": "magusa", "name": "Gazimağusa", "en": "Famagusta", "index": "03",
+      "tagline": "Surlar, antik kentler ve hayalet şehir",
+      "description": "Ayakta duran Venedik surları, Lala Mustafa Paşa Camii, antik Salamis ve kapatılmış Maraş. 3.000 yıllık katmanlı bir tarih.",
+      "essentials": ["Lala Mustafa Paşa Camii", "Othello Kalesi", "Salamis", "Kapalı Maraş", "St. Barnabas"] },
+    { "id": "iskele", "name": "İskele & Doğu", "en": "Iskele & East", "index": "04",
+      "tagline": "Uzun plajlar, kaleler ve doğu kıyısının huzuru",
+      "description": "Long Beach, Boğaz balıkçı limanı, Kantara Kalesi ve sulak alanlar. Karpaz'a açılan sakin doğu kapısı.",
+      "essentials": ["Long Beach", "Kantara Kalesi", "Boğaz Limanı", "Bafra", "İskele Arkeoloji Müzesi"] },
+    { "id": "karpaz", "name": "Karpaz", "en": "Karpaz Peninsula", "index": "05",
+      "tagline": "Yolun bittiği vahşi yarımada",
+      "description": "Yabani eşekler, Altınkum'un kilometrelerce kumu, tarihi kiliseler ve Apostolos Andreas Manastırı. Adanın en el değmemiş köşesi.",
+      "essentials": ["Altınkum (Golden Beach)", "Apostolos Andreas", "Dipkarpaz", "Yabani Eşekler", "Zafer Burnu"] },
+    { "id": "bati", "name": "Güzelyurt & Lefke", "en": "West", "index": "06",
+      "tagline": "Narenciye, antik kentler ve batı kıyısı",
+      "description": "Portakal bahçeleri, antik Soli ve Vouni Sarayı, Osmanlı su kemerleri, madencilik mirası ve sakin batı sahili. Kalabalıktan uzak, otantik bir Kıbrıs.",
+      "essentials": ["Soli Antik Kenti", "Vouni Sarayı", "St. Mamas", "Gemikonağı", "Yeşilırmak"] },
+    { "id": "daglar", "name": "Dağlar & Köyler", "en": "Mountains & Villages", "index": "07",
+      "tagline": "Beşparmak sırtı, kaleler ve kaybolmuş kasabalar",
+      "description": "Buffavento kalesi, orman patikaları, Maronit köyü, barajlar, anıtsal zeytinlikler ve panoramik sırt yolları. Kıyıdan yükseklere çıkan rotalar.",
+      "essentials": ["Buffavento Kalesi", "Beşparmak Sırtı", "Sourp Magar", "Geçitköy Barajı", "Kalkanlı Zeytinlikleri"] }
+  ],
+  "themes": [
+    { "id": "history", "name": "Tarih & Kültür" },
+    { "id": "coast", "name": "Sahil & Plaj" },
+    { "id": "nature", "name": "Doğa & Macera" },
+    { "id": "food", "name": "Gastronomi" },
+    { "id": "scenic", "name": "Manzara & Fotoğraf" },
+    { "id": "nightlife", "name": "Eğlence & Gece" }
+  ],
+  "routes": [
+    {
+      "id": "lef-oldcity", "region": "lefkosa", "title": "Surlariçi Kültür & Sokak Yürüyüşü",
+      "themes": ["history"], "duration": "3–4 saat", "difficulty": "Kolay (yürüyüş)",
+      "summary": "Şehir kapılarından tarihi hanlara, çarşı sokaklarından meydanlara uzanan kompakt bir surlariçi rotası. Her şey yürüme mesafesinde.",
+      "stops": ["Girne Kapısı", "Sarayönü / Atatürk Meydanı", "Büyük Han", "Selimiye Camii", "Bandabuliya", "Arasta Sokağı", "Samanbahçe Evleri"],
+      "tip": "Gün batımına doğru gidin — tur grupları dağılınca Selimiye'ye vuran altın ışık ve sessiz sokaklar şehrin en güzel atmosferini yaratır.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Berra Somuncu", "Bilgesu Kökat", "Egrenah Phiri", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Mahmoud Metwaly", "Daniel Otwori", "Kadircan Alaca", "Abdullah Al Salkhadi", "Muneer Mohamed"]
+    },
+    {
+      "id": "lef-museums", "region": "lefkosa", "title": "Müzeler & Osmanlı Mirası",
+      "themes": ["history"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Mevlevi Tekke'den Derviş Paşa Konağı'na, Rüstem Kitabevi'nden Lüzinyan Evi'ne — başkentin katmanlı geçmişine odaklanan bir müze rotası.",
+      "stops": ["Girne Kapısı", "Mevlevi Tekke Müzesi", "Derviş Paşa Etnografya Müzesi", "Rüstem Kitabevi", "Kumarcılar Hanı", "Lüzinyan Evi"],
+      "tip": "Rüstem Kitabevi'nin arka bahçesindeki kafe, yürüyüş arası kahve molası için ideal ve çoğu turistin gözünden kaçar.",
+      "proposers": ["Eyad Al-Moaid", "Umut Sevinç", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "lef-modern", "region": "lefkosa", "title": "Modern Lefkoşa: Alışveriş, Müze & Gece",
+      "themes": ["history", "food", "nightlife"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Klasik Araba Müzesi'nden Dereboyu'nun sokak modasına, tarihi konaklardan çağdaş kafe ve barlara — başkentin eski ve yeni yüzü.",
+      "stops": ["Klasik Araba Müzesi (YDÜ)", "Dereboyu Caddesi", "Surlariçi", "Zahra Sokağı", "Mooi Cafe", "Sedo Ice Cream & Cakes"],
+      "tip": "Dereboyu akşam üstü canlanır; gündüz alışveriş, akşam ise kafe-bar atmosferi için ideal. Zahra Sokak gece atmosferinin kalbi.",
+      "proposers": ["Aysu Tatlısu", "Bupe Kabanda", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "gir-classic", "region": "girne", "title": "Girne Klasik: Liman, Kale, Bellapais & St. Hilarion",
+      "themes": ["history", "scenic", "coast"], "duration": "Tam gün", "difficulty": "Orta (kale tırmanışı)",
+      "summary": "Adanın en ikonik rotası: nal biçimli tarihi liman, Haçlı kalesi, Batık Gemi Müzesi, Gotik Bellapais Manastırı ve masalsı St. Hilarion. Dağdan kıyıya bütün Girne bir günde.",
+      "stops": ["Girne Limanı", "Girne Kalesi", "Batık Gemi Müzesi", "Bellapais Köyü & Manastırı", "St. Hilarion Kalesi", "Beşparmak Manzara Noktası"],
+      "tip": "St. Hilarion'a sabah erken çıkın — sıcak basmadan tırmanış çok daha keyifli ve Kraliçe'nin Penceresi'nden manzara sissizken en berrak.",
+      "proposers": ["Helin Gül", "Aysu Tatlısu", "Berra Somuncu", "Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Egrenah Phiri", "Tinashe Chari", "Venon Rukwasi", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Kadircan Alaca", "Muneer Mohamed", "Bupe Kabanda", "Daniel Otwori", "Suhail Ahmed"]
+    },
+    {
+      "id": "gir-coastal", "region": "girne", "title": "Girne Sahil Şeridi & Gizli Plajlar",
+      "themes": ["coast", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Girne'den batıya uzanan sahil yolu boyunca altın plajlar, seyir noktaları ve saklı koylar; Alagadi kaplumbağa plajından Lapta yürüyüş yoluna. Nisan–Ekim arası ideal.",
+      "stops": ["Lapta Sahil Yürüyüş Yolu", "Escape Beach", "Karaoğlanoğlu Kıyısı", "Alagadi Kaplumbağa Plajı", "Gizli Yüzme Koyları", "Esentepe Seyir Noktaları"],
+      "tip": "Yazın yol kenarındaki meyve tezgahlarında taze incir ve frenk inciri satılır — molada mutlaka deneyin.",
+      "proposers": ["Berra Somuncu", "Audrey Chiedza Munjoma", "Ayan Tahir", "Daniel Otwori"]
+    },
+    {
+      "id": "gir-sunset", "region": "girne", "title": "Gün Batımı & Fotoğraf Noktaları",
+      "themes": ["scenic", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Işık ve manzara etrafında kurulu rota: Mavi Köşk, Bellapais terasları, sahil kulüplerinin gün batımı deck'leri ve Instagram'lık sahiller.",
+      "stops": ["Mavi Köşk (Blue House)", "Bellapais Terası", "St. Hilarion Seyir Noktası", "Acapulco / Escape Beach Deck", "Camelot Beach", "Gün Batımı Noktası"],
+      "tip": "Bellapais terasındaki kafelerde günbatımı için erken gidip masa kapın; manzaralı masalar akşamüstü hızla dolar.",
+      "proposers": ["Eyad Al-Moaid", "Egrenah Phiri", "Venon Rukwasi", "Emirkan Aydoğan", "Abdullah Al Salkhadi", "Rim Jemmari", "Muneer Mohamed"]
+    },
+    {
+      "id": "gir-nightlife", "region": "girne", "title": "Girne Eğlence & Gece Hayatı",
+      "themes": ["nightlife", "food", "coast"], "duration": "Öğleden akşama", "difficulty": "Kolay",
+      "summary": "Sahil kulüpleri, seçkin restoranlar ve gece kulüpleriyle Girne'nin lüks ve enerjik yüzü. Gündüz plaj, akşam DJ.",
+      "stops": ["Escape Beach Club", "The House / Marina", "Eziç Restaurant", "Sky Lounge Bar", "Cage / La Nouba Club"],
+      "tip": "Sahil kulüplerinde şezlong için hafta sonu rezervasyon şart; akşam Sky Lounge'ın panoramik terası en iyi manzarayı verir.",
+      "proposers": ["Emirkan Aydoğan", "Rim Jemmari", "Ayşe Koyuncu", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "gir-lapta", "region": "girne", "title": "Lapta Pınarları, Eski Köy & Sahil Yürüyüşü",
+      "themes": ["nature", "history", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Tarihi üst köy, geleneksel su kaynakları ve Girne'nin batısındaki uzun sahil yürüyüş yolunu birleştiren sakin bir rota.",
+      "stops": ["Lapta Eski Köy", "Başpınar", "Tarihi Lapta Su Kanalları", "Lapta Sahil Yürüyüş Yolu", "Karşıyaka Gün Batımı Kıyısı"],
+      "tip": "Az bilinen bir rota — köyün üst kısmındaki tarihi su kanalları serin ve gölgeli, yaz sıcağında ideal bir mola.",
+      "proposers": ["Can Aker"]
+    },
+    {
+      "id": "mag-walledcity", "region": "magusa", "title": "Surlariçi & Ortaçağ Mirası",
+      "themes": ["history"], "duration": "Tam gün", "difficulty": "Orta (yürüyüş)",
+      "summary": "Ayakta duran Venedik surları, Gotik Lala Mustafa Paşa Camii, Othello Kalesi ve Namık Kemal Zindanı. Tarihseverler için zengin bir rota.",
+      "stops": ["Akkule (Land Gate)", "Lala Mustafa Paşa Camii", "Venedik Sarayı Kalıntıları", "Namık Kemal Zindanı", "Othello Kalesi", "Canbulat Müzesi", "Şehir Surları"],
+      "tip": "Petek Pastanesi surlariçinin kalbinde; geleneksel Kıbrıs tatlıları için tarihi turun ortasında mola verin.",
+      "proposers": ["Helin Gül", "Bilgesu Kökat", "Tinashe Chari", "Bupe Kabanda", "Kadircan Alaca", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "mag-salamis", "region": "magusa", "title": "Salamis Antik Kenti & St. Barnabas",
+      "themes": ["history", "coast"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Roma jimnazyumu, tiyatrosu ve bazilikasıyla adanın en önemli antik kenti, ardından St. Barnabas Manastırı, Kral Mezarları ve Glapsides plajı.",
+      "stops": ["Salamis Harabeleri", "Roma Tiyatrosu", "St. Barnabas Manastırı & İkon Müzesi", "Kral Mezarları", "Glapsides Plajı"],
+      "tip": "Salamis'te gölge neredeyse yok — sabah gidin. Saat 11'den sonra taşların üzerindeki sıcak bunaltıcı olur.",
+      "proposers": ["Umut Sevinç", "Aysu Tatlısu", "Berra Somuncu", "Fatih Mehmet Yılmaz", "Michael Eneyufoh Umoize", "Daniel Otwori", "Kadircan Alaca"]
+    },
+    {
+      "id": "mag-varosha", "region": "magusa", "title": "Kapalı Maraş & Palm Beach",
+      "themes": ["history", "coast"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Yakın tarihin sessizliğiyle sahil keyfini birleştiren rota: hayalet şehir Maraş'ın açık bölümleri, ardından Palm Beach'te yüzme, yemek ve mola.",
+      "stops": ["Kapalı Maraş (Açık Bölgeler)", "Maraş Sahili", "Palm Beach", "Petek Pastanesi", "Sahil Kafeleri"],
+      "tip": "Maraş'ta bisiklet kiralama alanları var; açık bölgeleri pedallayarak gezmek yürümekten çok daha rahat. Su ve güneş koruması getirin.",
+      "proposers": ["Berra Somuncu", "Emirkan Aydoğan", "Mahmoud Metwaly", "Kadircan Alaca", "Abdullah Al Salkhadi", "Suhail Ahmed", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "mag-enkomi", "region": "magusa", "title": "Enkomi Bronz Çağı & Kırsal Mağusa",
+      "themes": ["history", "nature"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Adanın Bronz Çağı kalıntılarını — Enkomi antik kentini — ziyaret edip sakin kırsal manzaralarla tamamlanan az bilinen bir arkeoloji rotası.",
+      "stops": ["Enkomi Antik Kenti", "Mağusa Kırsal Yolu", "Eski Nehir Yatağı Manzarası", "Tuzla Köy Kafesi", "Gazimağusa Surlarına Yaklaşım"],
+      "tip": "Enkomi'yi çoğu ziyaretçi atlar — turist otobüsü yok, antik kenti neredeyse tek başınıza gezersiniz.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "isk-longbeach", "region": "iskele", "title": "İskele Sahil & Miras Rotası",
+      "themes": ["coast", "history"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Altın kumlu Long Beach, Boğaz balıkçı limanı, arkeoloji ve ikon müzeleri. Doğal güzellikle kültürel mirasın dengeli birleşimi.",
+      "stops": ["İskele Arkeoloji Müzesi", "Panayia Theotokos İkon Müzesi", "Long Beach (Altınkum)", "Boğaz Balıkçı Limanı", "Kalecik Halk Plajı"],
+      "tip": "Boğaz Limanı'nda öğleden sonra balıkçılar taze tuttukları balığı doğrudan satar; akşam yemeği için buradan alınabilir.",
+      "proposers": ["Aysu Tatlısu", "Berra Somuncu", "Mahmoud Metwaly", "Ayan Tahir", "Daniel Otwori"]
+    },
+    {
+      "id": "isk-kantara", "region": "iskele", "title": "Kantara Kalesi & Doğu Panoraması",
+      "themes": ["history", "nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Adanın en doğudaki dağ kalesinden ormanlara, kırsal köylere ve sessiz kıyıya uzanan manzara rotası. Buffavento ile birleştirilebilen çoklu kale seçeneği de mevcut.",
+      "stops": ["Kantara Kalesi", "Kantara Köyü", "Mersinlik Ormanı", "Kaplıca Sahili", "Tatlısu Kıyısı"],
+      "tip": "Kantara üç dağ kalesinin en iyi korunmuşu ve en doğudakidir; açık havada hem kuzey hem güney sahilleri aynı anda görünür.",
+      "proposers": ["Aysu Tatlısu", "Ayan Tahir", "Can Aker", "Olaoluwa Oluwarotimi", "Tinashe Chari", "Bupe Kabanda", "Emirkan Aydoğan"]
+    },
+    {
+      "id": "isk-bafra", "region": "iskele", "title": "Mehmetçik Bağları, Bafra & Boğaz Kıyısı",
+      "themes": ["food", "nature", "coast"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Köy hayatı ve üzüm bağı manzaralarından Bafra sahiline ve Boğaz balıkçı limanına uzanan sakin, gastronomik bir gün. Kimsenin listesine girmeyen bir bölge.",
+      "stops": ["Mehmetçik Köyü", "Mehmetçik Festival Meydanı", "Üzüm Bağı Manzarası", "Bafra Halk Plajı", "Boğaz Balıkçı Limanı"],
+      "tip": "Bölge küçük aile şarap üreticileriyle dolu; acele etmeyin ve uzun bir öğle yemeği için plan yapın.",
+      "proposers": ["Can Aker"]
+    },
+    {
+      "id": "isk-wetland", "region": "iskele", "title": "Boğaz Sulak Alan & Kuş Gözlem",
+      "themes": ["nature", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Boğaz balıkçı limanından başlayıp Gastria sulak alanları ve Kaplıca kıyısını keşfeden, tuz düzlüğü ve kuş gözlem noktalı bir doğa rotası.",
+      "stops": ["Boğaz Balıkçı Limanı", "Gastria Sulak Alanı", "Kaplıca Sahili", "Tuz Düzlüğü Manzarası", "Kıyı Kuş Gözlem Noktası"],
+      "tip": "Sabah erken saatler kuş gözlemi için en verimli; dürbün getirmeyi unutmayın. Kıyı ve sulak alan kuş çeşitliliği açısından zengindir.",
+      "proposers": ["Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "kar-classic", "region": "karpaz", "title": "Klasik Karpaz: Eşekler, Altınkum & Apostolos Andreas",
+      "themes": ["nature", "scenic", "coast"], "duration": "Tam gün (uzun sürüş)", "difficulty": "Kolay (yürüyüş) / Uzun sürüş",
+      "summary": "Adanın en doğusuna tam günlük yol yolculuğu: köy hayatı, açık manzaralar, yabani eşekler, kilometrelerce Altınkum ve efsanevi manastır. Karpaz'ın imza rotası.",
+      "stops": ["Dipkarpaz Köyü", "Karpaz Manzaralı Sürüş", "Yabani Eşek Bölgesi", "Altınkum (Golden Beach)", "Ayios Philon Kilisesi", "Apostolos Andreas Manastırı", "Zafer Burnu"],
+      "tip": "Yabani eşekler yol kenarında yaklaşır ama beslemeyin — yasak ve onlar için zararlı. Uzun sürüş için depoyu Dipkarpaz öncesi doldurun.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Aysu Tatlısu", "Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Egrenah Phiri", "Tinashe Chari", "Olaoluwa Oluwarotimi", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Daniel Otwori", "Kadircan Alaca", "Abdullah Al Salkhadi", "Rim Jemmari", "Suhail Ahmed", "Muneer Mohamed"]
+    },
+    {
+      "id": "kar-seacaves", "region": "karpaz", "title": "Gizli Koylar & Deniz Mağaraları",
+      "themes": ["coast", "nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Akdeniz'in kendi mimarisini oyduğu yer: mavi ışıltılı deniz mağarası, Camel Point, Horseshoe Beach ve Altınkum'un daha az kalabalık ucu. Mayo şart.",
+      "stops": ["Blue House Deniz Mağarası", "Camel Point", "Horseshoe Beach", "Kaplıca Sahili", "Altınkum (Az Kalabalık Uç)", "Zafer Burnu Kayalıkları"],
+      "tip": "Birkaç durak yüzmeyi gerektiriyor — mayo ve su ayakkabısı getirin. Deniz mağarasının içindeki mavi ışık öğle saatlerinde en belirgin.",
+      "proposers": ["Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "kar-wildnature", "region": "karpaz", "title": "Karpaz Vahşi Doğa (70 km Yarımada)",
+      "themes": ["nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Yarımadanın tüm uzunluğunu, tarım arazisinden deniz fenerine kadar kat eden rota. Avrupa kıyısından çok ıssız bir adayı andıran manzaralar.",
+      "stops": ["Yenierenköy", "Karpaz Milli Parkı", "Altınkum", "Dipkarpaz Köyü", "Zafer Burnu", "Apostolos Andreas", "Ronnas Koyu"],
+      "tip": "Ronnas Koyu neredeyse hiç bilinmez ve genelde bomboştur — yarımadanın en sakin yüzme noktalarından biri.",
+      "proposers": ["Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "kar-yudi", "region": "karpaz", "title": "Yudi Dağı Yürüyüşü & Karpaz Gate Marina",
+      "themes": ["nature", "coast"], "duration": "Tam gün", "difficulty": "Zor (yürüyüş)",
+      "summary": "Yudi Dağı'nda zorlu bir yürüyüş, Yeni Erenköy plajında yüzme ve Karpaz Gate Marina'da sakin bir gün batımı finali. Aktif gezginler için.",
+      "stops": ["Yudi Dağı Yürüyüş Parkuru", "Yeni Erenköy Halk Plajı", "Karpaz Gate Marina", "Gün Batımı Noktası", "Revaklı Ev Konağı"],
+      "tip": "Yudi Dağı tırmanışı için sağlam ayakkabı ve bol su şart; marina ise yürüyüş sonrası konforlu bir toparlanma durağı.",
+      "proposers": ["Kadircan Alaca"]
+    },
+    {
+      "id": "kar-caves", "region": "karpaz", "title": "Karpaz Mağaraları & Antik İzler",
+      "themes": ["history", "nature", "coast"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Antik mağaralar, Agla Trias, tarihi kiliseler ve uçsuz plajlarla Karpaz'ın en uç noktasına — dünyanın kenarındaymış hissi veren bir rota.",
+      "stops": ["Hill Coffee", "Antik Mağaralar", "Agla Trias", "Aylos Kilisesi", "Big Sand Beach", "Rizokarpaso (Uç Nokta)"],
+      "tip": "Uzun bir sürüş rotası — sabah erken çıkın ve Dipkarpaz sonrası benzin istasyonu olmadığını unutmayın.",
+      "proposers": ["Ayan Tahir"]
+    },
+    {
+      "id": "kar-buyukkonuk", "region": "karpaz", "title": "Büyükkonuk Eko-Köy & Doğu Kapısı",
+      "themes": ["nature", "food", "history"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "KKTC'nin ilk eko-turizm köyü Büyükkonuk üzerinden Karpaz'a giriş: geleneksel el sanatları, yerel yemek ve köy yaşamı.",
+      "stops": ["İskele Arkeoloji Müzesi", "Kantara Kalesi", "Büyükkonuk Eko-Köy", "Dipkarpaz Köyü", "Ayios Philon Kilisesi"],
+      "tip": "Büyükkonuk'ta eko-gün festivalleri düzenlenir; denk gelirseniz geleneksel hellim yapımı ve zeytin ezme gösterilerini kaçırmayın.",
+      "proposers": ["Umut Sevinç"]
+    },
+    {
+      "id": "bati-soli", "region": "bati", "title": "Soli Antik Kenti & Vouni Sarayı",
+      "themes": ["history", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Kuğu mozaiğiyle ünlü Soli, tepedeki Vouni Sarayı ve batı kıyısının sessiz antik kentleri. Turist otobüsleri buraya pek uğramaz.",
+      "stops": ["Soli Bazilikası", "Soli Roma Tiyatrosu", "Antik Agora", "Vouni Sarayı", "Manzara Noktası"],
+      "tip": "Vouni Sarayı'ndan gün batımı batı kıyısının en güzellerinden biri ve popüler noktalara göre çok daha sakin.",
+      "proposers": ["Umut Sevinç", "Egrenah Phiri", "Awadhi Justine Albert", "Olaoluwa Oluwarotimi", "Michael Eneyufoh Umoize", "Kadircan Alaca", "Muneer Mohamed", "Suhail Ahmed"]
+    },
+    {
+      "id": "bati-guzelyurt", "region": "bati", "title": "Güzelyurt Arkeoloji & Portakal Kasabası",
+      "themes": ["history", "nature", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Tarım bahçeleri, bölge kasabası pazarları ve müze tarihleri etrafında kurulu sakin bir batı rotası; St. Mamas ve portakal bahçeleri.",
+      "stops": ["Güzelyurt Merkez", "Arkeoloji & Doğa Tarihi Müzesi", "St. Mamas Kilisesi & İkon Müzesi", "Portakal Bahçeleri", "Yakın Köyler"],
+      "tip": "Sabah erken gidin — yerel çiftçiler taze portakal ve limon getirdiğinde pazar en canlı halinde olur.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Daniel Otwori"]
+    },
+    {
+      "id": "bati-lefke", "region": "bati", "title": "Lefke Narenciye & Osmanlı Su Kemerleri",
+      "themes": ["history", "nature", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Portakal kokulu tarihi sokaklar, Osmanlı konakları, su kemerleri ve Piri Mehmet Paşa Camii. Kalabalıktan uzak otantik bir Kıbrıs.",
+      "stops": ["Lefke Merkez", "Piri Mehmet Paşa Camii", "Osmanlı Su Kemeri", "Narenciye Bahçeleri", "Yerel Kahvehaneler", "Citrus Pazarı"],
+      "tip": "Sabah erken, yerel çiftçiler taze portakal ve limon getirdiğinde uğrayın. İlkbaharda narenciye çiçeği kokusu tüm kasabayı sarar.",
+      "proposers": ["Awadhi Justine Albert", "Venon Rukwasi", "Emirkan Aydoğan", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "bati-cmc", "region": "bati", "title": "Gemikonağı Endüstri Hafızası & CMC Mirası",
+      "themes": ["history", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Lefke'nin madencilik tarihini anlatan eski CMC yapıları, maden demiryolu ve Gemikonağı'nın kıyı manzarası. Çoğu ziyaretçinin bilmediği bir endüstri rotası.",
+      "stops": ["Eski CMC Yapıları", "Maden Demiryolu Alanı", "Cengiz Topel Anıtı", "Gemikonağı Limanı & İskele", "Sahil Yürüyüş Yolu"],
+      "tip": "Gemikonağı'nın eski iskelesi fotoğraf için mükemmel; bu bölgenin Kıbrıs bakır madenciliğindeki tarihi rolünü çoğu kişi bilmez.",
+      "proposers": ["Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Awadhi Justine Albert", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "bati-yesilirmak", "region": "bati", "title": "Yeşilırmak Çilek Bahçeleri & Batı Kıyısı",
+      "themes": ["nature", "food", "coast"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Soli ve Vouni'den başlayıp Lefke ve Yeşilırmak'ta yerel molalarla ilerleyen, çilek sezonunda bahçe ziyareti ve Yedidalga plajıyla biten batı rotası.",
+      "stops": ["Soli Antik Kenti", "Vouni Sarayı", "Lefke Yerel Durak", "Yeşilırmak Çilek Bahçeleri", "Dev Çilek Heykeli", "Yedidalga Plajı"],
+      "tip": "Çilek sezonu (ilkbahar) için zamanlayın; Yeşilırmak'ın dev çilek heykeli ve yerel çilek ürünleri sezonun simgesi.",
+      "proposers": ["Berra Somuncu", "Emirkan Aydoğan", "Suhail Ahmed"]
+    },
+    {
+      "id": "bati-kormakitis", "region": "bati", "title": "Kormakitis Burnu & Blue Lagoon Tekne Turu",
+      "themes": ["coast", "nature", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Girne'nin batısında kıyı boyunca tekne turu: Kormakitis Burnu, Blue Lagoon'da yüzme, şnorkelli resif keşfi ve sakin Sadrazamköy sahili.",
+      "stops": ["Kormakitis Burnu Kıyısı", "Blue Lagoon Yüzme Durağı", "Şnorkel Resif Alanı", "Sadrazamköy Sahili", "Kyrenia Limanı Dönüş"],
+      "tip": "Blue Lagoon'un berrak suyu şnorkel için ideal; tekne turları genelde Girne limanından kalkar, sabah slotunu tercih edin.",
+      "proposers": ["Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "bati-maronit", "region": "bati", "title": "Koruçam Maronit Kültürü & Kormakitis Burnu",
+      "themes": ["history", "food", "coast"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Kendine özgü Maronit köyü, dini mirası, geleneksel yemek kültürü ve batının uzak kıyısı. Postkarta hiç girmemiş bir Kıbrıs.",
+      "stops": ["Koruçam Köy Meydanı", "St. George Maronit Katedrali", "Geleneksel Maronit Yemek Durağı", "Koruçam Sahili", "Kormakitis Burnu"],
+      "tip": "Köyde yabancılara el sallanır ve içemeyeceğiniz kadar kahve ikram edilir — acele etmeyin, bu rotanın ruhu yavaşlıkta.",
+      "proposers": ["Can Aker", "Fatih Mehmet Yılmaz", "Olaoluwa Oluwarotimi", "Rim Jemmari"]
+    },
+    {
+      "id": "bati-eul", "region": "bati", "title": "Lefke Üniversite Çevresi & Aphrodite Sahili",
+      "themes": ["coast", "food", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Lefke Avrupa Üniversitesi çevresinden başlayıp sahil restoranları ve gün batımı noktalarıyla ilerleyen, akademik enerjiyle kıyı huzurunu birleştiren rahat bir rota.",
+      "stops": ["LAÜ Kampüsü", "Lefke Merkez", "Aphrodite Sahil Restoranı", "Sahil Yürüyüşü", "Gün Batımı Noktası"],
+      "tip": "Aphrodite sahilindeki restoranlar gün batımına karşı konumlanmış; akşam yemeği için bu saati kollayın.",
+      "proposers": ["Venon Rukwasi"]
+    },
+    {
+      "id": "dag-buffavento", "region": "daglar", "title": "Buffavento & Unutulmuş Manastırlar",
+      "themes": ["nature", "history", "scenic"], "duration": "Tam gün", "difficulty": "Zor (tırmanış)",
+      "summary": "Kuzey kıyısının üzerinde saklı dramatik dağ rotası: Buffavento Kalesi, orman manzaraları, Sourp Magar Ermeni Manastırı ve Antiphonitis Kilisesi.",
+      "stops": ["Buffavento Kalesi", "Alevkaya Piknik Alanı", "Sourp Magar Ermeni Manastırı", "Antiphonitis Kilisesi", "Esentepe Dağ Seyir Noktası"],
+      "tip": "Buffavento 'rüzgarların meydan okuyanı' demek; zirveye 30–40 dakikalık tırmanışta gölge yok, sabah serinde çıkın. Ödül 360 derece manzara.",
+      "proposers": ["Umut Sevinç", "Can Aker", "Abdullah Al Salkhadi", "Suhail Ahmed"]
+    },
+    {
+      "id": "dag-ridge", "region": "daglar", "title": "Beşparmak Sırtı & Orman Kaçamağı",
+      "themes": ["nature", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Orta",
+      "summary": "Değirmenlik orman girişinden başlayıp Beşparmak sırt yolu boyunca panoramik manzaralarla ilerleyen, piknik ve köy kafesi molalı bir dağ rotası.",
+      "stops": ["Değirmenlik Orman Girişi", "Beşparmak Sırt Yolu", "Panoramik Seyir Noktası", "Orman Piknik Alanı", "Herbaryum (Alevkaya)", "Köy Kafesi"],
+      "tip": "İlkbahar (Mart–Nisan) yaban çiçekleri ve orkidelerin dağ yamaçlarını kapladığı en iyi dönem.",
+      "proposers": ["Ayan Tahir", "Daniel Otwori", "Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "dag-dam", "region": "daglar", "title": "Geçitköy Barajı & Çam Ormanı",
+      "themes": ["nature", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Geçitköy Barajı'nın sessiz suları, çam ormanları, taş evli köyler ve manzara noktalarını birleştiren sakin bir kırsal rota. Değirmenlik köyleriyle birleştirilebilir.",
+      "stops": ["Geçitköy Barajı", "Çam Ormanı Patikası", "Geçitköy Köyü (Taş Evler)", "Piknik Alanı", "Panoramik Baraj Manzarası"],
+      "tip": "Doğa yürüyüşü ve piknik için ideal; hafta içi neredeyse tamamen sizindir. Değirmenlik ve Gönyeli köyleriyle birleştirilebilir.",
+      "proposers": ["Audrey Chiedza Munjoma", "Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "dag-olive", "region": "daglar", "title": "Kalkanlı Anıtsal Zeytinlikler & ODTÜ",
+      "themes": ["nature", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Yüzlerce yaşında anıtsal zeytin ağaçları, vadi manzaraları, Çoban Mağarası ve ODTÜ kampüsünün huzurlu çevresi. Fotoğrafçılar için özel.",
+      "stops": ["Anıtsal Zeytinlik", "Çoban Mağarası", "Kalkanlı Vadi Manzarası", "ODTÜ Kampüs Alanı", "Anı Ağaçları Dinlenme Noktası"],
+      "tip": "Zeytin ağaçlarının bazıları binlerce yıllık; en iyi ışık için sabah erken ya da gün batımına yakın gidin.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "dag-beylerbeyi", "region": "daglar", "title": "Beylerbeyi Zanaat & Zeytinlik Turu",
+      "themes": ["history", "food", "nature"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Beylerbeyi'nin çömlek atölyeleri, zeytinlikleri ve sade köy hayatını keşfeden, yerel lezzetlerle biten bir kültür-doğa rotası.",
+      "stops": ["Beylerbeyi Köy Meydanı", "Çalışan Çömlek Atölyesi", "Zeytinlikler", "Köy Öğle Yemeği Durağı"],
+      "tip": "Çömlek atölyesinde ustaların çalışmasını izleyebilir, hatta kendi parçanızı yapabilirsiniz — çocuklu aileler için ideal.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "dag-villages", "region": "daglar", "title": "Gizli Köyler & Otantik Yerel Hayat",
+      "themes": ["history", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Kale yok, kalabalık yok — sadece zeytinlikler, taş kiliseler ve haftanın en büyük olayının hâlâ pazar günü olduğu köyler. Karmi'den Koruçam'a.",
+      "stops": ["Karmi Köyü", "Ozanköy", "Çatalköy", "Tepebaşı (Lale Köyü)", "Sadrazamköy", "Koruçam"],
+      "tip": "Rota planlı değil, keşif için — bir köyde durup kahve içmek, yabancılarla sohbet etmek bu rotanın asıl amacı.",
+      "proposers": ["Olaoluwa Oluwarotimi", "Rim Jemmari"]
+    }
+  ],
+  "signatureRoutes": [
+    {
+      "id": "sig-grand", "title": "Büyük Kıbrıs Turu", "subtitle": "Adanın uçtan uca en manzaralı sürüşü",
+      "days": "3–5 gün",
+      "summary": "Dağ köyü, üç kale, dramatik sırt yolu ve Zafer Burnu'na kadar uzanan vahşi Karpaz — otelden otele, adanın nihai yol yolculuğu.",
+      "arc": ["Girne (Liman & Bellapais)", "Dağlar (Üç Kale)", "Gazimağusa (Salamis & Surlar)", "Karpaz (Altınkum & Zafer Burnu)", "Batı (Antik Kentler)"],
+      "proposers": ["Nikolai Piatnov", "Daniel Otwori", "Fatih Mehmet Yılmaz", "Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "sig-gastronomy", "title": "Gastronomi Yolculuğu", "subtitle": "Bir köy mutfağı, bir sonraki durak",
+      "days": "2–3 gün",
+      "summary": "Narenciye, hellim, zeytin ve keçiboynuzu — Kıbrıs mutfağının ham maddelerini yetiştiği tarlalardan aile sofralarına kadar takip eden, otelden otele rota.",
+      "arc": ["Girne Limanı Kahvaltı", "Bellapais Köyü", "Zeytinlik Köyü", "Lefke & Vouni", "Değirmenlik Meze Öğle Yemeği"],
+      "proposers": ["Nikolai Piatnov", "Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "sig-adventure", "title": "Macera & Eğlence", "subtitle": "Tam gaz bir gün, adanın bir ucundan diğerine",
+      "days": "1–2 gün",
+      "summary": "Lefkoşa dışında karting, resif dalışı, at binme, ATV safari ve batı kıyısında gün batımı sörfü — otelden otele dolu dizgin bir macera günü.",
+      "arc": ["Cemsa Karting (Ortaköy)", "Lapta Resif Dalışı", "ATV / Buggy Safari", "St. Hilarion Seyir", "Escape Beach Gün Batımı"],
+      "proposers": ["Nikolai Piatnov", "Emirkan Aydoğan", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "sig-family", "title": "Aile Rotası", "subtitle": "Çocukların gerçekten sevdiği bir gün",
+      "days": "1 gün",
+      "summary": "Klimalı akvaryum, sakin tekne turu, lunapark ve sığ, güvenli yüzme — küçük çocuklarla gerçekten işe yarayan duraklarla kurulmuş, otelden otele yarım-tam gün.",
+      "arc": ["Ocean Akvaryum", "Girne Marina Tekne Turu", "Escape Beach (Sığ Koy)", "Lunapark", "Dondurma Kafesi"],
+      "proposers": ["Nikolai Piatnov", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "sig-sunset", "title": "Gün Batımı & Yıldız Gözlemi", "subtitle": "Işığın peşinde bütün kuzey kıyısı",
+      "days": "1 gün",
+      "summary": "Tümüyle ışık etrafında kurulmuş rota — dağ kalesinde altın saat, terasta mavi saat ve Doğu Akdeniz'in en az ışık kirliliğine sahip göklerinde tam karanlık.",
+      "arc": ["St. Hilarion Seyir Noktası", "Bellapais Terası", "Sadrazamköy Gün Batımı", "Kormakitis Burnu", "Karpaz Gece Göğü"],
+      "proposers": ["Olaoluwa Oluwarotimi", "Awadhi Justine Albert", "Venon Rukwasi"]
+    }
+  ]
+}
+;</script>
+<script>
+async function boot(){
+  let data = window.__DRIVE_DATA__ || null;
+  if(!data){
+    try{ data = await (await fetch('routes-data.json')).json(); }catch(e){}
+  }
+  if(!data){ console.error('Veri yüklenemedi'); return; }
+  render(data);
+}
+
+const THEME_LABELS = {
+  history:'Tarih & Kültür', coast:'Sahil & Plaj', nature:'Doğa & Macera',
+  food:'Gastronomi', scenic:'Manzara', nightlife:'Eğlence'
+};
+const ICON = {
+  clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  hike:'<svg viewBox="0 0 24 24"><path d="M4 20l6-11 4 5 3-4 3 10"/></svg>'
+};
+
+function render(data){
+  // filters
+  const filters = document.getElementById('filters');
+  const allChip = mkChip('Tümü','all',true);
+  filters.appendChild(allChip);
+  data.themes.forEach(t=>filters.appendChild(mkChip(t.name,t.id,false)));
+
+  // region nav
+  const nav = document.getElementById('regionNav');
+  data.regions.forEach(r=>{
+    const a = document.createElement('a');
+    a.href = '#reg-'+r.id; a.textContent = r.name;
+    nav.appendChild(a);
+  });
+
+  // regions
+  const wrap = document.getElementById('regions');
+  data.regions.forEach((region,i)=>{
+    const routes = data.routes.filter(rt=>rt.region===region.id);
+    const sec = document.createElement('section');
+    sec.className='region'; sec.id='reg-'+region.id;
+    sec.innerHTML = `
+      <div class="region-header">
+        <div class="region-index">${String(i+1).padStart(2,'0')}</div>
+        <div>
+          <div class="region-name">${region.name}</div>
+          <div class="region-en">${region.en}</div>
+          <div class="region-tagline">${region.tagline}</div>
+        </div>
+        <p class="region-desc">${region.description}</p>
+        <div class="region-essentials">
+          ${region.essentials.map(e=>`<span class="essential">${e}</span>`).join('')}
+        </div>
+      </div>
+      <div class="routes-grid">
+        ${routes.map(rt=>routeCard(rt)).join('')}
+      </div>`;
+    wrap.appendChild(sec);
+  });
+
+  // signature routes
+  const sig = document.getElementById('sigGrid');
+  data.signatureRoutes.forEach(s=>{
+    const el = document.createElement('div');
+    el.className='sig-card';
+    const sprops = s.proposers || [];
+    const scredit = sprops.length ? `
+      <div class="sig-credit">
+        <div class="sig-credit-label">Öneren · ${sprops.length}</div>
+        <div class="sig-credit-names">${sprops.join(' · ')}</div>
+      </div>` : '';
+    el.innerHTML = `
+      <div class="sig-days">${s.days}</div>
+      <div class="sig-title">${s.title}</div>
+      <div class="sig-subtitle">${s.subtitle}</div>
+      <p class="sig-summary">${s.summary}</p>
+      <div class="sig-arc">
+        ${s.arc.map(a=>`<div class="sig-stop"><span class="sig-dot"></span><span>${a}</span></div>`).join('')}
+      </div>${scredit}`;
+    sig.appendChild(el);
+  });
+
+  wireFilters();
+}
+
+function mkChip(label,id,active){
+  const b=document.createElement('button');
+  b.className='chip'+(active?' active':'');
+  b.dataset.theme=id; b.textContent=label;
+  return b;
+}
+
+function routeCard(rt){
+  const themeTags = rt.themes.map(t=>
+    `<span class="theme-tag" data-t="${t}">${THEME_LABELS[t]||t}</span>`).join('');
+  const stops = rt.stops.map((s,i)=>
+    `<span class="stop">${s}</span>${i<rt.stops.length-1?'<span class="stop-arrow">→</span>':''}`).join('');
+  const tip = rt.tip ? `<div class="route-tip"><b>İpucu</b>${rt.tip}</div>` : '';
+  const props = rt.proposers || [];
+  const credit = props.length ? `
+      <div class="route-credit">
+        <div class="credit-label">Bu rotayı öneren<span class="cn">${props.length}</span></div>
+        <div class="credit-names">${props.map(p=>`<span>${p}</span>`).join('')}</div>
+      </div>` : '';
+  return `
+    <article class="route-card" data-themes="${rt.themes.join(' ')}">
+      <div class="route-themes">${themeTags}</div>
+      <div class="route-top"><h3 class="route-title">${rt.title}</h3></div>
+      <div class="route-meta">
+        <span>${ICON.clock}${rt.duration}</span>
+        <span>${ICON.hike}${rt.difficulty}</span>
+      </div>
+      <p class="route-summary">${rt.summary}</p>
+      <div class="route-stops">
+        <div class="stops-label">Duraklar</div>
+        <div class="stops-flow">${stops}</div>
+      </div>
+      ${tip}
+      ${credit}
+    </article>`;
+}
+
+function wireFilters(){
+  const chips=document.querySelectorAll('.chip');
+  chips.forEach(chip=>{
+    chip.addEventListener('click',()=>{
+      chips.forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      const t=chip.dataset.theme;
+      document.querySelectorAll('.route-card').forEach(card=>{
+        const themes=card.dataset.themes.split(' ');
+        card.classList.toggle('hidden', t!=='all' && !themes.includes(t));
+      });
+      // hide empty regions
+      document.querySelectorAll('.region').forEach(reg=>{
+        const visible=reg.querySelectorAll('.route-card:not(.hidden)').length;
+        reg.style.display = visible? '' : 'none';
+      });
+    });
+  });
+}
+
+boot();
+</script>
+</body>
+</html>

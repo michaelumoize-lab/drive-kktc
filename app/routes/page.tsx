@@ -1,12 +1,20 @@
 // app/routes/page.tsx
-import RoutesPage from "./RoutesPage";
+"use client";
 
-export const metadata = {
-  title: "All Routes – Drive KKTC",
-  description:
-    "Explore all curated driving routes in Northern Cyprus. From Kyrenia's castles to Karpaz's wild beaches – find your perfect road trip.",
-};
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Page() {
-  return <RoutesPage />;
+export default function RoutesRedirect() {
+  const router = useRouter();
+
+  useEffect(() => {
+    try {
+      const lang = localStorage.getItem("drive_kktc_lang");
+      router.replace(lang === "en" ? "/en/routes" : "/tr/routes");
+    } catch {
+      router.replace("/tr/routes");
+    }
+  }, [router]);
+
+  return null;
 }

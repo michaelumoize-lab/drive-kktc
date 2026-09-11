@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     route: "Karpaz Nature Loop",
     travelDate: "Apr 2025",
     quote:
-      "Drive KKTC made exploring the Karpaz Peninsula so easy. The directions were perfect, and we saw wild donkeys, swam at Golden Beach, and visited the monastery – exactly as promised. The insider tips really made it special. We felt like locals, not tourists.",
+      "Drive North Cyprus made exploring the Karpaz Peninsula so easy. The directions were perfect, and we saw wild donkeys, swam at Golden Beach, and visited the monastery – exactly as promised. The insider tips really made it special. We felt like locals, not tourists.",
     rating: 5,
     initials: "MK",
   },
@@ -41,7 +41,7 @@ export const testimonials: Testimonial[] = [
     route: "Famagusta History Loop",
     travelDate: "Oct 2024",
     quote:
-      "I've been recommending Drive KKTC to everyone planning a trip to North Cyprus. The Famagusta loop was incredibly well-researched – from Ancient Salamis to Othello Castle, everything was covered. The free guide saved us hours of research!",
+      "I've been recommending Drive North Cyprus to everyone planning a trip to North Cyprus. The Famagusta loop was incredibly well-researched – from Ancient Salamis to Othello Castle, everything was covered. The free guide saved us hours of research!",
     rating: 5,
     initials: "LT",
   },
@@ -52,7 +52,7 @@ export const testimonials: Testimonial[] = [
     route: "Nicosia Old City Loop",
     travelDate: "Mar 2025",
     quote:
-      "Walking through Nicosia's old city with Drive KKTC's guide was like having a local friend show you around. The Büyük Han, Selimiye Mosque, and the hidden courtyard cafe made our visit unforgettable. Absolutely brilliant work!",
+      "Walking through Nicosia's old city with Drive North Cyprus' guide was like having a local friend show you around. The Büyük Han, Selimiye Mosque, and the hidden courtyard cafe made our visit unforgettable. Absolutely brilliant work!",
     rating: 5,
     initials: "JP",
   },
@@ -63,7 +63,7 @@ export const testimonials: Testimonial[] = [
     route: "Güzelyurt & Lefke Heritage Loop",
     travelDate: "Sep 2024",
     quote:
-      "We would have completely missed Soli and Vouni Palace without this guide. The route took us through beautiful countryside, and the stop at the lemon groves was a lovely surprise. Drive KKTC is a must-have for any serious explorer!",
+      "We would have completely missed Soli and Vouni Palace without this guide. The route took us through beautiful countryside, and the stop at the lemon groves was a lovely surprise. Drive North Cyprus is a must-have for any serious explorer!",
     rating: 4,
     initials: "EV",
   },

@@ -1,0 +1,375 @@
+{
+  "meta": {
+    "title": "Drive North Cyprus",
+    "subtitle": "Kuzey Kıbrıs'ı keşfetmenin en güzel yolları",
+    "totalSubmitted": 168,
+    "curated": 40,
+    "interns": 29,
+    "note": "29 stajyerin önerdiği 168 rota; bölge ve temaya göre kürelendi. Aynı fikri birden çok stajyer önerdiğinde rotalar birleştirildi, ama her katkı sahibi rota altında anılıyor."
+  },
+  "regions": [
+    { "id": "lefkosa", "name": "Lefkoşa", "en": "Nicosia", "index": "01",
+      "tagline": "Avrupa'nın son bölünmüş başkenti",
+      "description": "Osmanlı hanları, Gotik kilise-camiler, kapalı çarşılar ve Yeşil Hat boyunca uzanan bir tarih. Çoğu adım yürünerek keşfedilir.",
+      "essentials": ["Büyük Han", "Selimiye Camii", "Bandabuliya", "Girne Kapısı", "Bedesten"] },
+    { "id": "girne", "name": "Girne", "en": "Kyrenia", "index": "02",
+      "tagline": "Liman, kale ve dağların buluştuğu kıyı",
+      "description": "Nal biçimli tarihi liman, Haçlı kalesi, Gotik manastır ve Beşparmak Dağları'nın panoramaları. Adanın en klasik rotalarının doğduğu yer.",
+      "essentials": ["Girne Limanı", "Girne Kalesi", "Bellapais Manastırı", "St. Hilarion", "Batık Gemi Müzesi"] },
+    { "id": "magusa", "name": "Gazimağusa", "en": "Famagusta", "index": "03",
+      "tagline": "Surlar, antik kentler ve hayalet şehir",
+      "description": "Ayakta duran Venedik surları, Lala Mustafa Paşa Camii, antik Salamis ve kapatılmış Maraş. 3.000 yıllık katmanlı bir tarih.",
+      "essentials": ["Lala Mustafa Paşa Camii", "Othello Kalesi", "Salamis", "Kapalı Maraş", "St. Barnabas"] },
+    { "id": "iskele", "name": "İskele & Doğu", "en": "Iskele & East", "index": "04",
+      "tagline": "Uzun plajlar, kaleler ve doğu kıyısının huzuru",
+      "description": "Long Beach, Boğaz balıkçı limanı, Kantara Kalesi ve sulak alanlar. Karpaz'a açılan sakin doğu kapısı.",
+      "essentials": ["Long Beach", "Kantara Kalesi", "Boğaz Limanı", "Bafra", "İskele Arkeoloji Müzesi"] },
+    { "id": "karpaz", "name": "Karpaz", "en": "Karpaz Peninsula", "index": "05",
+      "tagline": "Yolun bittiği vahşi yarımada",
+      "description": "Yabani eşekler, Altınkum'un kilometrelerce kumu, tarihi kiliseler ve Apostolos Andreas Manastırı. Adanın en el değmemiş köşesi.",
+      "essentials": ["Altınkum (Golden Beach)", "Apostolos Andreas", "Dipkarpaz", "Yabani Eşekler", "Zafer Burnu"] },
+    { "id": "bati", "name": "Güzelyurt & Lefke", "en": "West", "index": "06",
+      "tagline": "Narenciye, antik kentler ve batı kıyısı",
+      "description": "Portakal bahçeleri, antik Soli ve Vouni Sarayı, Osmanlı su kemerleri, madencilik mirası ve sakin batı sahili. Kalabalıktan uzak, otantik bir Kıbrıs.",
+      "essentials": ["Soli Antik Kenti", "Vouni Sarayı", "St. Mamas", "Gemikonağı", "Yeşilırmak"] },
+    { "id": "daglar", "name": "Dağlar & Köyler", "en": "Mountains & Villages", "index": "07",
+      "tagline": "Beşparmak sırtı, kaleler ve kaybolmuş kasabalar",
+      "description": "Buffavento kalesi, orman patikaları, Maronit köyü, barajlar, anıtsal zeytinlikler ve panoramik sırt yolları. Kıyıdan yükseklere çıkan rotalar.",
+      "essentials": ["Buffavento Kalesi", "Beşparmak Sırtı", "Sourp Magar", "Geçitköy Barajı", "Kalkanlı Zeytinlikleri"] }
+  ],
+  "themes": [
+    { "id": "history", "name": "Tarih & Kültür" },
+    { "id": "coast", "name": "Sahil & Plaj" },
+    { "id": "nature", "name": "Doğa & Macera" },
+    { "id": "food", "name": "Gastronomi" },
+    { "id": "scenic", "name": "Manzara & Fotoğraf" },
+    { "id": "nightlife", "name": "Eğlence & Gece" }
+  ],
+  "routes": [
+    {
+      "id": "lef-oldcity", "region": "lefkosa", "title": "Surlariçi Kültür & Sokak Yürüyüşü",
+      "themes": ["history"], "duration": "3–4 saat", "difficulty": "Kolay (yürüyüş)",
+      "summary": "Şehir kapılarından tarihi hanlara, çarşı sokaklarından meydanlara uzanan kompakt bir surlariçi rotası. Her şey yürüme mesafesinde.",
+      "stops": ["Girne Kapısı", "Sarayönü / Atatürk Meydanı", "Büyük Han", "Selimiye Camii", "Bandabuliya", "Arasta Sokağı", "Samanbahçe Evleri"],
+      "tip": "Gün batımına doğru gidin — tur grupları dağılınca Selimiye'ye vuran altın ışık ve sessiz sokaklar şehrin en güzel atmosferini yaratır.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Berra Somuncu", "Bilgesu Kökat", "Egrenah Phiri", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Mahmoud Metwaly", "Daniel Otwori", "Kadircan Alaca", "Abdullah Al Salkhadi", "Muneer Mohamed"]
+    },
+    {
+      "id": "lef-museums", "region": "lefkosa", "title": "Müzeler & Osmanlı Mirası",
+      "themes": ["history"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Mevlevi Tekke'den Derviş Paşa Konağı'na, Rüstem Kitabevi'nden Lüzinyan Evi'ne — başkentin katmanlı geçmişine odaklanan bir müze rotası.",
+      "stops": ["Girne Kapısı", "Mevlevi Tekke Müzesi", "Derviş Paşa Etnografya Müzesi", "Rüstem Kitabevi", "Kumarcılar Hanı", "Lüzinyan Evi"],
+      "tip": "Rüstem Kitabevi'nin arka bahçesindeki kafe, yürüyüş arası kahve molası için ideal ve çoğu turistin gözünden kaçar.",
+      "proposers": ["Eyad Al-Moaid", "Umut Sevinç", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "lef-modern", "region": "lefkosa", "title": "Modern Lefkoşa: Alışveriş, Müze & Gece",
+      "themes": ["history", "food", "nightlife"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Klasik Araba Müzesi'nden Dereboyu'nun sokak modasına, tarihi konaklardan çağdaş kafe ve barlara — başkentin eski ve yeni yüzü.",
+      "stops": ["Klasik Araba Müzesi (YDÜ)", "Dereboyu Caddesi", "Surlariçi", "Zahra Sokağı", "Mooi Cafe", "Sedo Ice Cream & Cakes"],
+      "tip": "Dereboyu akşam üstü canlanır; gündüz alışveriş, akşam ise kafe-bar atmosferi için ideal. Zahra Sokak gece atmosferinin kalbi.",
+      "proposers": ["Aysu Tatlısu", "Bupe Kabanda", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "gir-classic", "region": "girne", "title": "Girne Klasik: Liman, Kale, Bellapais & St. Hilarion",
+      "themes": ["history", "scenic", "coast"], "duration": "Tam gün", "difficulty": "Orta (kale tırmanışı)",
+      "summary": "Adanın en ikonik rotası: nal biçimli tarihi liman, Haçlı kalesi, Batık Gemi Müzesi, Gotik Bellapais Manastırı ve masalsı St. Hilarion. Dağdan kıyıya bütün Girne bir günde.",
+      "stops": ["Girne Limanı", "Girne Kalesi", "Batık Gemi Müzesi", "Bellapais Köyü & Manastırı", "St. Hilarion Kalesi", "Beşparmak Manzara Noktası"],
+      "tip": "St. Hilarion'a sabah erken çıkın — sıcak basmadan tırmanış çok daha keyifli ve Kraliçe'nin Penceresi'nden manzara sissizken en berrak.",
+      "proposers": ["Helin Gül", "Aysu Tatlısu", "Berra Somuncu", "Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Egrenah Phiri", "Tinashe Chari", "Venon Rukwasi", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Kadircan Alaca", "Muneer Mohamed", "Bupe Kabanda", "Daniel Otwori", "Suhail Ahmed"]
+    },
+    {
+      "id": "gir-coastal", "region": "girne", "title": "Girne Sahil Şeridi & Gizli Plajlar",
+      "themes": ["coast", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Girne'den batıya uzanan sahil yolu boyunca altın plajlar, seyir noktaları ve saklı koylar; Alagadi kaplumbağa plajından Lapta yürüyüş yoluna. Nisan–Ekim arası ideal.",
+      "stops": ["Lapta Sahil Yürüyüş Yolu", "Escape Beach", "Karaoğlanoğlu Kıyısı", "Alagadi Kaplumbağa Plajı", "Gizli Yüzme Koyları", "Esentepe Seyir Noktaları"],
+      "tip": "Yazın yol kenarındaki meyve tezgahlarında taze incir ve frenk inciri satılır — molada mutlaka deneyin.",
+      "proposers": ["Berra Somuncu", "Audrey Chiedza Munjoma", "Ayan Tahir", "Daniel Otwori"]
+    },
+    {
+      "id": "gir-sunset", "region": "girne", "title": "Gün Batımı & Fotoğraf Noktaları",
+      "themes": ["scenic", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Işık ve manzara etrafında kurulu rota: Mavi Köşk, Bellapais terasları, sahil kulüplerinin gün batımı deck'leri ve Instagram'lık sahiller.",
+      "stops": ["Mavi Köşk (Blue House)", "Bellapais Terası", "St. Hilarion Seyir Noktası", "Acapulco / Escape Beach Deck", "Camelot Beach", "Gün Batımı Noktası"],
+      "tip": "Bellapais terasındaki kafelerde günbatımı için erken gidip masa kapın; manzaralı masalar akşamüstü hızla dolar.",
+      "proposers": ["Eyad Al-Moaid", "Egrenah Phiri", "Venon Rukwasi", "Emirkan Aydoğan", "Abdullah Al Salkhadi", "Rim Jemmari", "Muneer Mohamed"]
+    },
+    {
+      "id": "gir-nightlife", "region": "girne", "title": "Girne Eğlence & Gece Hayatı",
+      "themes": ["nightlife", "food", "coast"], "duration": "Öğleden akşama", "difficulty": "Kolay",
+      "summary": "Sahil kulüpleri, seçkin restoranlar ve gece kulüpleriyle Girne'nin lüks ve enerjik yüzü. Gündüz plaj, akşam DJ.",
+      "stops": ["Escape Beach Club", "The House / Marina", "Eziç Restaurant", "Sky Lounge Bar", "Cage / La Nouba Club"],
+      "tip": "Sahil kulüplerinde şezlong için hafta sonu rezervasyon şart; akşam Sky Lounge'ın panoramik terası en iyi manzarayı verir.",
+      "proposers": ["Emirkan Aydoğan", "Rim Jemmari", "Ayşe Koyuncu", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "gir-lapta", "region": "girne", "title": "Lapta Pınarları, Eski Köy & Sahil Yürüyüşü",
+      "themes": ["nature", "history", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Tarihi üst köy, geleneksel su kaynakları ve Girne'nin batısındaki uzun sahil yürüyüş yolunu birleştiren sakin bir rota.",
+      "stops": ["Lapta Eski Köy", "Başpınar", "Tarihi Lapta Su Kanalları", "Lapta Sahil Yürüyüş Yolu", "Karşıyaka Gün Batımı Kıyısı"],
+      "tip": "Az bilinen bir rota — köyün üst kısmındaki tarihi su kanalları serin ve gölgeli, yaz sıcağında ideal bir mola.",
+      "proposers": ["Can Aker"]
+    },
+    {
+      "id": "mag-walledcity", "region": "magusa", "title": "Surlariçi & Ortaçağ Mirası",
+      "themes": ["history"], "duration": "Tam gün", "difficulty": "Orta (yürüyüş)",
+      "summary": "Ayakta duran Venedik surları, Gotik Lala Mustafa Paşa Camii, Othello Kalesi ve Namık Kemal Zindanı. Tarihseverler için zengin bir rota.",
+      "stops": ["Akkule (Land Gate)", "Lala Mustafa Paşa Camii", "Venedik Sarayı Kalıntıları", "Namık Kemal Zindanı", "Othello Kalesi", "Canbulat Müzesi", "Şehir Surları"],
+      "tip": "Petek Pastanesi surlariçinin kalbinde; geleneksel Kıbrıs tatlıları için tarihi turun ortasında mola verin.",
+      "proposers": ["Helin Gül", "Bilgesu Kökat", "Tinashe Chari", "Bupe Kabanda", "Kadircan Alaca", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "mag-salamis", "region": "magusa", "title": "Salamis Antik Kenti & St. Barnabas",
+      "themes": ["history", "coast"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Roma jimnazyumu, tiyatrosu ve bazilikasıyla adanın en önemli antik kenti, ardından St. Barnabas Manastırı, Kral Mezarları ve Glapsides plajı.",
+      "stops": ["Salamis Harabeleri", "Roma Tiyatrosu", "St. Barnabas Manastırı & İkon Müzesi", "Kral Mezarları", "Glapsides Plajı"],
+      "tip": "Salamis'te gölge neredeyse yok — sabah gidin. Saat 11'den sonra taşların üzerindeki sıcak bunaltıcı olur.",
+      "proposers": ["Umut Sevinç", "Aysu Tatlısu", "Berra Somuncu", "Fatih Mehmet Yılmaz", "Michael Eneyufoh Umoize", "Daniel Otwori", "Kadircan Alaca"]
+    },
+    {
+      "id": "mag-varosha", "region": "magusa", "title": "Kapalı Maraş & Palm Beach",
+      "themes": ["history", "coast"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Yakın tarihin sessizliğiyle sahil keyfini birleştiren rota: hayalet şehir Maraş'ın açık bölümleri, ardından Palm Beach'te yüzme, yemek ve mola.",
+      "stops": ["Kapalı Maraş (Açık Bölgeler)", "Maraş Sahili", "Palm Beach", "Petek Pastanesi", "Sahil Kafeleri"],
+      "tip": "Maraş'ta bisiklet kiralama alanları var; açık bölgeleri pedallayarak gezmek yürümekten çok daha rahat. Su ve güneş koruması getirin.",
+      "proposers": ["Berra Somuncu", "Emirkan Aydoğan", "Mahmoud Metwaly", "Kadircan Alaca", "Abdullah Al Salkhadi", "Suhail Ahmed", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "mag-enkomi", "region": "magusa", "title": "Enkomi Bronz Çağı & Kırsal Mağusa",
+      "themes": ["history", "nature"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Adanın Bronz Çağı kalıntılarını — Enkomi antik kentini — ziyaret edip sakin kırsal manzaralarla tamamlanan az bilinen bir arkeoloji rotası.",
+      "stops": ["Enkomi Antik Kenti", "Mağusa Kırsal Yolu", "Eski Nehir Yatağı Manzarası", "Tuzla Köy Kafesi", "Gazimağusa Surlarına Yaklaşım"],
+      "tip": "Enkomi'yi çoğu ziyaretçi atlar — turist otobüsü yok, antik kenti neredeyse tek başınıza gezersiniz.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "isk-longbeach", "region": "iskele", "title": "İskele Sahil & Miras Rotası",
+      "themes": ["coast", "history"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Altın kumlu Long Beach, Boğaz balıkçı limanı, arkeoloji ve ikon müzeleri. Doğal güzellikle kültürel mirasın dengeli birleşimi.",
+      "stops": ["İskele Arkeoloji Müzesi", "Panayia Theotokos İkon Müzesi", "Long Beach (Altınkum)", "Boğaz Balıkçı Limanı", "Kalecik Halk Plajı"],
+      "tip": "Boğaz Limanı'nda öğleden sonra balıkçılar taze tuttukları balığı doğrudan satar; akşam yemeği için buradan alınabilir.",
+      "proposers": ["Aysu Tatlısu", "Berra Somuncu", "Mahmoud Metwaly", "Ayan Tahir", "Daniel Otwori"]
+    },
+    {
+      "id": "isk-kantara", "region": "iskele", "title": "Kantara Kalesi & Doğu Panoraması",
+      "themes": ["history", "nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Adanın en doğudaki dağ kalesinden ormanlara, kırsal köylere ve sessiz kıyıya uzanan manzara rotası. Buffavento ile birleştirilebilen çoklu kale seçeneği de mevcut.",
+      "stops": ["Kantara Kalesi", "Kantara Köyü", "Mersinlik Ormanı", "Kaplıca Sahili", "Tatlısu Kıyısı"],
+      "tip": "Kantara üç dağ kalesinin en iyi korunmuşu ve en doğudakidir; açık havada hem kuzey hem güney sahilleri aynı anda görünür.",
+      "proposers": ["Aysu Tatlısu", "Ayan Tahir", "Can Aker", "Olaoluwa Oluwarotimi", "Tinashe Chari", "Bupe Kabanda", "Emirkan Aydoğan"]
+    },
+    {
+      "id": "isk-bafra", "region": "iskele", "title": "Mehmetçik Bağları, Bafra & Boğaz Kıyısı",
+      "themes": ["food", "nature", "coast"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Köy hayatı ve üzüm bağı manzaralarından Bafra sahiline ve Boğaz balıkçı limanına uzanan sakin, gastronomik bir gün. Kimsenin listesine girmeyen bir bölge.",
+      "stops": ["Mehmetçik Köyü", "Mehmetçik Festival Meydanı", "Üzüm Bağı Manzarası", "Bafra Halk Plajı", "Boğaz Balıkçı Limanı"],
+      "tip": "Bölge küçük aile şarap üreticileriyle dolu; acele etmeyin ve uzun bir öğle yemeği için plan yapın.",
+      "proposers": ["Can Aker"]
+    },
+    {
+      "id": "isk-wetland", "region": "iskele", "title": "Boğaz Sulak Alan & Kuş Gözlem",
+      "themes": ["nature", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Boğaz balıkçı limanından başlayıp Gastria sulak alanları ve Kaplıca kıyısını keşfeden, tuz düzlüğü ve kuş gözlem noktalı bir doğa rotası.",
+      "stops": ["Boğaz Balıkçı Limanı", "Gastria Sulak Alanı", "Kaplıca Sahili", "Tuz Düzlüğü Manzarası", "Kıyı Kuş Gözlem Noktası"],
+      "tip": "Sabah erken saatler kuş gözlemi için en verimli; dürbün getirmeyi unutmayın. Kıyı ve sulak alan kuş çeşitliliği açısından zengindir.",
+      "proposers": ["Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "kar-classic", "region": "karpaz", "title": "Klasik Karpaz: Eşekler, Altınkum & Apostolos Andreas",
+      "themes": ["nature", "scenic", "coast"], "duration": "Tam gün (uzun sürüş)", "difficulty": "Kolay (yürüyüş) / Uzun sürüş",
+      "summary": "Adanın en doğusuna tam günlük yol yolculuğu: köy hayatı, açık manzaralar, yabani eşekler, kilometrelerce Altınkum ve efsanevi manastır. Karpaz'ın imza rotası.",
+      "stops": ["Dipkarpaz Köyü", "Karpaz Manzaralı Sürüş", "Yabani Eşek Bölgesi", "Altınkum (Golden Beach)", "Ayios Philon Kilisesi", "Apostolos Andreas Manastırı", "Zafer Burnu"],
+      "tip": "Yabani eşekler yol kenarında yaklaşır ama beslemeyin — yasak ve onlar için zararlı. Uzun sürüş için depoyu Dipkarpaz öncesi doldurun.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Aysu Tatlısu", "Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Egrenah Phiri", "Tinashe Chari", "Olaoluwa Oluwarotimi", "Emirkan Aydoğan", "Michael Eneyufoh Umoize", "Daniel Otwori", "Kadircan Alaca", "Abdullah Al Salkhadi", "Rim Jemmari", "Suhail Ahmed", "Muneer Mohamed"]
+    },
+    {
+      "id": "kar-seacaves", "region": "karpaz", "title": "Gizli Koylar & Deniz Mağaraları",
+      "themes": ["coast", "nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Akdeniz'in kendi mimarisini oyduğu yer: mavi ışıltılı deniz mağarası, Camel Point, Horseshoe Beach ve Altınkum'un daha az kalabalık ucu. Mayo şart.",
+      "stops": ["Blue House Deniz Mağarası", "Camel Point", "Horseshoe Beach", "Kaplıca Sahili", "Altınkum (Az Kalabalık Uç)", "Zafer Burnu Kayalıkları"],
+      "tip": "Birkaç durak yüzmeyi gerektiriyor — mayo ve su ayakkabısı getirin. Deniz mağarasının içindeki mavi ışık öğle saatlerinde en belirgin.",
+      "proposers": ["Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "kar-wildnature", "region": "karpaz", "title": "Karpaz Vahşi Doğa (70 km Yarımada)",
+      "themes": ["nature", "scenic"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Yarımadanın tüm uzunluğunu, tarım arazisinden deniz fenerine kadar kat eden rota. Avrupa kıyısından çok ıssız bir adayı andıran manzaralar.",
+      "stops": ["Yenierenköy", "Karpaz Milli Parkı", "Altınkum", "Dipkarpaz Köyü", "Zafer Burnu", "Apostolos Andreas", "Ronnas Koyu"],
+      "tip": "Ronnas Koyu neredeyse hiç bilinmez ve genelde bomboştur — yarımadanın en sakin yüzme noktalarından biri.",
+      "proposers": ["Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "kar-yudi", "region": "karpaz", "title": "Yudi Dağı Yürüyüşü & Karpaz Gate Marina",
+      "themes": ["nature", "coast"], "duration": "Tam gün", "difficulty": "Zor (yürüyüş)",
+      "summary": "Yudi Dağı'nda zorlu bir yürüyüş, Yeni Erenköy plajında yüzme ve Karpaz Gate Marina'da sakin bir gün batımı finali. Aktif gezginler için.",
+      "stops": ["Yudi Dağı Yürüyüş Parkuru", "Yeni Erenköy Halk Plajı", "Karpaz Gate Marina", "Gün Batımı Noktası", "Revaklı Ev Konağı"],
+      "tip": "Yudi Dağı tırmanışı için sağlam ayakkabı ve bol su şart; marina ise yürüyüş sonrası konforlu bir toparlanma durağı.",
+      "proposers": ["Kadircan Alaca"]
+    },
+    {
+      "id": "kar-caves", "region": "karpaz", "title": "Karpaz Mağaraları & Antik İzler",
+      "themes": ["history", "nature", "coast"], "duration": "Tam gün", "difficulty": "Orta",
+      "summary": "Antik mağaralar, Agla Trias, tarihi kiliseler ve uçsuz plajlarla Karpaz'ın en uç noktasına — dünyanın kenarındaymış hissi veren bir rota.",
+      "stops": ["Hill Coffee", "Antik Mağaralar", "Agla Trias", "Aylos Kilisesi", "Big Sand Beach", "Rizokarpaso (Uç Nokta)"],
+      "tip": "Uzun bir sürüş rotası — sabah erken çıkın ve Dipkarpaz sonrası benzin istasyonu olmadığını unutmayın.",
+      "proposers": ["Ayan Tahir"]
+    },
+    {
+      "id": "kar-buyukkonuk", "region": "karpaz", "title": "Büyükkonuk Eko-Köy & Doğu Kapısı",
+      "themes": ["nature", "food", "history"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "KKTC'nin ilk eko-turizm köyü Büyükkonuk üzerinden Karpaz'a giriş: geleneksel el sanatları, yerel yemek ve köy yaşamı.",
+      "stops": ["İskele Arkeoloji Müzesi", "Kantara Kalesi", "Büyükkonuk Eko-Köy", "Dipkarpaz Köyü", "Ayios Philon Kilisesi"],
+      "tip": "Büyükkonuk'ta eko-gün festivalleri düzenlenir; denk gelirseniz geleneksel hellim yapımı ve zeytin ezme gösterilerini kaçırmayın.",
+      "proposers": ["Umut Sevinç"]
+    },
+    {
+      "id": "bati-soli", "region": "bati", "title": "Soli Antik Kenti & Vouni Sarayı",
+      "themes": ["history", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Kuğu mozaiğiyle ünlü Soli, tepedeki Vouni Sarayı ve batı kıyısının sessiz antik kentleri. Turist otobüsleri buraya pek uğramaz.",
+      "stops": ["Soli Bazilikası", "Soli Roma Tiyatrosu", "Antik Agora", "Vouni Sarayı", "Manzara Noktası"],
+      "tip": "Vouni Sarayı'ndan gün batımı batı kıyısının en güzellerinden biri ve popüler noktalara göre çok daha sakin.",
+      "proposers": ["Umut Sevinç", "Egrenah Phiri", "Awadhi Justine Albert", "Olaoluwa Oluwarotimi", "Michael Eneyufoh Umoize", "Kadircan Alaca", "Muneer Mohamed", "Suhail Ahmed"]
+    },
+    {
+      "id": "bati-guzelyurt", "region": "bati", "title": "Güzelyurt Arkeoloji & Portakal Kasabası",
+      "themes": ["history", "nature", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Tarım bahçeleri, bölge kasabası pazarları ve müze tarihleri etrafında kurulu sakin bir batı rotası; St. Mamas ve portakal bahçeleri.",
+      "stops": ["Güzelyurt Merkez", "Arkeoloji & Doğa Tarihi Müzesi", "St. Mamas Kilisesi & İkon Müzesi", "Portakal Bahçeleri", "Yakın Köyler"],
+      "tip": "Sabah erken gidin — yerel çiftçiler taze portakal ve limon getirdiğinde pazar en canlı halinde olur.",
+      "proposers": ["Eyad Al-Moaid", "Helin Gül", "Daniel Otwori"]
+    },
+    {
+      "id": "bati-lefke", "region": "bati", "title": "Lefke Narenciye & Osmanlı Su Kemerleri",
+      "themes": ["history", "nature", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Portakal kokulu tarihi sokaklar, Osmanlı konakları, su kemerleri ve Piri Mehmet Paşa Camii. Kalabalıktan uzak otantik bir Kıbrıs.",
+      "stops": ["Lefke Merkez", "Piri Mehmet Paşa Camii", "Osmanlı Su Kemeri", "Narenciye Bahçeleri", "Yerel Kahvehaneler", "Citrus Pazarı"],
+      "tip": "Sabah erken, yerel çiftçiler taze portakal ve limon getirdiğinde uğrayın. İlkbaharda narenciye çiçeği kokusu tüm kasabayı sarar.",
+      "proposers": ["Awadhi Justine Albert", "Venon Rukwasi", "Emirkan Aydoğan", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "bati-cmc", "region": "bati", "title": "Gemikonağı Endüstri Hafızası & CMC Mirası",
+      "themes": ["history", "coast"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Lefke'nin madencilik tarihini anlatan eski CMC yapıları, maden demiryolu ve Gemikonağı'nın kıyı manzarası. Çoğu ziyaretçinin bilmediği bir endüstri rotası.",
+      "stops": ["Eski CMC Yapıları", "Maden Demiryolu Alanı", "Cengiz Topel Anıtı", "Gemikonağı Limanı & İskele", "Sahil Yürüyüş Yolu"],
+      "tip": "Gemikonağı'nın eski iskelesi fotoğraf için mükemmel; bu bölgenin Kıbrıs bakır madenciliğindeki tarihi rolünü çoğu kişi bilmez.",
+      "proposers": ["Bilgesu Kökat", "Fatih Mehmet Yılmaz", "Awadhi Justine Albert", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "bati-yesilirmak", "region": "bati", "title": "Yeşilırmak Çilek Bahçeleri & Batı Kıyısı",
+      "themes": ["nature", "food", "coast"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Soli ve Vouni'den başlayıp Lefke ve Yeşilırmak'ta yerel molalarla ilerleyen, çilek sezonunda bahçe ziyareti ve Yedidalga plajıyla biten batı rotası.",
+      "stops": ["Soli Antik Kenti", "Vouni Sarayı", "Lefke Yerel Durak", "Yeşilırmak Çilek Bahçeleri", "Dev Çilek Heykeli", "Yedidalga Plajı"],
+      "tip": "Çilek sezonu (ilkbahar) için zamanlayın; Yeşilırmak'ın dev çilek heykeli ve yerel çilek ürünleri sezonun simgesi.",
+      "proposers": ["Berra Somuncu", "Emirkan Aydoğan", "Suhail Ahmed"]
+    },
+    {
+      "id": "bati-kormakitis", "region": "bati", "title": "Kormakitis Burnu & Blue Lagoon Tekne Turu",
+      "themes": ["coast", "nature", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Girne'nin batısında kıyı boyunca tekne turu: Kormakitis Burnu, Blue Lagoon'da yüzme, şnorkelli resif keşfi ve sakin Sadrazamköy sahili.",
+      "stops": ["Kormakitis Burnu Kıyısı", "Blue Lagoon Yüzme Durağı", "Şnorkel Resif Alanı", "Sadrazamköy Sahili", "Kyrenia Limanı Dönüş"],
+      "tip": "Blue Lagoon'un berrak suyu şnorkel için ideal; tekne turları genelde Girne limanından kalkar, sabah slotunu tercih edin.",
+      "proposers": ["Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "bati-maronit", "region": "bati", "title": "Koruçam Maronit Kültürü & Kormakitis Burnu",
+      "themes": ["history", "food", "coast"], "duration": "Yarım–tam gün", "difficulty": "Kolay",
+      "summary": "Kendine özgü Maronit köyü, dini mirası, geleneksel yemek kültürü ve batının uzak kıyısı. Postkarta hiç girmemiş bir Kıbrıs.",
+      "stops": ["Koruçam Köy Meydanı", "St. George Maronit Katedrali", "Geleneksel Maronit Yemek Durağı", "Koruçam Sahili", "Kormakitis Burnu"],
+      "tip": "Köyde yabancılara el sallanır ve içemeyeceğiniz kadar kahve ikram edilir — acele etmeyin, bu rotanın ruhu yavaşlıkta.",
+      "proposers": ["Can Aker", "Fatih Mehmet Yılmaz", "Olaoluwa Oluwarotimi", "Rim Jemmari"]
+    },
+    {
+      "id": "bati-eul", "region": "bati", "title": "Lefke Üniversite Çevresi & Aphrodite Sahili",
+      "themes": ["coast", "food", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Lefke Avrupa Üniversitesi çevresinden başlayıp sahil restoranları ve gün batımı noktalarıyla ilerleyen, akademik enerjiyle kıyı huzurunu birleştiren rahat bir rota.",
+      "stops": ["LAÜ Kampüsü", "Lefke Merkez", "Aphrodite Sahil Restoranı", "Sahil Yürüyüşü", "Gün Batımı Noktası"],
+      "tip": "Aphrodite sahilindeki restoranlar gün batımına karşı konumlanmış; akşam yemeği için bu saati kollayın.",
+      "proposers": ["Venon Rukwasi"]
+    },
+    {
+      "id": "dag-buffavento", "region": "daglar", "title": "Buffavento & Unutulmuş Manastırlar",
+      "themes": ["nature", "history", "scenic"], "duration": "Tam gün", "difficulty": "Zor (tırmanış)",
+      "summary": "Kuzey kıyısının üzerinde saklı dramatik dağ rotası: Buffavento Kalesi, orman manzaraları, Sourp Magar Ermeni Manastırı ve Antiphonitis Kilisesi.",
+      "stops": ["Buffavento Kalesi", "Alevkaya Piknik Alanı", "Sourp Magar Ermeni Manastırı", "Antiphonitis Kilisesi", "Esentepe Dağ Seyir Noktası"],
+      "tip": "Buffavento 'rüzgarların meydan okuyanı' demek; zirveye 30–40 dakikalık tırmanışta gölge yok, sabah serinde çıkın. Ödül 360 derece manzara.",
+      "proposers": ["Umut Sevinç", "Can Aker", "Abdullah Al Salkhadi", "Suhail Ahmed"]
+    },
+    {
+      "id": "dag-ridge", "region": "daglar", "title": "Beşparmak Sırtı & Orman Kaçamağı",
+      "themes": ["nature", "scenic"], "duration": "Yarım–tam gün", "difficulty": "Orta",
+      "summary": "Değirmenlik orman girişinden başlayıp Beşparmak sırt yolu boyunca panoramik manzaralarla ilerleyen, piknik ve köy kafesi molalı bir dağ rotası.",
+      "stops": ["Değirmenlik Orman Girişi", "Beşparmak Sırt Yolu", "Panoramik Seyir Noktası", "Orman Piknik Alanı", "Herbaryum (Alevkaya)", "Köy Kafesi"],
+      "tip": "İlkbahar (Mart–Nisan) yaban çiçekleri ve orkidelerin dağ yamaçlarını kapladığı en iyi dönem.",
+      "proposers": ["Ayan Tahir", "Daniel Otwori", "Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "dag-dam", "region": "daglar", "title": "Geçitköy Barajı & Çam Ormanı",
+      "themes": ["nature", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Geçitköy Barajı'nın sessiz suları, çam ormanları, taş evli köyler ve manzara noktalarını birleştiren sakin bir kırsal rota. Değirmenlik köyleriyle birleştirilebilir.",
+      "stops": ["Geçitköy Barajı", "Çam Ormanı Patikası", "Geçitköy Köyü (Taş Evler)", "Piknik Alanı", "Panoramik Baraj Manzarası"],
+      "tip": "Doğa yürüyüşü ve piknik için ideal; hafta içi neredeyse tamamen sizindir. Değirmenlik ve Gönyeli köyleriyle birleştirilebilir.",
+      "proposers": ["Audrey Chiedza Munjoma", "Aline Mushimiyimana", "Joyce Abijuru"]
+    },
+    {
+      "id": "dag-olive", "region": "daglar", "title": "Kalkanlı Anıtsal Zeytinlikler & ODTÜ",
+      "themes": ["nature", "scenic"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Yüzlerce yaşında anıtsal zeytin ağaçları, vadi manzaraları, Çoban Mağarası ve ODTÜ kampüsünün huzurlu çevresi. Fotoğrafçılar için özel.",
+      "stops": ["Anıtsal Zeytinlik", "Çoban Mağarası", "Kalkanlı Vadi Manzarası", "ODTÜ Kampüs Alanı", "Anı Ağaçları Dinlenme Noktası"],
+      "tip": "Zeytin ağaçlarının bazıları binlerce yıllık; en iyi ışık için sabah erken ya da gün batımına yakın gidin.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "dag-beylerbeyi", "region": "daglar", "title": "Beylerbeyi Zanaat & Zeytinlik Turu",
+      "themes": ["history", "food", "nature"], "duration": "Yarım gün", "difficulty": "Kolay",
+      "summary": "Beylerbeyi'nin çömlek atölyeleri, zeytinlikleri ve sade köy hayatını keşfeden, yerel lezzetlerle biten bir kültür-doğa rotası.",
+      "stops": ["Beylerbeyi Köy Meydanı", "Çalışan Çömlek Atölyesi", "Zeytinlikler", "Köy Öğle Yemeği Durağı"],
+      "tip": "Çömlek atölyesinde ustaların çalışmasını izleyebilir, hatta kendi parçanızı yapabilirsiniz — çocuklu aileler için ideal.",
+      "proposers": ["Audrey Chiedza Munjoma"]
+    },
+    {
+      "id": "dag-villages", "region": "daglar", "title": "Gizli Köyler & Otantik Yerel Hayat",
+      "themes": ["history", "food"], "duration": "Tam gün", "difficulty": "Kolay",
+      "summary": "Kale yok, kalabalık yok — sadece zeytinlikler, taş kiliseler ve haftanın en büyük olayının hâlâ pazar günü olduğu köyler. Karmi'den Koruçam'a.",
+      "stops": ["Karmi Köyü", "Ozanköy", "Çatalköy", "Tepebaşı (Lale Köyü)", "Sadrazamköy", "Koruçam"],
+      "tip": "Rota planlı değil, keşif için — bir köyde durup kahve içmek, yabancılarla sohbet etmek bu rotanın asıl amacı.",
+      "proposers": ["Olaoluwa Oluwarotimi", "Rim Jemmari"]
+    }
+  ],
+  "signatureRoutes": [
+    {
+      "id": "sig-grand", "title": "Büyük Kıbrıs Turu", "subtitle": "Adanın uçtan uca en manzaralı sürüşü",
+      "days": "3–5 gün",
+      "summary": "Dağ köyü, üç kale, dramatik sırt yolu ve Zafer Burnu'na kadar uzanan vahşi Karpaz — otelden otele, adanın nihai yol yolculuğu.",
+      "arc": ["Girne (Liman & Bellapais)", "Dağlar (Üç Kale)", "Gazimağusa (Salamis & Surlar)", "Karpaz (Altınkum & Zafer Burnu)", "Batı (Antik Kentler)"],
+      "proposers": ["Nikolai Piatnov", "Daniel Otwori", "Fatih Mehmet Yılmaz", "Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "sig-gastronomy", "title": "Gastronomi Yolculuğu", "subtitle": "Bir köy mutfağı, bir sonraki durak",
+      "days": "2–3 gün",
+      "summary": "Narenciye, hellim, zeytin ve keçiboynuzu — Kıbrıs mutfağının ham maddelerini yetiştiği tarlalardan aile sofralarına kadar takip eden, otelden otele rota.",
+      "arc": ["Girne Limanı Kahvaltı", "Bellapais Köyü", "Zeytinlik Köyü", "Lefke & Vouni", "Değirmenlik Meze Öğle Yemeği"],
+      "proposers": ["Nikolai Piatnov", "Olaoluwa Oluwarotimi"]
+    },
+    {
+      "id": "sig-adventure", "title": "Macera & Eğlence", "subtitle": "Tam gaz bir gün, adanın bir ucundan diğerine",
+      "days": "1–2 gün",
+      "summary": "Lefkoşa dışında karting, resif dalışı, at binme, ATV safari ve batı kıyısında gün batımı sörfü — otelden otele dolu dizgin bir macera günü.",
+      "arc": ["Cemsa Karting (Ortaköy)", "Lapta Resif Dalışı", "ATV / Buggy Safari", "St. Hilarion Seyir", "Escape Beach Gün Batımı"],
+      "proposers": ["Nikolai Piatnov", "Emirkan Aydoğan", "Mahmoud Metwaly"]
+    },
+    {
+      "id": "sig-family", "title": "Aile Rotası", "subtitle": "Çocukların gerçekten sevdiği bir gün",
+      "days": "1 gün",
+      "summary": "Klimalı akvaryum, sakin tekne turu, lunapark ve sığ, güvenli yüzme — küçük çocuklarla gerçekten işe yarayan duraklarla kurulmuş, otelden otele yarım-tam gün.",
+      "arc": ["Ocean Akvaryum", "Girne Marina Tekne Turu", "Escape Beach (Sığ Koy)", "Lunapark", "Dondurma Kafesi"],
+      "proposers": ["Nikolai Piatnov", "Ayşe Koyuncu"]
+    },
+    {
+      "id": "sig-sunset", "title": "Gün Batımı & Yıldız Gözlemi", "subtitle": "Işığın peşinde bütün kuzey kıyısı",
+      "days": "1 gün",
+      "summary": "Tümüyle ışık etrafında kurulmuş rota — dağ kalesinde altın saat, terasta mavi saat ve Doğu Akdeniz'in en az ışık kirliliğine sahip göklerinde tam karanlık.",
+      "arc": ["St. Hilarion Seyir Noktası", "Bellapais Terası", "Sadrazamköy Gün Batımı", "Kormakitis Burnu", "Karpaz Gece Göğü"],
+      "proposers": ["Olaoluwa Oluwarotimi", "Awadhi Justine Albert", "Venon Rukwasi"]
+    }
+  ]
+}
