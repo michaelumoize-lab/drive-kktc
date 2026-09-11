@@ -4,13 +4,22 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
+import {
+  Menu,
+  ChevronRight,
+  Compass,
+  Info,
+  Star,
+  Car,
+  HelpCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
@@ -26,100 +35,132 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Explore Itineraries", href: "/routes" },
-    { name: "About", href: "/about" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Driving Guide", href: "/guide" },
-    { name: "FAQ", href: "/faq" },
+    { name: "Explore Itineraries", href: "/routes", icon: Compass },
+    { name: "About", href: "/about", icon: Info },
+    { name: "Testimonials", href: "/testimonials", icon: Star },
+    { name: "Driving Guide", href: "/guide", icon: Car },
+    { name: "FAQ", href: "/faq", icon: HelpCircle },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-sm supports-[backdrop-filter]:bg-background/60 dark:bg-background/80">
-      <div className="container mx-auto flex h-22 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Left: Logo */}
+        <Link href="/" className="flex items-center gap-2 shrink-0 font-semibold transition-opacity hover:opacity-90">
           <Image
             src={LOGO}
             alt="Drive KKTC"
-            width={160}
-            height={100}
-            className="h-full w-auto"
+            width={140}
+            height={88}
+            className="h-10 w-auto"
             priority
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-6">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {navLinks.map((link) => (
-                <NavigationMenuItem key={link.name}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href={link.href}
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md px-3 lg:px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                    >
-                      {link.name}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
+        {/* Center: Navigation (desktop only) */}
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList className="gap-1">
+            {navLinks.map((link) => (
+              <NavigationMenuItem key={link.name}>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href={link.href}
+                    className="px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary rounded-md"
+                  >
+                    {link.name}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
 
-          <ThemeToggle />
+        {/* Right: Actions */}
+        <div className="flex items-center gap-3">
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
 
-          <Button asChild className="hidden lg:inline-flex">
+          <Button asChild size="sm" className="hidden lg:inline-flex rounded-lg shadow-xs font-medium">
             <Link href="/routes">Get Started</Link>
           </Button>
-        </nav>
 
-        {/* Mobile Menu Button */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-[300px] sm:w-[350px] border-l border-border/50 bg-background p-4 sm:p-6"
-          >
-            <SheetHeader className="mb-4">
-              <SheetTitle className="flex items-center gap-2">
-                <Image
-                  src={LOGO}
-                  alt="Drive KKTC"
-                  width={140}
-                  height={88}
-                  className="h-12 w-auto"
-                />
-              </SheetTitle>
-            </SheetHeader>
-            <div className="flex flex-col gap-4 mt-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="rounded-md px-4 py-3 text-lg font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <hr className="my-2 border-border/50" />
-              <ThemeToggle />
-              <Button
-                asChild
-                className="mt-2 mx-4"
-                onClick={() => setIsOpen(false)}
-              >
-                <Link href="/routes">Get Started</Link>
+          {/* Mobile Navigation Drawer */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Open navigation menu</span>
               </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
+            </SheetTrigger>
+
+            <SheetContent
+              side="right"
+              className="flex flex-col justify-between w-[320px] sm:w-[380px] p-6 sm:p-8 border-l border-border bg-background text-foreground shadow-2xl"
+            >
+              <div className="flex flex-col gap-6">
+                {/* Header with Logo */}
+                <SheetHeader className="text-left pb-5 border-b border-border/60">
+                  <SheetTitle asChild>
+                    <Link
+                      href="/"
+                      onClick={() => setIsOpen(false)}
+                      className="transition-opacity hover:opacity-90 inline-block"
+                    >
+                      <Image
+                        src={LOGO}
+                        alt="Drive KKTC"
+                        width={140}
+                        height={88}
+                        className="h-9 w-auto"
+                      />
+                    </Link>
+                  </SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigation menu for Drive KKTC
+                  </SheetDescription>
+                </SheetHeader>
+
+                {/* Navigation Links */}
+                <nav className="flex flex-col gap-2">
+                  {navLinks.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="group flex items-center justify-between px-3.5 py-3 rounded-xl text-sm font-medium text-foreground hover:bg-accent/80 transition-all duration-150 active:scale-[0.98]"
+                      >
+                        <div className="flex items-center gap-3.5">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                            <Icon className="h-4 w-4" />
+                          </div>
+                          <span className="text-sm font-medium">{item.name}</span>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground/40 transition-transform group-hover:translate-x-0.5 group-hover:text-foreground" />
+                      </Link>
+                    );
+                  })}
+                </nav>
+              </div>
+
+              {/* Footer Area: Theme Toggle & Action */}
+              <div className="mt-auto pt-6 border-t border-border/60 flex flex-col gap-4">
+                <div className="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-muted/40 border border-border/40">
+                  <span className="text-sm font-medium text-muted-foreground">Theme</span>
+                  <ThemeToggle />
+                </div>
+
+                <Button asChild size="lg" className="w-full h-11 font-medium rounded-xl shadow-xs">
+                  <Link href="/routes" onClick={() => setIsOpen(false)}>
+                    Get Started
+                  </Link>
+                </Button>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

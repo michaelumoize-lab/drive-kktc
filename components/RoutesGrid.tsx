@@ -5,7 +5,10 @@ import RouteCard from "@/components/RouteCard";
 export default function RoutesGrid() {
   // Show all routes on homepage
   return (
-    <section id="routes" className="py-20 container mx-auto px-4">
+    <section
+      id="routes"
+      className="py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+    >
       <h2 className="text-3xl font-bold mb-2 text-foreground">
         Choose Your Drive
       </h2>

@@ -38,6 +38,7 @@ export function StopGallery({ images, stopName }: StopGalleryProps) {
           src={images[selectedIndex]}
           alt={`${stopName} - Image ${selectedIndex + 1}`}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 70vw, 800px"
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           onClick={() => openLightbox(selectedIndex)}
         />
@@ -101,6 +102,7 @@ export function StopGallery({ images, stopName }: StopGalleryProps) {
                 src={image}
                 alt={`${stopName} thumbnail ${index + 1}`}
                 fill
+                sizes="80px"
                 className="object-cover"
               />
             </button>
@@ -130,6 +132,7 @@ export function StopGallery({ images, stopName }: StopGalleryProps) {
               src={images[selectedIndex]}
               alt={`${stopName} - Full size`}
               fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
               className="object-contain"
             />
           </div>

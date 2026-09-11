@@ -37,20 +37,20 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative h-[40vh] min-h-[300px] flex items-center bg-primary/10">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/5" />
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               About Drive KKTC
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Northern Cyprus' first curated road trip guide platform – built by
+            <p className="text-lg sm:text-xl text-muted-foreground">
+              Northern Cyprus&apos; first curated road trip guide platform – built by
               locals, for explorers.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         {/* Mission */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-2xl font-bold mb-4">Our Mission</h2>

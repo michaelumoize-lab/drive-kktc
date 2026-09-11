@@ -49,6 +49,7 @@ export default function Hero() {
           src={HERO_BG}
           alt="Northern Cyprus scenic road trip"
           fill
+          sizes="100vw"
           className="object-cover"
         />
       </noscript>
@@ -95,8 +96,8 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-10" />
 
       {/* Content container with top/bottom padding */}
-      <div className="relative container mx-auto px-4 z-20 py-8 md:py-12">
-        <div className="max-w-3xl space-y-6 text-white">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 py-8 md:py-12">
+        <div className="max-w-3xl space-y-6 text-white text-left">
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full border border-primary/30">
             <MapPin className="h-4 w-4 text-primary" />
             <span>Northern Cyprus Travel Guide</span>

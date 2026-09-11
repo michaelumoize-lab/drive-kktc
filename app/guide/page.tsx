@@ -62,13 +62,13 @@ export default function GuidePage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative py-20 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-primary/5">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Driving Guide
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Everything you need to know before hitting the road in Northern
               Cyprus.
             </p>
@@ -77,7 +77,7 @@ export default function GuidePage() {
       </section>
 
       {/* Tips Grid */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {tips.map((tip, index) => (
             <Card key={index}>

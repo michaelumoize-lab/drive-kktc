@@ -10,13 +10,13 @@ export default function TestimonialsPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative py-20 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-primary/5">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Testimonials
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Hear what our travelers have to say about their Northern Cyprus
               adventures.
             </p>
@@ -25,7 +25,7 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials Grid */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial) => (
             <Card

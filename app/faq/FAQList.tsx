@@ -58,13 +58,13 @@ export default function FAQList() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative py-20 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-primary/5">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg sm:text-xl text-muted-foreground">
               Everything you need to know before hitting the road in Northern
               Cyprus.
             </p>
@@ -73,7 +73,7 @@ export default function FAQList() {
       </section>
 
       {/* FAQ List */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, index) => (
             <Card

@@ -6,19 +6,20 @@ import { routes } from "@/data/routes";
 import {
   MapPin,
   Clock,
-  DollarSign,
   Car,
-  Fuel,
-  Utensils,
-  Bus,
   ArrowLeft,
-  Calendar,
+  Navigation,
+  Compass,
+  Lightbulb,
+  Share2,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ShareButton } from "@/components/ShareButton";
-import { StopCard } from "@/components/StopCard";
 import { RouteTimeline } from "@/components/RouteTimeline";
+import { RouteMap } from "@/components/RouteMap";
+import { RouteStopsSection } from "@/components/RouteStopsSection";
+import { PracticalInfoGrid } from "@/components/PracticalInfoGrid";
 
 // Generate static paths for all routes
 export function generateStaticParams() {
@@ -70,224 +71,225 @@ export default async function RoutePage({
   }
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-100 flex items-end bg-background overflow-hidden">
+    <main className="min-h-screen bg-background pb-20 overflow-x-clip">
+      {/* 1. Cinematic Hero Section */}
+      <section className="relative h-[55vh] min-h-[420px] flex items-end bg-background overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src={route.heroImage}
             alt={route.title}
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          {/* Multi-layered cinematic gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/25" />
         </div>
 
-        <div className="relative container mx-auto px-4 z-10 pb-12">
-          <div className="max-w-4xl">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 pb-12">
+          <div className="max-w-4xl space-y-4 text-left">
             <Link
-              href="/#routes"
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-4"
+              href="/routes"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors group text-sm font-medium"
             >
-              <ArrowLeft className="h-4 w-4" />
-              <span>Back to Routes</span>
+              <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              <span>Back to all routes</span>
             </Link>
 
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <Badge className="bg-primary/20 text-primary-foreground border border-primary/30">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge className="bg-primary/90 text-primary-foreground border-0 backdrop-blur-md px-3 py-1 font-medium">
                 {route.theme}
               </Badge>
-              <div className="flex items-center text-yellow-400">
+              <div className="flex items-center text-yellow-400 text-sm font-bold">
                 {"★".repeat(route.rating)}
                 {"☆".repeat(5 - route.rating)}
               </div>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
               {route.title}
             </h1>
-            <p className="text-lg text-gray-200 max-w-2xl">{route.subtitle}</p>
-
-            <div className="flex flex-wrap gap-4 mt-4 text-sm text-white/80">
-              <span className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                {route.duration}
-              </span>
-              <span className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                {route.distance}
-              </span>
-              <span className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                Start: {route.startFinish}
-              </span>
-            </div>
+            <p className="text-lg sm:text-xl text-white/90 max-w-3xl leading-relaxed">
+              {route.subtitle}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Content Section */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-10">
-            <div>
-              <h2 className="text-2xl font-bold mb-4 text-foreground">
-                About This Route
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {route.intro}
-              </p>
+      {/* 2. Floating Quick Stats & Action Ribbon */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20 mb-12">
+        <div className="bg-card/95 backdrop-blur-md rounded-2xl border border-border/80 shadow-lg p-4 sm:p-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
+          {/* Key Metric Badges */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 flex-1">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+                <Clock className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Est. Duration</p>
+                <p className="text-sm font-bold text-foreground">
+                  {route.duration}
+                </p>
+              </div>
             </div>
 
-            {/* ✅ Add RouteTimeline */}
-            {route.suggestedStart && (
-              <RouteTimeline
-                stops={route.stops}
-                suggestedStart={route.suggestedStart}
-              />
-            )}
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+                <Navigation className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Distance</p>
+                <p className="text-sm font-bold text-foreground">
+                  {route.distance}
+                </p>
+              </div>
+            </div>
 
-            <div>
-              <h2 className="text-2xl font-bold mb-6 text-foreground">
-                Stops Along the Way
-              </h2>
-              <div className="space-y-6">
-                {route.stops.map((stop, index) => (
-                  <StopCard key={index} stop={stop} index={index} />
-                ))}
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Start / Finish</p>
+                <p className="text-sm font-bold text-foreground truncate max-w-[140px]">
+                  {route.startFinish}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
+                <Compass className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">Total Stops</p>
+                <p className="text-sm font-bold text-foreground">
+                  {route.stops.length} Waypoints
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-primary flex items-center gap-2 mb-3">
-                  💡 Local&apos;s Insider Tip
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {route.insiderTip}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4 text-foreground">
-                  Practical Information
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Best Season
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.bestSeason}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Parking
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.parking}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <DollarSign className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Entrance Fees
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.entranceFees}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Fuel className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Fuel Stations
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.fuelStations}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Car className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Recommended Vehicle
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.recommendedVehicle}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Utensils className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Restaurants
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.restaurants}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Bus className="h-4 w-4 text-primary mt-0.5" />
-                    <div>
-                      <p className="text-sm font-medium text-foreground">
-                        Public Transport
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {route.practicalInfo.publicTransport}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <ShareButton title={route.title} />
-
-            {route.mapEmbedUrl && (
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold mb-3 text-foreground">
-                    Route Map
-                  </h3>
-                  <div className="aspect-video w-full rounded-lg overflow-hidden bg-muted">
-                    <iframe
-                      src={route.mapEmbedUrl}
-                      className="w-full h-full"
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title={`${route.title} Map`}
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-2">
-                    📍 Click markers for stop details • Zoom in to explore
-                  </p>
-                </CardContent>
-              </Card>
-            )}
+          {/* Action Triggers */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:flex lg:items-center gap-2.5 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-border/60 lg:pl-6 w-full lg:w-auto">
+            <Button asChild variant="default" size="sm" className="rounded-xl gap-2 font-medium w-full sm:w-auto">
+              <a href="#stops">
+                <MapPin className="h-4 w-4" />
+                <span>Explore Stops</span>
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm" className="rounded-xl gap-2 font-medium w-full sm:w-auto">
+              <a href="#route-map">
+                <Navigation className="h-4 w-4" />
+                <span>Interactive Map</span>
+              </a>
+            </Button>
+            <div className="w-full sm:w-auto lg:w-32">
+              <ShareButton title={route.title} />
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Main Page Flow Container */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+        {/* 3. Narrative & Overview Section */}
+        <section className="max-w-4xl space-y-8">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
+              <Compass className="h-3.5 w-3.5" />
+              <span>Route Overview</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              About This Journey
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+              {route.intro}
+            </p>
+          </div>
+
+          {/* Timeline schedule breakdown */}
+          {route.suggestedStart && (
+            <RouteTimeline
+              stops={route.stops}
+              suggestedStart={route.suggestedStart}
+            />
+          )}
+        </section>
+
+        {/* 4. Full-Width Luxury Insider Tip Callout */}
+        {route.insiderTip && (
+          <section className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent p-6 sm:p-8 shadow-xs">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/20 text-amber-500 ring-4 ring-amber-500/10">
+                <Lightbulb className="h-6 w-6" />
+              </div>
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-amber-500">
+                  <span>Local&apos;s Secret & Insider Tip</span>
+                </div>
+                <p className="text-base sm:text-lg italic text-foreground/90 leading-relaxed font-serif">
+                  &ldquo;{route.insiderTip}&rdquo;
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 5. The Stops Journey (Interactive Sticky Layout) */}
+        <RouteStopsSection stops={route.stops} />
+
+        {/* 6. Full-Width Interactive Route Map Section */}
+        {route.mapEmbedUrl && (
+          <section id="route-map" className="scroll-mt-24 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+              <div>
+                <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full mb-2">
+                  <Navigation className="h-3.5 w-3.5" />
+                  <span>GPS & Directions</span>
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                  Interactive Route Map
+                </h2>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Full GPS map with all pins, turns, and points of interest. Click any marker for stop info.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-border/80 shadow-md">
+              <RouteMap
+                embedUrl={route.mapEmbedUrl}
+                title={`${route.title} - Interactive Route Map`}
+              />
+            </div>
+          </section>
+        )}
+
+        {/* 7. Practical Information Bento Grid */}
+        <section className="pt-4 border-t border-border/60">
+          <PracticalInfoGrid info={route.practicalInfo} />
+        </section>
+
+        {/* 8. Bottom Navigation & CTA Banner */}
+        <section className="rounded-2xl bg-muted/40 border border-border/60 p-8 text-center space-y-6">
+          <h3 className="text-2xl font-bold text-foreground">
+            Ready for your Northern Cyprus Road Trip?
+          </h3>
+          <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base">
+            Share this itinerary with your travel companions, or explore our other curated routes across the island.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+            <Button asChild size="lg" className="rounded-xl px-6 w-full sm:w-auto">
+              <Link href="/routes">Explore More Routes</Link>
+            </Button>
+            <div className="w-full sm:w-44">
+              <ShareButton title={route.title} />
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
