@@ -9,8 +9,8 @@ export default function Testimonials() {
   const featuredTestimonials = testimonials.slice(0, 3);
 
   return (
-    <section className="py-16 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">

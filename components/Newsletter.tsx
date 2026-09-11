@@ -25,10 +25,10 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-primary/10 via-primary/5 to-background">
-      <div className="container mx-auto px-4">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-primary/10 via-primary/5 to-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Card className="max-w-4xl mx-auto border-primary/20 shadow-xl bg-card/80 backdrop-blur-sm">
-          <CardContent className="p-8 md:p-12">
+          <CardContent className="p-6 sm:p-8 md:p-12">
             <div className="grid lg:grid-cols-5 gap-8 items-center">
               {/* Left Content */}
               <div className="lg:col-span-3 space-y-4">

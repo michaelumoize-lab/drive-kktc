@@ -11,6 +11,7 @@ export interface Route {
   rating: number;
   mapEmbedUrl: string;
   intro: string;
+  suggestedStart?: string; // ✨ NEW
   stops: {
     name: string;
     description: string;
@@ -19,6 +20,8 @@ export interface Route {
     openingHours?: string;
     entranceFee?: string;
     tip?: string;
+    suggestedArrival?: string; // ✨ NEW
+    driveTime?: string; // ✨ NEW
   }[];
   practicalInfo: {
     bestSeason: string;
@@ -37,6 +40,9 @@ export interface Route {
 }
 
 export const routes: Route[] = [
+  // =============================================
+  // 1. Kyrenia Heritage & Coastal Loop
+  // =============================================
   {
     slug: "kyrenia-heritage-coastal",
     title: "Kyrenia Heritage & Coastal Loop",
@@ -49,6 +55,7 @@ export const routes: Route[] = [
     rating: 5,
     mapEmbedUrl:
       "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
+    suggestedStart: "8:00 AM",
     intro:
       "This route combines Northern Cyprus' most famous harbour, a medieval castle, a stunning hilltop abbey, a mountain fortress, and a protected turtle beach. Perfect for history lovers and nature enthusiasts alike, the Kyrenia Heritage & Coastal Loop offers a day of diverse experiences within a short driving distance from the picturesque Kyrenia Harbour. From the ancient walls of Kyrenia Castle to the serene atmosphere of Bellapais Abbey, and from the panoramic views of St. Hilarion to the pristine sands of Alagadi Beach, this route showcases the best of the Kyrenia region in one unforgettable journey.",
     stops: [
@@ -60,7 +67,6 @@ export const routes: Route[] = [
         openingHours: "24/7 (Restaurants open until late)",
         entranceFee: "Free",
         tip: "Visit early morning (7-9 AM) for the best photos of the harbour with the mountains in the background – the light is perfect and the harbour is quiet.",
-        // ✅ Add images array
         images: [
           "/images/routes/kyrenia/kyrenia-harbour/1.jpg",
           "/images/routes/kyrenia/kyrenia-harbour/2.jpg",
@@ -68,6 +74,8 @@ export const routes: Route[] = [
           "/images/routes/kyrenia/kyrenia-harbour/4.jpg",
           "/images/routes/kyrenia/kyrenia-harbour/5.jpg",
         ],
+        suggestedArrival: "8:00 AM",
+        driveTime: "0 min",
       },
       {
         name: "Kyrenia Castle",
@@ -85,6 +93,8 @@ export const routes: Route[] = [
           "/images/routes/kyrenia/kyrenia-castle/5.jpg",
           "/images/routes/kyrenia/kyrenia-castle/6.jpg",
         ],
+        suggestedArrival: "8:45 AM",
+        driveTime: "5 min",
       },
       {
         name: "Bellapais Abbey",
@@ -101,6 +111,8 @@ export const routes: Route[] = [
           "/images/routes/kyrenia/bellapais-abbey/4.jpg",
           "/images/routes/kyrenia/bellapais-abbey/5.jpg",
         ],
+        suggestedArrival: "10:00 AM",
+        driveTime: "15 min",
       },
       {
         name: "St. Hilarion Castle",
@@ -115,6 +127,8 @@ export const routes: Route[] = [
           "/images/routes/kyrenia/st-hilarion-castle/2.jpg",
           "/images/routes/kyrenia/st-hilarion-castle/3.jpg",
         ],
+        suggestedArrival: "11:45 AM",
+        driveTime: "20 min",
       },
       {
         name: "Alagadi Turtle Beach",
@@ -129,6 +143,8 @@ export const routes: Route[] = [
           "/images/routes/kyrenia/alagadi-turtle-beach/2.jpeg",
           "/images/routes/kyrenia/alagadi-turtle-beach/3.jpg",
         ],
+        suggestedArrival: "2:00 PM",
+        driveTime: "30 min",
       },
     ],
     practicalInfo: {
@@ -153,6 +169,10 @@ export const routes: Route[] = [
         "Discover North Cyprus' most iconic route combining Kyrenia Harbour, medieval castles, Bellapais Abbey, St. Hilarion, and Alagadi Turtle Beach in one unforgettable day.",
     },
   },
+
+  // =============================================
+  // 2. Famagusta History Loop
+  // =============================================
   {
     slug: "famagusta-history-loop",
     title: "Famagusta History Loop",
@@ -165,6 +185,7 @@ export const routes: Route[] = [
     rating: 5,
     mapEmbedUrl:
       "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
+    suggestedStart: "8:00 AM",
     intro:
       "Famagusta is a city where history comes alive around every corner. This loop takes you through 3,000 years of history, from the ancient city of Salamis to the medieval walls of Famagusta, the Venetian fortress of Othello Castle, and the haunting viewpoint over Varosha. This is one of the richest historical routes in North Cyprus, offering a deep dive into the ancient civilizations and medieval kingdoms that shaped the region.",
     stops: [
@@ -183,6 +204,8 @@ export const routes: Route[] = [
           "/images/routes/famagusta/famagusta-walled-city/4.jpg",
           "/images/routes/famagusta/famagusta-walled-city/5.jpg",
         ],
+        suggestedArrival: "8:00 AM",
+        driveTime: "0 min",
       },
       {
         name: "Othello Castle",
@@ -199,6 +222,8 @@ export const routes: Route[] = [
           "/images/routes/famagusta/othello-castle/4.jpg",
           "/images/routes/famagusta/othello-castle/5.jpg",
         ],
+        suggestedArrival: "9:30 AM",
+        driveTime: "10 min",
       },
       {
         name: "Ancient Salamis",
@@ -216,6 +241,8 @@ export const routes: Route[] = [
           "/images/routes/famagusta/ancient-salamis/5.jpg",
           "/images/routes/famagusta/ancient-salamis/6.jpg",
         ],
+        suggestedArrival: "10:30 AM",
+        driveTime: "15 min",
       },
       {
         name: "St. Barnabas Monastery",
@@ -233,6 +260,8 @@ export const routes: Route[] = [
           "/images/routes/famagusta/st-barnabas-monastery/6.jpg",
           "/images/routes/famagusta/st-barnabas-monastery/7.jpg",
         ],
+        suggestedArrival: "12:30 PM",
+        driveTime: "10 min",
       },
       {
         name: "Varosha Viewpoint",
@@ -249,6 +278,8 @@ export const routes: Route[] = [
           "/images/routes/famagusta/varosha-viewpoint/4.jpg",
           "/images/routes/famagusta/varosha-viewpoint/5.jpg",
         ],
+        suggestedArrival: "2:00 PM",
+        driveTime: "15 min",
       },
     ],
     practicalInfo: {
@@ -275,6 +306,10 @@ export const routes: Route[] = [
         "Explore 3,000 years of history on this loop through Famagusta's ancient ruins, medieval walls, Venetian castle, and the haunting views of Varosha's abandoned city.",
     },
   },
+
+  // =============================================
+  // 3. Karpaz Nature Loop
+  // =============================================
   {
     slug: "karpaz-nature-loop",
     title: "Karpaz Nature Loop",
@@ -287,6 +322,7 @@ export const routes: Route[] = [
     rating: 5,
     mapEmbedUrl:
       "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
+    suggestedStart: "8:00 AM",
     intro:
       "The Karpaz Peninsula is North Cyprus' last wilderness – a remote, unspoiled paradise where wild donkeys roam freely, golden beaches stretch for miles, and time seems to stand still. This loop takes you through the heart of the peninsula, from the traditional village of Dipkarpaz to the iconic Apostolos Andreas Monastery, past the wild donkey herds to Golden Beach, and along the northern coast. This is arguably the most scenic route in all of North Cyprus and offers a true escape from the modern world.",
     stops: [
@@ -304,6 +340,8 @@ export const routes: Route[] = [
           "/images/routes/karpaz/dipkarpaz-village/3.jpg",
           "/images/routes/karpaz/dipkarpaz-village/4.jpg",
         ],
+        suggestedArrival: "8:00 AM",
+        driveTime: "0 min",
       },
       {
         name: "Golden Beach (Altınkum)",
@@ -320,6 +358,8 @@ export const routes: Route[] = [
           "/images/routes/karpaz/golden-beach/4.jpg",
           "/images/routes/karpaz/golden-beach/5.jpg",
         ],
+        suggestedArrival: "9:00 AM",
+        driveTime: "30 min",
       },
       {
         name: "Karpaz National Park – Wild Donkey Protection Area",
@@ -336,6 +376,8 @@ export const routes: Route[] = [
           "/images/routes/karpaz/karpaz-national-park/4.jpg",
           "/images/routes/karpaz/karpaz-national-park/5.jpg",
         ],
+        suggestedArrival: "11:00 AM",
+        driveTime: "20 min",
       },
       {
         name: "Apostolos Andreas Monastery",
@@ -352,6 +394,8 @@ export const routes: Route[] = [
           "/images/routes/karpaz/apostolos-andreas-monastery/4.jpg",
           "/images/routes/karpaz/apostolos-andreas-monastery/5.jpg",
         ],
+        suggestedArrival: "1:00 PM",
+        driveTime: "30 min",
       },
       {
         name: "Ayios Philon (Agios Philon)",
@@ -366,6 +410,8 @@ export const routes: Route[] = [
           "/images/routes/karpaz/ayios-philon/2.jpg",
           "/images/routes/karpaz/ayios-philon/3.jpg",
         ],
+        suggestedArrival: "3:00 PM",
+        driveTime: "30 min",
       },
     ],
     practicalInfo: {
@@ -391,6 +437,10 @@ export const routes: Route[] = [
         "Experience the wild beauty of North Cyprus' Karpaz Peninsula with this loop of untouched beaches, free-roaming donkeys, and the iconic Apostolos Andreas Monastery.",
     },
   },
+
+  // =============================================
+  // 4. Nicosia Old City Loop (Half Day, Walking)
+  // =============================================
   {
     slug: "nicosia-old-city-loop",
     title: "Nicosia Old City Loop",
@@ -403,6 +453,7 @@ export const routes: Route[] = [
     rating: 5,
     mapEmbedUrl:
       "https://www.google.com/maps/d/embed?mid=1QK4X4mZ0V5k0oPjVYiX3lTlF1nU",
+    suggestedStart: "9:00 AM",
     intro:
       "Nicosia, the world's last divided capital, offers a fascinating blend of cultures, religions, and architectural styles. This loop takes you through the heart of the old city, from the Ottoman-era Büyük Han to the Gothic Selimiye Mosque, past the Byzantine Bedesten, through the Venetian city walls, and into the bustling local market. Everything is within walking distance, making this the perfect city exploration route that can be completed in just a few hours, giving you a deep insight into the city's rich and layered history.",
     stops: [
@@ -421,6 +472,8 @@ export const routes: Route[] = [
           "/images/routes/nicosia/büyük-han/4.jpg",
           "/images/routes/nicosia/büyük-han/5.jpg",
         ],
+        suggestedArrival: "9:00 AM",
+        driveTime: "0 min",
       },
       {
         name: "Selimiye Mosque",
@@ -437,6 +490,8 @@ export const routes: Route[] = [
           "/images/routes/nicosia/selimiye-mosque/4.jpg",
           "/images/routes/nicosia/selimiye-mosque/5.jpg",
         ],
+        suggestedArrival: "10:00 AM",
+        driveTime: "5 min walk",
       },
       {
         name: "Bedesten",
@@ -452,6 +507,8 @@ export const routes: Route[] = [
           "/images/routes/nicosia/bedesten/3.jpg",
           "/images/routes/nicosia/bedesten/4.jpg",
         ],
+        suggestedArrival: "10:45 AM",
+        driveTime: "5 min walk",
       },
       {
         name: "Kyrenia Gate",
@@ -468,6 +525,8 @@ export const routes: Route[] = [
           "/images/routes/nicosia/kyrenia-gate/4.jpg",
           "/images/routes/nicosia/kyrenia-gate/5.jpg",
         ],
+        suggestedArrival: "11:15 AM",
+        driveTime: "5 min walk",
       },
       {
         name: "Bandabuliya Market",
@@ -486,6 +545,8 @@ export const routes: Route[] = [
           "/images/routes/nicosia/bandabuliya-market/6.jpg",
           "/images/routes/nicosia/bandabuliya-market/7.jpg",
         ],
+        suggestedArrival: "11:45 AM",
+        driveTime: "5 min walk",
       },
     ],
     practicalInfo: {
@@ -511,6 +572,10 @@ export const routes: Route[] = [
         "Explore the world's last divided capital on this walking route through Nicosia's Ottoman caravanserai, Gothic mosque, Byzantine market, and vibrant local culture.",
     },
   },
+
+  // =============================================
+  // 5. Güzelyurt & Lefke Heritage Loop
+  // =============================================
   {
     slug: "guzelyurt-lefke-heritage",
     title: "Güzelyurt & Lefke Heritage Loop",
@@ -523,6 +588,7 @@ export const routes: Route[] = [
     rating: 4,
     mapEmbedUrl:
       "https://www.google.com/maps/d/u/3/embed?mid=1Z5628Uf9a0n-9BpKsfEUDYtMjxlDVsk&ehbc=2E312F&noprof=1",
+    suggestedStart: "8:00 AM",
     intro:
       "This loop takes you through the heart of North Cyprus' archaeological heritage, visiting some of the most important ancient sites on the island. From the ancient city of Soli to the hilltop palace of Vouni, and from the Byzantine church of St. Mamas to the fascinating museums of Güzelyurt, this route offers a deep dive into the ancient civilizations that flourished on the island. The journey also passes through the scenic countryside, with views of the mountains and the sea, providing a glimpse of rural Cypriot life.",
     stops: [
@@ -535,6 +601,8 @@ export const routes: Route[] = [
         entranceFee: "Free to walk around town",
         tip: "Visit the town during the annual Citrus Festival in May or June, when the streets fill with music, dance, and the sweet aroma of orange blossoms.",
         images: ["/images/routes/guzelyurt/güzelyurt-town-centre/1.jpg"],
+        suggestedArrival: "8:00 AM",
+        driveTime: "0 min",
       },
       {
         name: "St. Mamas Church",
@@ -551,6 +619,8 @@ export const routes: Route[] = [
           "/images/routes/guzelyurt/st-mamas-church/4.jpg",
           "/images/routes/guzelyurt/st-mamas-church/5.jpg",
         ],
+        suggestedArrival: "9:00 AM",
+        driveTime: "15 min",
       },
       {
         name: "Güzelyurt Archaeology & Nature Museum",
@@ -566,6 +636,8 @@ export const routes: Route[] = [
           "/images/routes/guzelyurt/güzelyurt-archaeology/3.jpg",
           "/images/routes/guzelyurt/güzelyurt-archaeology/4.jpg",
         ],
+        suggestedArrival: "10:00 AM",
+        driveTime: "5 min",
       },
       {
         name: "Soli Ancient City",
@@ -581,6 +653,8 @@ export const routes: Route[] = [
           "/images/routes/guzelyurt/soli-ancient-city/3.jpg",
           "/images/routes/guzelyurt/soli-ancient-city/4.jpg",
         ],
+        suggestedArrival: "11:15 AM",
+        driveTime: "20 min",
       },
       {
         name: "Vouni Palace",
@@ -597,6 +671,8 @@ export const routes: Route[] = [
           "/images/routes/guzelyurt/vouni-palace/4.jpg",
           "/images/routes/guzelyurt/vouni-palace/5.jpg",
         ],
+        suggestedArrival: "1:00 PM",
+        driveTime: "15 min",
       },
     ],
     practicalInfo: {

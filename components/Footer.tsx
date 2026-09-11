@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-card border-t border-border" role="contentinfo">
-      <div className="container mx-auto px-4 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="space-y-4">
@@ -34,7 +34,7 @@ export default function Footer() {
                 height={88}
                 className="h-12 w-auto"
                 priority
-              />{" "}
+              />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
               Curated driving routes and travel guides for Northern Cyprus.
@@ -129,7 +129,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/routes" // ✅ Link to all routes page
+                  href="/routes"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   View All Routes
@@ -165,6 +165,15 @@ export default function Footer() {
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Nicosia City Loop
+                </Link>
+              </li>
+              {/* ✅ Added Güzelyurt */}
+              <li>
+                <Link
+                  href="/routes/guzelyurt-lefke-heritage"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Güzelyurt & Lefke Loop
                 </Link>
               </li>
             </ul>
