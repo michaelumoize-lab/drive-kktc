@@ -2,22 +2,25 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Send, Gift, CheckCircle, Sparkles } from "lucide-react";
+import { Locale } from "@/lib/i18n";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const pathname = usePathname();
+  const lang: Locale = pathname?.startsWith("/en") ? "en" : "tr";
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setIsLoading(true);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsLoading(false);
     setIsSubmitted(true);
@@ -35,18 +38,29 @@ export default function Newsletter() {
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">
                   <Gift className="h-3.5 w-3.5" />
-                  <span>Members&apos; Privileges</span>
+                  <span>{lang === "tr" ? "Üyelere Özel Ayrıcalıklar" : "Members' Privileges"}</span>
                 </div>
 
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Get Road Trip Guide for{" "}
-                  <span className="text-primary">FREE!</span>
+                  {lang === "tr" ? (
+                    <>
+                      Kuzey Kıbrıs Yol Rehberini{" "}
+                      <span className="text-primary">ÜCRETSİZ</span> Edinin!
+                    </>
+                  ) : (
+                    <>
+                      Get Road Trip Guide for{" "}
+                      <span className="text-primary">FREE!</span>
+                    </>
+                  )}
                 </h2>
 
                 <p className="text-muted-foreground text-sm">
-                  Create a free account, get a free guidebook:
+                  {lang === "tr" ? "Bültenimize katılın, ücretsiz rehber anında gelsin:" : "Join our newsletter, get a free guidebook:"}
                   <span className="block text-foreground font-medium mt-1">
-                    🌟 Top 10 Mistakes in Northern Cyprus Road Trip Planning!
+                    {lang === "tr"
+                      ? "🌟 Kuzey Kıbrıs Yolculuklarında Yapılan En Büyük 10 Hata!"
+                      : "🌟 Top 10 Mistakes in Northern Cyprus Road Trip Planning!"}
                   </span>
                 </p>
 
@@ -54,15 +68,15 @@ export default function Newsletter() {
                 <ul className="space-y-2 pt-2">
                   <li className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Sparkles className="h-4 w-4 text-primary" />
-                    <span>Exclusive insider tips from locals</span>
+                    <span>{lang === "tr" ? "Yerlilerden özel rota ve lezzet tüyoları" : "Exclusive insider tips from locals"}</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Sparkles className="h-4 w-4 text-primary" />
-                    <span>Best routes and hidden gems revealed</span>
+                    <span>{lang === "tr" ? "Az bilinen koylar ve tarihi hazineler" : "Best routes and hidden gems revealed"}</span>
                   </li>
                   <li className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Sparkles className="h-4 w-4 text-primary" />
-                    <span>Weather, safety, and driving tips</span>
+                    <span>{lang === "tr" ? "Hava durumu, yol ve sürüş güvenlik tavsiyeleri" : "Weather, safety, and driving tips"}</span>
                   </li>
                 </ul>
               </div>
@@ -76,13 +90,13 @@ export default function Newsletter() {
                         htmlFor="email"
                         className="text-sm font-medium text-foreground"
                       >
-                        Type your e-mail here
+                        {lang === "tr" ? "E-posta adresiniz" : "Type your e-mail here"}
                       </label>
                       <div className="flex flex-col sm:flex-row gap-2">
                         <Input
                           id="email"
                           type="email"
-                          placeholder="you@example.com"
+                          placeholder={lang === "tr" ? "ornek@domain.com" : "you@domain.com"}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
@@ -97,11 +111,11 @@ export default function Newsletter() {
                           {isLoading ? (
                             <span className="flex items-center gap-2">
                               <span className="h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground border-t-transparent" />
-                              Signing Up...
+                              {lang === "tr" ? "Kaydediliyor..." : "Signing Up..."}
                             </span>
                           ) : (
                             <span className="flex items-center gap-2">
-                              Sign Up
+                              {lang === "tr" ? "Abone Ol" : "Sign Up"}
                               <Send className="h-4 w-4" />
                             </span>
                           )}
@@ -109,7 +123,9 @@ export default function Newsletter() {
                       </div>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      No spam, unsubscribe anytime. Your data is safe with us.
+                      {lang === "tr"
+                        ? "Spam yok, dilediğiniz zaman ayrılabilirsiniz. Verileriniz güvendedir."
+                        : "No spam, unsubscribe anytime. Your data is safe with us."}
                     </p>
                   </form>
                 ) : (
@@ -118,10 +134,12 @@ export default function Newsletter() {
                       <CheckCircle className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold text-foreground">
-                      Check Your Email! 📬
+                      {lang === "tr" ? "E-postanızı Kontrol Edin! 📬" : "Check Your Email! 📬"}
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Your free road trip guide is on its way to your inbox.
+                      {lang === "tr"
+                        ? "Ücretsiz rehberiniz posta kutunuza doğru yola çıktı."
+                        : "Your free road trip guide is on its way to your inbox."}
                     </p>
                     <Button
                       variant="outline"
@@ -129,7 +147,7 @@ export default function Newsletter() {
                       onClick={() => setIsSubmitted(false)}
                       className="mt-2"
                     >
-                      Sign up another email
+                      {lang === "tr" ? "Farklı bir e-posta ile kaydol" : "Sign up another email"}
                     </Button>
                   </div>
                 )}

@@ -9,55 +9,73 @@ import {
   Navigation,
   TrendingUp,
   Utensils,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getDictionary, Locale } from "@/lib/i18n";
 
-export default function RouteCard({ route }: { route: Route }) {
-  // Calculate difficulty based on distance with better readability
+const regionNames: Record<string, { tr: string; en: string }> = {
+  lefkosa: { tr: "Lefkoşa", en: "Nicosia" },
+  girne: { tr: "Girne", en: "Kyrenia" },
+  magusa: { tr: "Gazimağusa", en: "Famagusta" },
+  iskele: { tr: "İskele & Doğu", en: "Iskele & East" },
+  karpaz: { tr: "Karpaz", en: "Karpaz" },
+  bati: { tr: "Güzelyurt & Lefke", en: "West" },
+  daglar: { tr: "Dağlar & Köyler", en: "Mountains" },
+  signature: { tr: "İmza Tur", en: "Signature Tour" },
+};
+
+export default function RouteCard({
+  route,
+  lang = "tr",
+}: {
+  route: Route;
+  lang?: Locale;
+}) {
+  const dict = getDictionary(lang);
+
+  // Calculate difficulty based on distance
   const getDifficulty = () => {
     const distance = parseInt(route.distance);
     if (distance > 100) {
       return {
-        label: "Moderate",
+        label: dict.common.difficulty.moderate,
         color: "bg-yellow-500/30 text-yellow-200 border-yellow-500/50",
       };
     }
     if (distance > 50) {
       return {
-        label: "Easy",
+        label: dict.common.difficulty.easy,
         color: "bg-green-500/30 text-green-200 border-green-500/50",
       };
     }
     return {
-      label: "Relaxed",
+      label: dict.common.difficulty.relaxed,
       color: "bg-blue-500/30 text-blue-200 border-blue-500/50",
     };
   };
 
-  // ✨ NEW: Extract entrance fee info from route data
   const getEntranceFee = (route: Route) => {
     const feeText = route.practicalInfo.entranceFees;
 
-    // If it says "free", return "Free"
-    if (feeText.toLowerCase().includes("free")) {
-      return "Free";
+    if (feeText.toLowerCase().includes("free") || feeText.toLowerCase().includes("ücretsiz")) {
+      return dict.common.free;
     }
 
-    // Try to extract the first Euro amount (e.g., €3, €2.50)
     const match = feeText.match(/€(\d+(?:\.\d+)?)/);
     if (match) {
-      return `From €${match[1]}`;
+      return `${dict.common.from} €${match[1]}`;
     }
 
-    // Fallback: show the raw text (truncated if too long)
     return feeText.length > 20 ? feeText.slice(0, 18) + "…" : feeText;
   };
 
   const difficulty = getDifficulty();
+  const regionLabel = regionNames[route.region]?.[lang] || route.region;
 
   return (
-    <Link href={`/routes/${route.slug}`} className="group block h-full">
+    <Link href={`/${lang}/routes/${route.slug}`} className="group block h-full">
       <div className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col border border-border">
         {/* Image Container */}
         <div className="relative h-56 w-full overflow-hidden">
@@ -70,7 +88,7 @@ export default function RouteCard({ route }: { route: Route }) {
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
 
           {/* Route Title Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -91,66 +109,62 @@ export default function RouteCard({ route }: { route: Route }) {
             </div>
           </div>
 
-          {/* Top-left badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-1">
-            <Badge className="bg-primary/90 text-primary-foreground border-0 text-xs shadow-lg">
-              {route.theme.split(" • ")[0]}
+          {/* Top-left badges: Region & Theme */}
+          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
+            <Badge className="bg-primary text-primary-foreground border-0 text-xs font-semibold shadow-md">
+              {regionLabel}
             </Badge>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-5 flex-1 flex flex-col">
-          <p className="text-sm text-muted-foreground line-clamp-1 mb-3">
+          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
             {route.subtitle}
           </p>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-2 mb-4">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Navigation className="h-3.5 w-3.5 text-primary" />
+              <Navigation className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{route.distance}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Clock className="h-3.5 w-3.5 text-primary" />
-              <span>{route.duration}</span>
+              <Clock className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="truncate">{route.duration}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Calendar className="h-3.5 w-3.5 text-primary" />
-              <span>Spring • Autumn</span>
+              <Calendar className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>{dict.routesGrid.springAutumn}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <MapPin className="h-3.5 w-3.5 text-primary" />
-              <span>{route.stops.length} Stops</span>
+              <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>{route.stops.length} {dict.common.waypoints}</span>
             </div>
           </div>
 
-          {/* What's Included */}
-          <div className="flex flex-wrap gap-3 mb-4 text-xs text-muted-foreground pt-3 border-t border-border">
-            <span className="flex items-center gap-1">
-              <MapPin className="h-3 w-3 text-primary" />
-              {route.stops.length} Iconic Spots
-            </span>
-            <span className="flex items-center gap-1">
-              <Utensils className="h-3 w-3 text-primary" />
-              Local Eats
-            </span>
-            <span className="flex items-center gap-1">
-              <Hotel className="h-3 w-3 text-primary" />
-              Great Stays
-            </span>
-          </div>
+          {/* Proposer Initials Badge (No intern word) */}
+          {route.proposers && route.proposers.length > 0 && (
+            <div className="mb-4 pt-2 border-t border-border/50 text-[11px] font-mono text-muted-foreground flex items-center gap-1.5">
+              <Sparkles className="h-3 w-3 text-primary shrink-0" />
+              <span className="text-muted-foreground/80">
+                {lang === "tr" ? "Önerenler: " : "Curated with: "}
+              </span>
+              <span className="font-semibold text-foreground truncate">
+                {route.proposers.join(", ")}
+              </span>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
             <div>
-              {/* ✅ Dynamically displays the correct price from route data */}
               <span className="text-sm font-bold text-foreground">
                 {getEntranceFee(route)}
               </span>
             </div>
             <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-              View Route
+              {dict.routesGrid.viewRoute}
               <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </span>
           </div>

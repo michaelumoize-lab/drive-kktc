@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Autoplay from "embla-carousel-autoplay";
 import { ArrowRight, MapPin } from "lucide-react";
 import {
@@ -13,11 +14,15 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { HERO_BG, HERO_IMAGES } from "@/lib/assets";
+import { getDictionary, Locale } from "@/lib/i18n";
 
 export default function Hero() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const pathname = usePathname();
+  const lang: Locale = pathname?.startsWith("/en") ? "en" : "tr";
+  const dict = getDictionary(lang);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -88,7 +93,6 @@ export default function Hero() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* Arrows removed – only dot indicators remain */}
         </Carousel>
       </div>
 
@@ -100,55 +104,54 @@ export default function Hero() {
         <div className="max-w-3xl space-y-6 text-white text-left">
           <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-white text-sm px-4 py-2 rounded-full border border-primary/30">
             <MapPin className="h-4 w-4 text-primary" />
-            <span>Northern Cyprus Travel Guide</span>
+            <span>{dict.hero.badge}</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            Discover Northern Cyprus, <br />
+            {dict.hero.titleLine1} <br />
             <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Your Way
+              {dict.hero.titleHighlight}
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl">
-            Curated driving routes by locals. From hidden mountain castles to
-            empty golden beaches. Pick your adventure.
+            {dict.hero.subtitle}
           </p>
 
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
-              href="#routes"
+              href={`/${lang}#routes`}
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-all hover:scale-105 shadow-lg shadow-primary/30"
             >
-              Explore Routes
+              {dict.hero.exploreButton}
               <ArrowRight className="h-5 w-5" />
             </Link>
             <Link
-              href="/about"
+              href={`/${lang}/about`}
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold border border-white/20 hover:bg-white/20 transition-all"
             >
-              Learn More
+              {dict.hero.learnMoreButton}
             </Link>
           </div>
 
           <div className="flex gap-8 pt-6 text-sm text-white/80 border-t border-white/20">
             <div>
               <span className="block text-2xl font-bold text-primary tabular-nums">
-                5+
+                {dict.hero.curatedRoutesCount}
               </span>
-              <span>Curated Routes</span>
+              <span>{dict.hero.curatedRoutesLabel}</span>
             </div>
             <div>
               <span className="block text-2xl font-bold text-primary tabular-nums">
-                25+
+                {dict.hero.stopsCount}
               </span>
-              <span>Stops to Explore</span>
+              <span>{dict.hero.stopsLabel}</span>
             </div>
             <div>
               <span className="block text-2xl font-bold text-primary tabular-nums">
-                100%
+                {dict.hero.localTipsPercent}
               </span>
-              <span>Local Tips</span>
+              <span>{dict.hero.localTipsLabel}</span>
             </div>
           </div>
         </div>

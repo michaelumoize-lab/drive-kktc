@@ -3,8 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { Locale } from "@/lib/i18n";
 
-export default function Testimonials() {
+export default function Testimonials({ lang = "tr" }: { lang?: Locale }) {
   // Get the first 3 testimonials for the homepage
   const featuredTestimonials = testimonials.slice(0, 3);
 
@@ -14,14 +15,15 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2">
-            Testimonials
+            {lang === "tr" ? "Gezgin Yorumları" : "Testimonials"}
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-            What Our Travelers Say
+            {lang === "tr" ? "Yol Arkadaşlarımız Ne Diyor?" : "What Our Travelers Say"}
           </h3>
           <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-            Real stories from real road-trippers who explored Northern Cyprus
-            with our guides.
+            {lang === "tr"
+              ? "Rehberlerimizle Kuzey Kıbrıs'ı keşfe çıkan gezginlerden gerçek deneyimler ve hikayeler."
+              : "Real stories from real road-trippers who explored Northern Cyprus with our guides."}
           </p>
         </div>
 
@@ -58,42 +60,32 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Author */}
+                {/* Author Info */}
                 <div className="flex items-center gap-3 pt-2 border-t border-border">
                   <Avatar className="h-10 w-10">
-                    <AvatarImage src={testimonial.avatar} />
-                    <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                      {testimonial.initials}
+                    <AvatarImage
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                    />
+                    <AvatarFallback className="bg-primary/10 text-primary text-xs font-semibold">
+                      {testimonial.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold text-foreground text-sm">
+                    <h4 className="font-semibold text-sm text-foreground">
                       {testimonial.name}
-                    </p>
+                    </h4>
                     <p className="text-xs text-muted-foreground">
-                      {testimonial.location}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {testimonial.route} • {testimonial.travelDate}
+                      {testimonial.location} • {testimonial.route}
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-10">
-          <p className="text-sm text-muted-foreground">
-            Join thousands of happy travelers exploring Northern Cyprus.
-          </p>
-          <a
-            href="#routes"
-            className="inline-block mt-3 text-primary font-semibold hover:underline"
-          >
-            Start Your Journey →
-          </a>
         </div>
       </div>
     </section>

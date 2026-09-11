@@ -1,13 +1,20 @@
 // app/testimonials/page.tsx
+"use client";
 
-import TestimonialsPage from "./TestimonialsPage";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "Testimonials – Drive KKTC",
-  description:
-    "Read real reviews from travelers who explored Northern Cyprus with Drive KKTC. See why our routes are trusted by explorers worldwide.",
-};
+export default function TestimonialsRedirect() {
+  const router = useRouter();
 
-export default function Page() {
-  return <TestimonialsPage />;
+  useEffect(() => {
+    try {
+      const lang = localStorage.getItem("drive_kktc_lang");
+      router.replace(lang === "en" ? "/en/testimonials" : "/tr/testimonials");
+    } catch {
+      router.replace("/tr/testimonials");
+    }
+  }, [router]);
+
+  return null;
 }

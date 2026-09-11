@@ -25,16 +25,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://drivenorthcyprus.com"
+  ),
   title: {
-    default: "Drive KKTC – Explore Northern Cyprus Routes",
-    template: "%s | Drive KKTC",
+    default: "Drive North Cyprus – Explore Northern Cyprus Routes",
+    template: "%s | Drive North Cyprus",
   },
   description:
     "Discover the best driving routes in Northern Cyprus. From ancient castles to pristine beaches, plan your perfect road trip.",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Drive KKTC",
+    siteName: "Drive North Cyprus",
   },
   twitter: {
     card: "summary_large_image",

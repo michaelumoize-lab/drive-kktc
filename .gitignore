@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cPanel deployment & utility scripts
+*.zip
+deploy-cpanel/
+make_clean_zip.py
+optimize_images.py

@@ -1,25 +1,26 @@
-// components/FAQList.tsx
+// app/faq/FAQList.tsx
 "use client";
 
 import { useState } from "react";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Locale } from "@/lib/i18n";
 
-const faqs = [
+const faqsEn = [
   {
-    question: "What is Drive KKTC?",
+    question: "What is Drive North Cyprus?",
     answer:
-      "Drive KKTC is a curated road trip guide platform for Northern Cyprus. We provide detailed driving routes, stop recommendations, insider tips, and practical information to help you explore the region like a local.",
+      "Drive North Cyprus is a curated road trip guide platform for Northern Cyprus. We provide detailed driving routes, stop recommendations, insider tips, and practical information to help you explore the region like a local.",
   },
   {
     question: "Are the routes free?",
     answer:
-      "Yes! All routes on Drive KKTC are completely free. We believe that exploring should be accessible to everyone.",
+      "Yes! All routes on Drive North Cyprus are completely free. We believe that exploring should be accessible to everyone.",
   },
   {
     question: "How many routes do you have?",
     answer:
-      "We currently have 5 curated routes covering different regions of Northern Cyprus, from the Kyrenia coast to the Karpaz Peninsula, and from the ancient city of Salamis to the old city of Nicosia.",
+      "We currently feature 41 curated itineraries covering all 7 regions of Northern Cyprus (Kyrenia, Famagusta, Karpaz Peninsula, Nicosia, Iskele, Güzelyurt & Lefke, and the Beşparmak Mountains), plus 5 epic multi-day signature tours.",
   },
   {
     question: "Can I use these routes for a self-drive trip?",
@@ -37,19 +38,53 @@ const faqs = [
       "Spring (April–June) and Autumn (September–November) offer the most pleasant weather for driving and exploring. Summers can be hot, while winters are mild but occasionally rainy.",
   },
   {
-    question: "Can I get a printed guide?",
-    answer:
-      "We currently offer digital guides only. You can access all routes online or print them directly from your browser.",
-  },
-  {
     question: "How do I get the free road trip guide?",
     answer:
       "Simply sign up for our newsletter on the homepage, and you'll receive a free guidebook with top tips for your Northern Cyprus road trip.",
   },
 ];
 
-export default function FAQList() {
+const faqsTr = [
+  {
+    question: "Drive North Cyprus nedir?",
+    answer:
+      "Drive North Cyprus, Kuzey Kıbrıs için hazırlanmış küratörlü yol rehberi platformudur. Bölgeyi bir yerli gibi keşfetmeniz için detaylı sürüş rotaları, durak önerileri, yerel tavsiyeler ve pratik bilgiler sunuyoruz.",
+  },
+  {
+    question: "Rotalar ücretsiz mi?",
+    answer:
+      "Evet! Drive North Cyprus üzerindeki tüm rotalar ve rehberler tamamen ücretsizdir. Keşfetmenin herkes için erişilebilir olması gerektiğine inanıyoruz.",
+  },
+  {
+    question: "Sitede kaç rota var?",
+    answer:
+      "Şu anda Kuzey Kıbrıs'ın 7 bölgesini (Girne, Gazimağusa, Karpaz Yarımadası, Lefkoşa, İskele, Güzelyurt & Lefke ve Beşparmak Dağları) kapsayan 41 özenle hazırlanmış güzergah ve 5 kapsamlı çok günlük imza rota sunuyoruz.",
+  },
+  {
+    question: "Kendi aracımla veya kiralık araçla gezebilir miyim?",
+    answer:
+      "Kesinlikle! Tüm rotalar bireysel araç sürüşü düşünülerek tasarlandı. Detaylı yol tarifleri, durak süreleri ve pratik önerilerle yolculuğunuz son derece konforlu geçecektir.",
+  },
+  {
+    question: "4x4 arazi aracı gerekli mi?",
+    answer:
+      "Rotaların büyük bölümü standart binek otomobillerle kolaylıkla gezilebilir. Yalnızca Karpaz'ın en uç stabilize yollarında ve bazı dağ patikalarında yüksek araçlar ek rahatlık sağlar.",
+  },
+  {
+    question: "Kuzey Kıbrıs'ı gezmek için en uygun dönem hangisidir?",
+    answer:
+      "İlkbahar (Nisan–Haziran) ve Sonbahar (Eylül–Kasım) ayları sürüş ve açık hava keşifleri için en ideal ılıman havaya sahiptir.",
+  },
+  {
+    question: "Ücretsiz yol rehberini nasıl edinebilirim?",
+    answer:
+      "Ana sayfamızdaki bültene e-posta adresinizi bırakmanız yeterlidir; Kuzey Kıbrıs yolculuk ipuçları kitapçığı anında posta kutunuza iletilir.",
+  },
+];
+
+export default function FAQList({ lang = "tr" }: { lang?: Locale }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const faqs = lang === "tr" ? faqsTr : faqsEn;
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -62,48 +97,49 @@ export default function FAQList() {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Frequently Asked Questions
+              {lang === "tr" ? "Sıkça Sorulan Sorular" : "Frequently Asked Questions"}
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              Everything you need to know before hitting the road in Northern
-              Cyprus.
+              {lang === "tr"
+                ? "Kuzey Kıbrıs'ta yola çıkmadan önce bilmeniz gereken tüm detaylar ve pratik cevaplar."
+                : "Everything you need to know before hitting the road in Northern Cyprus."}
             </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ List */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="max-w-3xl mx-auto space-y-3">
-          {faqs.map((faq, index) => (
-            <Card
-              key={index}
-              className="cursor-pointer hover:shadow-md transition-shadow"
-            >
-              <CardContent className="p-5">
+      {/* FAQ Accordion */}
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
+            return (
+              <Card
+                key={index}
+                className="overflow-hidden border-border transition-colors hover:border-primary/50"
+              >
                 <button
                   type="button"
-                  className="w-full flex items-start justify-between gap-4 text-left"
-                  aria-expanded={openIndex === index}
                   onClick={() => toggle(index)}
+                  className="w-full text-left p-6 flex justify-between items-center gap-4 cursor-pointer"
                 >
-                  <h3 className="font-semibold text-foreground">
+                  <span className="font-semibold text-lg text-foreground">
                     {faq.question}
-                  </h3>
-                  {openIndex === index ? (
-                    <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                  </span>
+                  {isOpen ? (
+                    <ChevronDown className="h-5 w-5 text-primary shrink-0 transition-transform" />
                   ) : (
-                    <ChevronRight className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                    <ChevronRight className="h-5 w-5 text-muted-foreground shrink-0 transition-transform" />
                   )}
                 </button>
-                {openIndex === index && (
-                  <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
+                {isOpen && (
+                  <CardContent className="px-6 pb-6 pt-0 text-muted-foreground text-sm leading-relaxed border-t border-border/50">
+                    <p className="pt-4">{faq.answer}</p>
+                  </CardContent>
                 )}
-              </CardContent>
-            </Card>
-          ))}{" "}
+              </Card>
+            );
+          })}
         </div>
       </div>
     </main>

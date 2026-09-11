@@ -1,12 +1,15 @@
-// components/TestimonialsPage.tsx
+// app/testimonials/TestimonialsPage.tsx
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-import { testimonials } from "@/data/testimonials";
+import { getTestimonials } from "@/data/testimonials";
+import { Locale } from "@/lib/i18n";
 
-export default function TestimonialsPage() {
+export default function TestimonialsPage({ lang = "tr" }: { lang?: Locale }) {
+  const items = getTestimonials(lang);
+
   return (
     <main className="min-h-screen bg-background">
       {/* Hero */}
@@ -14,11 +17,12 @@ export default function TestimonialsPage() {
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Testimonials
+              {lang === "tr" ? "Gezgin Yorumları" : "Testimonials"}
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground">
-              Hear what our travelers have to say about their Northern Cyprus
-              adventures.
+              {lang === "tr"
+                ? "Kuzey Kıbrıs yollarında rehberlerimizle gezen yolcularımızın gerçek değerlendirmeleri."
+                : "Hear what our travelers have to say about their Northern Cyprus adventures."}
             </p>
           </div>
         </div>
@@ -27,7 +31,7 @@ export default function TestimonialsPage() {
       {/* Testimonials Grid */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial) => (
+          {items.map((testimonial) => (
             <Card
               key={testimonial.id}
               className="bg-card hover:shadow-lg transition-shadow duration-300 border-border h-full"
@@ -61,7 +65,7 @@ export default function TestimonialsPage() {
                     <AvatarImage
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                    />{" "}
+                    />
                     <AvatarFallback className="bg-primary/10 text-primary font-semibold">
                       {testimonial.initials}
                     </AvatarFallback>
@@ -71,10 +75,7 @@ export default function TestimonialsPage() {
                       {testimonial.name}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {testimonial.location}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {testimonial.route} • {testimonial.travelDate}
+                      {testimonial.location} • {testimonial.route}
                     </p>
                   </div>
                 </div>

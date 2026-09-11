@@ -31,4 +31,4 @@ export const ROUTE_KARPAZ = "/images/routes/karpaz-loop.jpg";
 export const ROUTE_NICOSIA = "/images/routes/nicosia-loop.jpg";
 export const ROUTE_GUZELYURT = "/images/routes/guzelyurt-loop.jpg";
 
-export const SITE_URL = "https://drive-kktc.com";
+export const SITE_URL = "https://drivenorthcyprus.com";

@@ -1,19 +1,25 @@
 // components/Footer.tsx
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import { LOGO } from "@/lib/assets";
+import { getDictionary, Locale } from "@/lib/i18n";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const lang: Locale = pathname?.startsWith("/en") ? "en" : "tr";
+  const dict = getDictionary(lang);
   const currentYear = new Date().getFullYear();
 
-  // Social media links - update with your actual URLs
   const socialLinks = {
-    facebook: "https://facebook.com/drivekktc",
-    twitter: "https://twitter.com/drivekktc",
-    instagram: "https://instagram.com/drivekktc",
-    youtube: "https://youtube.com/@drivekktc",
+    facebook: "https://facebook.com/drivenorthcyprus",
+    twitter: "https://twitter.com/drivenorthcyprus",
+    instagram: "https://instagram.com/drivenorthcyprus",
+    youtube: "https://youtube.com/@drivenorthcyprus",
   };
 
   return (
@@ -23,13 +29,13 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="inline-block"
-              aria-label="Drive KKTC Home"
+              aria-label="Drive North Cyprus Home"
             >
               <Image
                 src={LOGO}
-                alt="Drive KKTC - Northern Cyprus Travel Guide"
+                alt="Drive North Cyprus - Kuzey Kıbrıs Yol Rehberi"
                 width={140}
                 height={88}
                 className="h-12 w-auto"
@@ -37,8 +43,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-muted-foreground max-w-sm">
-              Curated driving routes and travel guides for Northern Cyprus.
-              Explore hidden castles, golden beaches, and local culture.
+              {dict.footer.tagline}
             </p>
             <div className="flex gap-3 pt-2">
               <a
@@ -83,97 +88,128 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-              Quick Links
+              {dict.footer.quickLinks}
             </h2>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/#routes"
+                  href={`/${lang}#routes`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Explore Routes
+                  {dict.footer.routes}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href={`/${lang}/about`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  About Us
+                  {dict.footer.aboutUs}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/guide"
+                  href={`/${lang}/guide`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Driving Guide
+                  {dict.footer.drivingGuide}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/testimonials"
+                  href={`/${lang}/testimonials`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Testimonials
+                  {dict.footer.testimonials}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/faq`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {dict.footer.faq}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Routes */}
+          {/* Explore by Region */}
           <div>
             <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-              Popular Routes
+              {dict.footer.regions}
             </h2>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/routes"
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  href={`/${lang}/routes`}
+                  className="text-sm font-medium text-primary hover:underline transition-colors"
                 >
-                  View All Routes
+                  {dict.footer.viewAll}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/routes/kyrenia-heritage-coastal"
+                  href={`/${lang}/routes?region=girne`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Kyrenia Heritage Loop
+                  {lang === "tr" ? "Girne & Kuzey Sahili" : "Kyrenia & North Coast"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/routes/famagusta-history-loop"
+                  href={`/${lang}/routes?region=magusa`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Famagusta History Loop
+                  {lang === "tr" ? "Gazimağusa & Salamis" : "Famagusta & Salamis"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/routes/karpaz-nature-loop"
+                  href={`/${lang}/routes?region=karpaz`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Karpaz Nature Loop
+                  {lang === "tr" ? "Karpaz Yarımadası" : "Karpaz Peninsula"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/routes/nicosia-old-city-loop"
+                  href={`/${lang}/routes?region=lefkosa`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Nicosia City Loop
+                  {lang === "tr" ? "Lefkoşa & Surlariçi" : "Nicosia Old Town"}
                 </Link>
               </li>
-              {/* ✅ Added Güzelyurt */}
               <li>
                 <Link
-                  href="/routes/guzelyurt-lefke-heritage"
+                  href={`/${lang}/routes?region=iskele`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Güzelyurt & Lefke Loop
+                  {lang === "tr" ? "İskele & Long Beach" : "Iskele & Long Beach"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=bati`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "Güzelyurt & Lefke" : "West (Güzelyurt & Lefke)"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=daglar`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "Beşparmak Dağları & Köyler" : "Mountains & Villages"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=signature`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "İmza Ada Turları (Çok Günlük)" : "Signature Multi-Day Tours"}
                 </Link>
               </li>
             </ul>
@@ -182,20 +218,20 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-              Contact
+              {dict.footer.contact}
             </h2>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span>Northern Cyprus</span>
+                <span>{lang === "tr" ? "Kuzey Kıbrıs Türk Cumhuriyeti" : "Northern Cyprus"}</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:info@drivekktc.com"
+                  href="mailto:info@drivenorthcyprus.com"
                   className="hover:text-primary transition-colors"
                 >
-                  info@drivekktc.com
+                  info@drivenorthcyprus.com
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
@@ -214,27 +250,15 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © {currentYear} Drive KKTC. All rights reserved.
+            © {currentYear} Drive North Cyprus. {dict.footer.copyright}
           </p>
           <nav className="flex gap-6 text-xs" aria-label="Legal">
-            <Link
-              href="/privacy"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Cookie Policy
-            </Link>
+            <span className="text-muted-foreground">
+              {dict.footer.privacyPolicy}
+            </span>
+            <span className="text-muted-foreground">
+              {dict.footer.termsOfService}
+            </span>
           </nav>
         </div>
       </div>
