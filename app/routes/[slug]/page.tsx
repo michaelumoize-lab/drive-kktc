@@ -119,52 +119,56 @@ export default async function RoutePage({
 
       {/* 2. Floating Quick Stats & Action Ribbon */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-8 relative z-20 mb-12">
-        <div className="bg-card/95 backdrop-blur-md rounded-2xl border border-border/80 shadow-lg p-4 sm:p-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6">
+        <div className="bg-card/95 backdrop-blur-md rounded-2xl border border-border/80 shadow-lg p-5 sm:p-6 flex flex-col 2xl:flex-row items-stretch 2xl:items-center justify-between gap-6">
           {/* Key Metric Badges */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 flex-1">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center">
+            {/* 1. Duration */}
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
                 <Clock className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Est. Duration</p>
-                <p className="text-sm font-bold text-foreground">
+                <p className="text-xs text-muted-foreground font-medium">Est. Duration</p>
+                <p className="text-sm font-bold text-foreground whitespace-nowrap">
                   {route.duration}
                 </p>
               </div>
             </div>
 
+            {/* 2. Distance */}
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
                 <Navigation className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Distance</p>
-                <p className="text-sm font-bold text-foreground">
+                <p className="text-xs text-muted-foreground font-medium">Distance</p>
+                <p className="text-sm font-bold text-foreground whitespace-nowrap">
                   {route.distance}
                 </p>
               </div>
             </div>
 
+            {/* 3. Start / Finish */}
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
                 <MapPin className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Start / Finish</p>
-                <p className="text-sm font-bold text-foreground truncate max-w-[140px]">
+                <p className="text-xs text-muted-foreground font-medium">Start / Finish</p>
+                <p className="text-sm font-bold text-foreground">
                   {route.startFinish}
                 </p>
               </div>
             </div>
 
+            {/* 4. Total Stops */}
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-xl bg-primary/10 text-primary shrink-0">
                 <Compass className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-xs text-muted-foreground">Total Stops</p>
-                <p className="text-sm font-bold text-foreground">
+                <p className="text-xs text-muted-foreground font-medium">Total Stops</p>
+                <p className="text-sm font-bold text-foreground whitespace-nowrap">
                   {route.stops.length} Waypoints
                 </p>
               </div>
@@ -172,20 +176,20 @@ export default async function RoutePage({
           </div>
 
           {/* Action Triggers */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:flex lg:items-center gap-2.5 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-border/60 lg:pl-6 w-full lg:w-auto">
-            <Button asChild variant="default" size="sm" className="rounded-xl gap-2 font-medium w-full sm:w-auto">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 pt-4 2xl:pt-0 border-t 2xl:border-t-0 2xl:border-l border-border/60 2xl:pl-6 shrink-0">
+            <Button asChild variant="default" size="sm" className="rounded-xl gap-2 font-medium flex-1 sm:flex-none">
               <a href="#stops">
                 <MapPin className="h-4 w-4" />
                 <span>Explore Stops</span>
               </a>
             </Button>
-            <Button asChild variant="outline" size="sm" className="rounded-xl gap-2 font-medium w-full sm:w-auto">
+            <Button asChild variant="outline" size="sm" className="rounded-xl gap-2 font-medium flex-1 sm:flex-none">
               <a href="#route-map">
                 <Navigation className="h-4 w-4" />
                 <span>Interactive Map</span>
               </a>
             </Button>
-            <div className="w-full sm:w-auto lg:w-32">
+            <div className="w-full sm:w-32 shrink-0">
               <ShareButton title={route.title} />
             </div>
           </div>
