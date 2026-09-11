@@ -20,7 +20,7 @@ const faqsEn = [
   {
     question: "How many routes do you have?",
     answer:
-      "We currently feature curated routes covering different regions of Northern Cyprus, from the Kyrenia coast to the Karpaz Peninsula, and from the ancient city of Salamis to the old city of Nicosia.",
+      "We currently feature 41 curated itineraries covering all 7 regions of Northern Cyprus (Kyrenia, Famagusta, Karpaz Peninsula, Nicosia, Iskele, Güzelyurt & Lefke, and the Beşparmak Mountains), plus 5 epic multi-day signature tours.",
   },
   {
     question: "Can I use these routes for a self-drive trip?",
@@ -58,7 +58,7 @@ const faqsTr = [
   {
     question: "Sitede kaç rota var?",
     answer:
-      "Girne liman ve kalelerinden Karpaz Yarımadası'na, Salamis Antik Kenti'nden Lefkoşa Surlariçi'ne kadar Kuzey Kıbrıs'ın tüm bölgelerini kapsayan özenle seçilmiş rotalar sunuyoruz.",
+      "Şu anda Kuzey Kıbrıs'ın 7 bölgesini (Girne, Gazimağusa, Karpaz Yarımadası, Lefkoşa, İskele, Güzelyurt & Lefke ve Beşparmak Dağları) kapsayan 41 özenle hazırlanmış güzergah ve 5 kapsamlı çok günlük imza rota sunuyoruz.",
   },
   {
     question: "Kendi aracımla veya kiralık araçla gezebilir miyim?",

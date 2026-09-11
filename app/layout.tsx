@@ -25,6 +25,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://drivenorthcyprus.com"
+  ),
   title: {
     default: "Drive North Cyprus – Explore Northern Cyprus Routes",
     template: "%s | Drive North Cyprus",

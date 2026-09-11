@@ -1,4 +1,4 @@
-# cPanel Apache Configuration for Drive KKTC Static Export
+# cPanel Apache Configuration for Drive North Cyprus Static Export
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
