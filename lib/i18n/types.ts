@@ -123,6 +123,8 @@ export interface Dictionary {
     tagline: string;
     quickLinks: string;
     routes: string;
+    regions: string;
+    viewAll: string;
     aboutUs: string;
     drivingGuide: string;
     faq: string;

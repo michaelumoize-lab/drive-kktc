@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { routes } from "@/data/routes";
+import { getRoutes, getRouteBySlug } from "@/data/routes";
 import {
   MapPin,
   Clock,
@@ -10,6 +10,7 @@ import {
   Navigation,
   Compass,
   Lightbulb,
+  Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,7 @@ import { locales, Locale, getDictionary, isValidLocale } from "@/lib/i18n";
 export function generateStaticParams() {
   const params: { lang: string; slug: string }[] = [];
   for (const lang of locales) {
-    for (const route of routes) {
+    for (const route of getRoutes(lang)) {
       params.push({ lang, slug: route.slug });
     }
   }
@@ -37,17 +38,18 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
-  const route = routes.find((r) => r.slug === slug);
+  const currentLocale: Locale = isValidLocale(lang) ? lang : "tr";
+  const route = getRouteBySlug(slug, currentLocale);
 
   if (!route) {
-    return { title: lang === "tr" ? "Rota Bulunamadı" : "Route Not Found" };
+    return { title: currentLocale === "tr" ? "Rota Bulunamadı" : "Route Not Found" };
   }
 
   return {
     title: `${route.seo.title} | Drive North Cyprus`,
     description: route.seo.description,
     alternates: {
-      canonical: `/${lang}/routes/${slug}`,
+      canonical: `/${currentLocale}/routes/${slug}`,
       languages: {
         tr: `/tr/routes/${slug}`,
         en: `/en/routes/${slug}`,
@@ -76,7 +78,7 @@ export default async function RouteDetailPage({
   const { lang: rawLang, slug } = await params;
   const lang: Locale = isValidLocale(rawLang) ? rawLang : "tr";
   const dict = getDictionary(lang);
-  const route = routes.find((r) => r.slug === slug);
+  const route = getRouteBySlug(slug, lang);
 
   if (!route) {
     notFound();
@@ -124,6 +126,21 @@ export default async function RouteDetailPage({
             <p className="text-lg sm:text-xl text-white/90 max-w-3xl leading-relaxed">
               {route.subtitle}
             </p>
+
+            {/* Proposers / Contributors Initials Tag (No intern word) */}
+            {route.proposers && route.proposers.length > 0 && (
+              <div className="pt-1">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-white/80 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15">
+                  <Sparkles className="h-3.5 w-3.5 text-primary" />
+                  <span className="text-white/60">
+                    {lang === "tr" ? "Önerenler: " : "Curated with: "}
+                  </span>
+                  <span className="font-semibold text-white tracking-wider">
+                    {route.proposers.join(", ")}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -194,12 +211,14 @@ export default async function RouteDetailPage({
                 <span>{dict.common.exploreStops}</span>
               </a>
             </Button>
-            <Button asChild variant="outline" size="sm" className="rounded-xl gap-2 font-medium flex-1 sm:flex-none">
-              <a href="#route-map">
-                <Navigation className="h-4 w-4" />
-                <span>{dict.common.interactiveMap}</span>
-              </a>
-            </Button>
+            {route.mapEmbedUrl && (
+              <Button asChild variant="outline" size="sm" className="rounded-xl gap-2 font-medium flex-1 sm:flex-none">
+                <a href="#route-map">
+                  <Navigation className="h-4 w-4" />
+                  <span>{dict.common.interactiveMap}</span>
+                </a>
+              </Button>
+            )}
             <div className="w-full sm:w-32 shrink-0">
               <ShareButton title={route.title} />
             </div>
@@ -229,6 +248,7 @@ export default async function RouteDetailPage({
             <RouteTimeline
               stops={route.stops}
               suggestedStart={route.suggestedStart}
+              lang={lang}
             />
           )}
         </section>
@@ -253,7 +273,7 @@ export default async function RouteDetailPage({
         )}
 
         {/* 5. The Stops Journey */}
-        <RouteStopsSection stops={route.stops} />
+        <RouteStopsSection stops={route.stops} lang={lang} />
 
         {/* 6. Interactive Route Map Section */}
         {route.mapEmbedUrl && (
@@ -284,7 +304,7 @@ export default async function RouteDetailPage({
 
         {/* 7. Practical Information Bento Grid */}
         <section className="pt-4 border-t border-border/60">
-          <PracticalInfoGrid info={route.practicalInfo} />
+          <PracticalInfoGrid info={route.practicalInfo} lang={lang} />
         </section>
 
         {/* 8. Bottom Navigation & CTA Banner */}

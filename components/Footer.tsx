@@ -134,58 +134,82 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Popular Routes */}
+          {/* Explore by Region */}
           <div>
             <h2 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-              {dict.footer.routes}
+              {dict.footer.regions}
             </h2>
             <ul className="space-y-2">
               <li>
                 <Link
                   href={`/${lang}/routes`}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-sm font-medium text-primary hover:underline transition-colors"
                 >
-                  {lang === "tr" ? "Tüm Rotaları İncele" : "View All Routes"}
+                  {dict.footer.viewAll}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={`/${lang}/routes/kyrenia-heritage-coastal`}
+                  href={`/${lang}/routes?region=girne`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {lang === "tr" ? "Girne Sahil & Kale Rotası" : "Kyrenia Heritage Loop"}
+                  {lang === "tr" ? "Girne & Kuzey Sahili" : "Kyrenia & North Coast"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={`/${lang}/routes/famagusta-history-loop`}
+                  href={`/${lang}/routes?region=magusa`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {lang === "tr" ? "Gazimağusa Tarih Rotası" : "Famagusta History Loop"}
+                  {lang === "tr" ? "Gazimağusa & Salamis" : "Famagusta & Salamis"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={`/${lang}/routes/karpaz-nature-loop`}
+                  href={`/${lang}/routes?region=karpaz`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {lang === "tr" ? "Karpaz Doğa & Altınkum" : "Karpaz Nature Loop"}
+                  {lang === "tr" ? "Karpaz Yarımadası" : "Karpaz Peninsula"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={`/${lang}/routes/nicosia-old-city-loop`}
+                  href={`/${lang}/routes?region=lefkosa`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {lang === "tr" ? "Lefkoşa Surlariçi Yürüyüşü" : "Nicosia City Loop"}
+                  {lang === "tr" ? "Lefkoşa & Surlariçi" : "Nicosia Old Town"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href={`/${lang}/routes/guzelyurt-lefke-heritage`}
+                  href={`/${lang}/routes?region=iskele`}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {lang === "tr" ? "Güzelyurt & Lefke Mirası" : "Güzelyurt & Lefke Loop"}
+                  {lang === "tr" ? "İskele & Long Beach" : "Iskele & Long Beach"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=bati`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "Güzelyurt & Lefke" : "West (Güzelyurt & Lefke)"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=daglar`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "Beşparmak Dağları & Köyler" : "Mountains & Villages"}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href={`/${lang}/routes?region=signature`}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  {lang === "tr" ? "İmza Ada Turları (Çok Günlük)" : "Signature Multi-Day Tours"}
                 </Link>
               </li>
             </ul>

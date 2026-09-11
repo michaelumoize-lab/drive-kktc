@@ -96,7 +96,7 @@ export default function Newsletter() {
                         <Input
                           id="email"
                           type="email"
-                          placeholder="ornek@domain.com"
+                          placeholder={lang === "tr" ? "ornek@domain.com" : "you@domain.com"}
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required

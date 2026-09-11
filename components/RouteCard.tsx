@@ -9,10 +9,22 @@ import {
   Navigation,
   TrendingUp,
   Utensils,
+  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { getDictionary, Locale } from "@/lib/i18n";
+
+const regionNames: Record<string, { tr: string; en: string }> = {
+  lefkosa: { tr: "Lefkoşa", en: "Nicosia" },
+  girne: { tr: "Girne", en: "Kyrenia" },
+  magusa: { tr: "Gazimağusa", en: "Famagusta" },
+  iskele: { tr: "İskele & Doğu", en: "Iskele & East" },
+  karpaz: { tr: "Karpaz", en: "Karpaz" },
+  bati: { tr: "Güzelyurt & Lefke", en: "West" },
+  daglar: { tr: "Dağlar & Köyler", en: "Mountains" },
+  signature: { tr: "İmza Tur", en: "Signature Tour" },
+};
 
 export default function RouteCard({
   route,
@@ -47,7 +59,7 @@ export default function RouteCard({
   const getEntranceFee = (route: Route) => {
     const feeText = route.practicalInfo.entranceFees;
 
-    if (feeText.toLowerCase().includes("free")) {
+    if (feeText.toLowerCase().includes("free") || feeText.toLowerCase().includes("ücretsiz")) {
       return dict.common.free;
     }
 
@@ -60,6 +72,7 @@ export default function RouteCard({
   };
 
   const difficulty = getDifficulty();
+  const regionLabel = regionNames[route.region]?.[lang] || route.region;
 
   return (
     <Link href={`/${lang}/routes/${route.slug}`} className="group block h-full">
@@ -75,7 +88,7 @@ export default function RouteCard({
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
 
           {/* Route Title Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -96,55 +109,52 @@ export default function RouteCard({
             </div>
           </div>
 
-          {/* Top-left badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-1">
-            <Badge className="bg-primary/90 text-primary-foreground border-0 text-xs shadow-lg">
-              {route.theme.split(" • ")[0]}
+          {/* Top-left badges: Region & Theme */}
+          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
+            <Badge className="bg-primary text-primary-foreground border-0 text-xs font-semibold shadow-md">
+              {regionLabel}
             </Badge>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-5 flex-1 flex flex-col">
-          <p className="text-sm text-muted-foreground line-clamp-1 mb-3">
+          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
             {route.subtitle}
           </p>
 
           {/* Stats Grid */}
           <div className="grid grid-cols-2 gap-2 mb-4">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Navigation className="h-3.5 w-3.5 text-primary" />
+              <Navigation className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{route.distance}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Clock className="h-3.5 w-3.5 text-primary" />
-              <span>{route.duration}</span>
+              <Clock className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="truncate">{route.duration}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Calendar className="h-3.5 w-3.5 text-primary" />
+              <Calendar className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{dict.routesGrid.springAutumn}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <MapPin className="h-3.5 w-3.5 text-primary" />
+              <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{route.stops.length} {dict.common.waypoints}</span>
             </div>
           </div>
 
-          {/* What's Included */}
-          <div className="flex flex-wrap gap-3 mb-4 text-xs text-muted-foreground pt-3 border-t border-border">
-            <span className="flex items-center gap-1">
-              <MapPin className="h-3 w-3 text-primary" />
-              {route.stops.length} {dict.routesGrid.iconicSpots}
-            </span>
-            <span className="flex items-center gap-1">
-              <Utensils className="h-3 w-3 text-primary" />
-              {dict.routesGrid.localEats}
-            </span>
-            <span className="flex items-center gap-1">
-              <Hotel className="h-3 w-3 text-primary" />
-              {dict.routesGrid.greatStays}
-            </span>
-          </div>
+          {/* Proposer Initials Badge (No intern word) */}
+          {route.proposers && route.proposers.length > 0 && (
+            <div className="mb-4 pt-2 border-t border-border/50 text-[11px] font-mono text-muted-foreground flex items-center gap-1.5">
+              <Sparkles className="h-3 w-3 text-primary shrink-0" />
+              <span className="text-muted-foreground/80">
+                {lang === "tr" ? "Önerenler: " : "Curated with: "}
+              </span>
+              <span className="font-semibold text-foreground truncate">
+                {route.proposers.join(", ")}
+              </span>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">

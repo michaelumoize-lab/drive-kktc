@@ -11,6 +11,8 @@ import {
 import { StopGallery } from "@/components/StopGallery";
 import { Button } from "@/components/ui/button";
 
+import type { Locale } from "@/lib/i18n";
+
 interface StopCardProps {
   stop: {
     name: string;
@@ -24,9 +26,12 @@ interface StopCardProps {
     driveTime?: string;
   };
   index: number;
+  lang?: Locale;
 }
 
-export function StopCard({ stop, index }: StopCardProps) {
+export function StopCard({ stop, index, lang = "tr" }: StopCardProps) {
+  const isTr = lang === "tr";
+
   // Direct Google Maps location search URL for Northern Cyprus
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${stop.name}, Northern Cyprus`
@@ -52,14 +57,14 @@ export function StopCard({ stop, index }: StopCardProps) {
                   </h3>
                   {stop.suggestedArrival && (
                     <span className="text-xs font-mono font-medium text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-                      Arrival ~{stop.suggestedArrival}
+                      {isTr ? "Varış ~" : "Arrival ~"}{stop.suggestedArrival}
                     </span>
                   )}
                 </div>
                 {stop.driveTime && (
                   <p className="text-xs text-muted-foreground mt-0.5 flex items-center gap-1">
                     <Car className="h-3 w-3 text-primary" />
-                    <span>{stop.driveTime} drive from previous stop</span>
+                    <span>{stop.driveTime} {isTr ? "önceki duraktan sürüş" : "drive from previous stop"}</span>
                   </p>
                 )}
               </div>
@@ -77,10 +82,10 @@ export function StopCard({ stop, index }: StopCardProps) {
                   href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`View ${stop.name} on Google Maps`}
+                  aria-label={isTr ? `${stop.name} konumunu Google Haritalar'da gör` : `View ${stop.name} on Google Maps`}
                 >
                   <MapPin className="h-4 w-4 text-primary group-hover:text-primary-foreground transition-colors" />
-                  <span>View on Map</span>
+                  <span>{isTr ? "Haritada Gör" : "View on Map"}</span>
                   <ExternalLink className="h-3.5 w-3.5 opacity-70 group-hover:opacity-100" />
                 </a>
               </Button>
@@ -97,19 +102,19 @@ export function StopCard({ stop, index }: StopCardProps) {
             {stop.visitTime && (
               <div className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-lg text-foreground font-medium border border-border/40">
                 <Clock className="h-4 w-4 text-primary shrink-0" />
-                <span>Visit: {stop.visitTime}</span>
+                <span>{isTr ? "Ziyaret: " : "Visit: "}{stop.visitTime}</span>
               </div>
             )}
             {stop.openingHours && (
               <div className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-lg text-foreground font-medium border border-border/40">
                 <Clock className="h-4 w-4 text-emerald-500 shrink-0" />
-                <span>Hours: {stop.openingHours}</span>
+                <span>{isTr ? "Saatler: " : "Hours: "}{stop.openingHours}</span>
               </div>
             )}
             {stop.entranceFee && (
               <div className="flex items-center gap-1.5 bg-muted/60 px-3 py-1.5 rounded-lg text-foreground font-medium border border-border/40">
                 <DollarSign className="h-4 w-4 text-amber-500 shrink-0" />
-                <span>Entry: {stop.entranceFee}</span>
+                <span>{isTr ? "Giriş: " : "Entry: "}{stop.entranceFee}</span>
               </div>
             )}
           </div>
@@ -121,7 +126,7 @@ export function StopCard({ stop, index }: StopCardProps) {
                 <Lightbulb className="h-4 w-4" />
               </div>
               <div className="text-xs sm:text-sm">
-                <span className="font-semibold text-foreground">Stop Tip: </span>
+                <span className="font-semibold text-foreground">{isTr ? "Durak İpucu: " : "Stop Tip: "}</span>
                 <span className="text-muted-foreground leading-relaxed">
                   {stop.tip}
                 </span>

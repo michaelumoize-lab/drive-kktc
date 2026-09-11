@@ -4,6 +4,8 @@
 import { Clock, MapPin, Car } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+import type { Locale } from "@/lib/i18n";
+
 interface TimelineStop {
   name: string;
   suggestedArrival?: string;
@@ -14,21 +16,25 @@ interface TimelineStop {
 interface RouteTimelineProps {
   stops: TimelineStop[];
   suggestedStart?: string;
+  lang?: Locale;
 }
 
 export function RouteTimeline({
   stops,
   suggestedStart = "8:00 AM",
+  lang = "tr",
 }: RouteTimelineProps) {
+  const isTr = lang === "tr";
+
   return (
     <Card className="border-border overflow-hidden">
       <CardContent className="p-6">
         <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
           <Clock className="h-5 w-5 text-primary" />
-          Day Plan & Estimated Timeline
+          {isTr ? "Gün Planı & Tahmini Zaman Çizelgesi" : "Day Plan & Estimated Timeline"}
         </h3>
         <p className="text-sm text-muted-foreground mb-6">
-          Suggested start time:{" "}
+          {isTr ? "Önerilen başlama saati: " : "Suggested start time: "}
           <span className="font-medium text-foreground">{suggestedStart}</span>
         </p>
 
@@ -63,14 +69,14 @@ export function RouteTimeline({
                   {stop.driveTime && index > 0 && (
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Car className="h-3 w-3" />
-                      <span>Drive: {stop.driveTime}</span>
+                      <span>{isTr ? "Sürüş: " : "Drive: "}{stop.driveTime}</span>
                     </div>
                   )}
 
                   {index === 0 && (
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <MapPin className="h-3 w-3" />
-                      <span>Start here</span>
+                      <span>{isTr ? "Buradan başlayın" : "Start here"}</span>
                     </div>
                   )}
                 </div>

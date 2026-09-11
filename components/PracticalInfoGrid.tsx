@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+import type { Locale } from "@/lib/i18n";
+
 interface PracticalInfo {
   bestSeason: string;
   parking: string;
@@ -23,52 +25,55 @@ interface PracticalInfo {
 
 interface PracticalInfoGridProps {
   info: PracticalInfo;
+  lang?: Locale;
 }
 
-export function PracticalInfoGrid({ info }: PracticalInfoGridProps) {
+export function PracticalInfoGrid({ info, lang = "tr" }: PracticalInfoGridProps) {
+  const isTr = lang === "tr";
+
   const items = [
     {
       icon: Calendar,
-      title: "Best Season & Weather",
+      title: isTr ? "En İyi Sezon & Hava Durumu" : "Best Season & Weather",
       value: info.bestSeason,
-      highlight: "Ideal Travel Window",
+      highlight: isTr ? "İdeal Seyahat Dönemi" : "Ideal Travel Window",
     },
     {
       icon: Car,
-      title: "Recommended Vehicle",
+      title: isTr ? "Önerilen Araç Tipi" : "Recommended Vehicle",
       value: info.recommendedVehicle,
-      highlight: "Road Compatibility",
+      highlight: isTr ? "Yol Uygunluğu" : "Road Compatibility",
     },
     {
       icon: MapPin,
-      title: "Parking Access",
+      title: isTr ? "Otopark & Erişim" : "Parking Access",
       value: info.parking,
-      highlight: "Convenience",
+      highlight: isTr ? "Park Kolaylığı" : "Convenience",
     },
     {
       icon: Fuel,
-      title: "Fuel & Gas Stations",
+      title: isTr ? "Akaryakıt & Benzinlikler" : "Fuel & Gas Stations",
       value: info.fuelStations,
-      highlight: "Vital Warning",
+      highlight: isTr ? "Önemli Tavsiye" : "Vital Advice",
       badgeClass: "text-amber-500 bg-amber-500/10 border-amber-500/20",
     },
     {
       icon: Banknote,
-      title: "Entrance Fees & Budget",
+      title: isTr ? "Giriş Ücretleri & Bütçe" : "Entrance Fees & Budget",
       value: info.entranceFees,
-      highlight: "Admissions",
+      highlight: isTr ? "Biletler & Harcama" : "Admissions",
     },
     {
       icon: Utensils,
-      title: "Food & Dining Spots",
+      title: isTr ? "Yeme-İçme & Restoranlar" : "Food & Dining Spots",
       value: info.restaurants,
-      highlight: "Local Culinary",
+      highlight: isTr ? "Yerel Tatlar" : "Local Culinary",
     },
     {
       icon: Bus,
-      title: "Public Transport Reality",
+      title: isTr ? "Toplu Taşıma Durumu" : "Public Transport Reality",
       value: info.publicTransport,
-      highlight: "Transit Feasibility",
+      highlight: isTr ? "Ulaşım Gerçeği" : "Transit Feasibility",
     },
   ];
 
@@ -77,13 +82,15 @@ export function PracticalInfoGrid({ info }: PracticalInfoGridProps) {
       <div>
         <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
           <AlertCircle className="h-3.5 w-3.5" />
-          <span>Before You Hit The Road</span>
+          <span>{isTr ? "Yola Çıkmadan Önce" : "Before You Hit The Road"}</span>
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-          Practical Road Trip Information
+          {isTr ? "Pratik Yolculuk Bilgileri" : "Practical Road Trip Information"}
         </h2>
         <p className="text-muted-foreground text-sm md:text-base mt-1">
-          Essential logistics, driving tips, and local conditions to ensure a smooth journey.
+          {isTr
+            ? "Sorunsuz ve güvenli bir seyahat için gerekli lojistik bilgiler ve yerel yol şartları."
+            : "Essential logistics, driving tips, and local conditions to ensure a smooth journey."}
         </p>
       </div>
 
