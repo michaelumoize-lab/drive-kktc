@@ -4,11 +4,9 @@ import { Route } from "@/data/routes";
 import {
   Calendar,
   Clock,
-  Hotel,
   MapPin,
   Navigation,
   TrendingUp,
-  Utensils,
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
@@ -21,7 +19,7 @@ const regionNames: Record<string, { tr: string; en: string }> = {
   magusa: { tr: "Gazimağusa", en: "Famagusta" },
   iskele: { tr: "İskele & Doğu", en: "Iskele & East" },
   karpaz: { tr: "Karpaz", en: "Karpaz" },
-  bati: { tr: "Güzelyurt & Lefke", en: "West" },
+  bati: { tr: "Güzelyurt & Lefke", en: "West Coast" },
   daglar: { tr: "Dağlar & Köyler", en: "Mountains" },
   signature: { tr: "İmza Tur", en: "Signature Tour" },
 };
@@ -41,25 +39,31 @@ export default function RouteCard({
     if (distance > 100) {
       return {
         label: dict.common.difficulty.moderate,
-        color: "bg-yellow-500/30 text-yellow-200 border-yellow-500/50",
+        dotColor: "bg-amber-400",
+        badgeBg: "bg-amber-500/15 border-amber-400/30 text-amber-200",
       };
     }
     if (distance > 50) {
       return {
         label: dict.common.difficulty.easy,
-        color: "bg-green-500/30 text-green-200 border-green-500/50",
+        dotColor: "bg-emerald-400",
+        badgeBg: "bg-emerald-500/15 border-emerald-400/30 text-emerald-200",
       };
     }
     return {
       label: dict.common.difficulty.relaxed,
-      color: "bg-blue-500/30 text-blue-200 border-blue-500/50",
+      dotColor: "bg-sky-400",
+      badgeBg: "bg-sky-500/15 border-sky-400/30 text-sky-200",
     };
   };
 
   const getEntranceFee = (route: Route) => {
     const feeText = route.practicalInfo.entranceFees;
 
-    if (feeText.toLowerCase().includes("free") || feeText.toLowerCase().includes("ücretsiz")) {
+    if (
+      feeText.toLowerCase().includes("free") ||
+      feeText.toLowerCase().includes("ücretsiz")
+    ) {
       return dict.common.free;
     }
 
@@ -75,80 +79,94 @@ export default function RouteCard({
   const regionLabel = regionNames[route.region]?.[lang] || route.region;
 
   return (
-    <Link href={`/${lang}/routes/${route.slug}`} className="group block h-full">
-      <div className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col border border-border">
-        {/* Image Container */}
-        <div className="relative h-56 w-full overflow-hidden">
+    <Link
+      href={`/${lang}/routes/${route.slug}`}
+      className="group block h-full select-none"
+    >
+      <div className="bg-card rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col border border-border/80">
+        {/* Cover Photo Container (16:10 ratio) */}
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
           <Image
             src={route.heroImage}
             alt={route.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-110 transition-transform duration-700"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+          {/* Multi-layered Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
 
-          {/* Route Title Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-5">
-            <h3 className="text-xl font-bold text-white line-clamp-2">
-              {route.title}
-            </h3>
-            <div className="flex items-center gap-2 mt-1">
-              <Badge
-                variant="secondary"
-                className={`text-xs font-medium ${difficulty.color} border backdrop-blur-sm`}
-              >
-                {difficulty.label}
-              </Badge>
-              <div className="flex items-center text-yellow-400 text-xs">
-                {"★".repeat(route.rating)}
-                {"☆".repeat(5 - route.rating)}
-              </div>
+          {/* Top Header Badges */}
+          <div className="absolute top-3 inset-x-3 flex items-center justify-between gap-2 z-10">
+            <div className="flex flex-wrap gap-1.5">
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground shadow-md">
+                {regionLabel}
+              </span>
+              {route.theme && (
+                <span className="hidden sm:inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-black/40 backdrop-blur-md text-white/90 border border-white/20">
+                  {route.theme}
+                </span>
+              )}
+            </div>
+
+            {/* Difficulty Badge with Status Dot */}
+            <div
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-md border shadow-xs ${difficulty.badgeBg}`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${difficulty.dotColor}`}
+              />
+              <span>{difficulty.label}</span>
             </div>
           </div>
 
-          {/* Top-left badges: Region & Theme */}
-          <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
-            <Badge className="bg-primary text-primary-foreground border-0 text-xs font-semibold shadow-md">
-              {regionLabel}
-            </Badge>
+          {/* Title on Image Bottom */}
+          <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10">
+            <h3 className="text-lg sm:text-xl font-heading font-bold text-white leading-snug line-clamp-2 drop-shadow-sm group-hover:text-primary-foreground/90 transition-colors">
+              {route.title}
+            </h3>
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-5 flex-1 flex flex-col">
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+        {/* Card Content & Telemetry */}
+        <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+          <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 mb-4 leading-relaxed">
             {route.subtitle}
           </p>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          {/* Modern Telemetry Grid */}
+          <div className="grid grid-cols-2 gap-2.5 p-3 rounded-xl bg-muted/40 border border-border/50 text-xs mb-4">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <Navigation className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{route.distance}</span>
+              <span className="font-medium text-foreground truncate">
+                {route.distance}
+              </span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <Clock className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span className="truncate">{route.duration}</span>
+              <span className="font-medium text-foreground truncate">
+                {route.duration}
+              </span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <Calendar className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{dict.routesGrid.springAutumn}</span>
+              <span className="truncate">{dict.routesGrid.springAutumn}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span>{route.stops.length} {dict.common.waypoints}</span>
+              <span>
+                {route.stops.length} {dict.common.waypoints}
+              </span>
             </div>
           </div>
 
-          {/* Proposer Initials Badge (No intern word) */}
+          {/* Proposer / Contributor Badge */}
           {route.proposers && route.proposers.length > 0 && (
-            <div className="mb-4 pt-2 border-t border-border/50 text-[11px] font-mono text-muted-foreground flex items-center gap-1.5">
+            <div className="mb-4 pt-1 text-[11px] text-muted-foreground flex items-center gap-1.5">
               <Sparkles className="h-3 w-3 text-primary shrink-0" />
               <span className="text-muted-foreground/80">
-                {lang === "tr" ? "Önerenler: " : "Curated with: "}
+                {lang === "tr" ? "Yerel Öneri: " : "Curated by: "}
               </span>
               <span className="font-semibold text-foreground truncate">
                 {route.proposers.join(", ")}
@@ -156,16 +174,19 @@ export default function RouteCard({
             </div>
           )}
 
-          {/* CTA */}
-          <div className="flex items-center justify-between mt-auto pt-3 border-t border-border">
+          {/* Card Footer & Action Button */}
+          <div className="flex items-center justify-between pt-3 border-t border-border/60 mt-auto">
             <div>
+              <span className="text-xs text-muted-foreground block">
+                {lang === "tr" ? "Tahmini Giriş" : "Est. Entry"}
+              </span>
               <span className="text-sm font-bold text-foreground">
                 {getEntranceFee(route)}
               </span>
             </div>
-            <span className="inline-flex items-center gap-1 text-primary font-semibold text-sm group-hover:gap-2 transition-all">
-              {dict.routesGrid.viewRoute}
-              <TrendingUp className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <span className="inline-flex items-center gap-1.5 text-primary font-semibold text-xs sm:text-sm group-hover:gap-2.5 transition-all">
+              <span>{dict.routesGrid.viewRoute}</span>
+              <TrendingUp className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </span>
           </div>
         </div>
