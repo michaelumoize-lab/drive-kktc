@@ -43,6 +43,7 @@ export default function Navbar() {
   // Active locale
   const lang: Locale = pathname?.startsWith("/en") ? "en" : "tr";
   const dict = getDictionary(lang);
+  const homeHref = lang === "tr" ? "/" : "/en";
 
   const navLinks = [
     { name: dict.nav.exploreItineraries, href: `/${lang}/routes`, icon: Compass },
@@ -53,7 +54,7 @@ export default function Navbar() {
   ];
 
   const isLinkActive = (href: string) => {
-    if (href === `/${lang}`) return pathname === href;
+    if (href === `/${lang}` || href === homeHref) return pathname === href;
     return pathname?.startsWith(href);
   };
 
@@ -62,7 +63,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left: Logo */}
         <Link
-          href={`/${lang}`}
+          href={homeHref}
           className="flex items-center gap-2 shrink-0 font-semibold transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
           <Image
@@ -148,7 +149,7 @@ export default function Navbar() {
                 <SheetHeader className="text-left pb-5 border-b border-border/60">
                   <SheetTitle asChild>
                     <Link
-                      href={`/${lang}`}
+                      href={homeHref}
                       onClick={() => setIsOpen(false)}
                       className="transition-opacity hover:opacity-90 inline-block"
                     >
