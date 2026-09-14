@@ -15,9 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages for each language
   languages.forEach((lang) => {
     staticPaths.forEach((path) => {
-      const url = `${baseUrl}/${lang}${path}`;
       const isHome = path === "";
       const isRoutesCatalog = path === "/routes";
+      const url = lang === "tr" && isHome ? baseUrl : `${baseUrl}/${lang}${path}`;
 
       sitemapEntries.push({
         url,
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: isHome ? 1.0 : isRoutesCatalog ? 0.9 : 0.7,
         alternates: {
           languages: {
-            tr: `${baseUrl}/tr${path}`,
+            tr: isHome ? baseUrl : `${baseUrl}/tr${path}`,
             en: `${baseUrl}/en${path}`,
           },
         },

@@ -80,7 +80,11 @@ export function LanguageSwitcher({
     }
 
     let newPath = pathname;
-    if (pathname.startsWith("/en")) {
+    if (newLang === "tr" && (pathname === "/en" || pathname === "/en/")) {
+      newPath = "/";
+    } else if (pathname === "/") {
+      newPath = newLang === "tr" ? "/" : `/${newLang}`;
+    } else if (pathname.startsWith("/en")) {
       newPath = pathname.replace(/^\/en/, `/${newLang}`);
     } else if (pathname.startsWith("/tr")) {
       newPath = pathname.replace(/^\/tr/, `/${newLang}`);

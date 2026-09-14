@@ -35,12 +35,15 @@ export function getLocalizedPath(path: string, locale: Locale): string {
   const match = cleanPath.match(/^\/(tr|en)(\/.*)?$/);
   if (match) {
     const rest = match[2] || "";
+    if (locale === "tr" && (!rest || rest === "/")) {
+      return "/";
+    }
     return `/${locale}${rest}`;
   }
 
   // Handle root
   if (cleanPath === "/") {
-    return `/${locale}`;
+    return locale === "tr" ? "/" : `/${locale}`;
   }
 
   return `/${locale}${cleanPath}`;

@@ -1,4 +1,5 @@
 // app/[lang]/page.tsx
+import { redirect } from "next/navigation";
 import Hero from "@/components/Hero";
 import Newsletter from "@/components/Newsletter";
 import RoutesGrid from "@/components/RoutesGrid";
@@ -21,9 +22,9 @@ export async function generateMetadata({
       ? "Kuzey Kıbrıs'ın en güzel sürüş rotalarını keşfedin. Kalelerden el değmemiş kumsallara, eksiksiz yol rehberi."
       : "Discover the best driving routes in Northern Cyprus. From ancient castles to pristine beaches, plan your perfect road trip.",
     alternates: {
-      canonical: `/${lang}`,
+      canonical: isTr ? "/" : `/${lang}`,
       languages: {
-        tr: "/tr",
+        tr: "/",
         en: "/en",
       },
     },
@@ -37,6 +38,11 @@ export default async function HomePage({
 }) {
   const { lang: rawLang } = await params;
   const lang: Locale = isValidLocale(rawLang) ? rawLang : "tr";
+
+  // Redirect /tr to clean root /
+  if (lang === "tr") {
+    redirect("/");
+  }
 
   return (
     <main>

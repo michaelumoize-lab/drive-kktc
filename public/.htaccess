@@ -1,18 +1,37 @@
 # cPanel Apache Configuration for Drive North Cyprus Static Export
+
+# 1. Prevent directory listing (disables "Index of /" screens)
+Options -Indexes
+
+# 2. Tell Apache to look for index.html inside any directory
+DirectoryIndex index.html index.php
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # 1. Redirect root / to /tr/
+  # 3. Redirect root / to /tr/
   RewriteRule ^$ /tr/ [R=301,L]
 
-  # 2. Redirect language without trailing slash (/tr -> /tr/ and /en -> /en/)
+  # 4. Redirect language without trailing slash (/tr -> /tr/ and /en -> /en/)
   RewriteRule ^(tr|en)$ /$1/ [R=301,L]
 
-  # 3. Redirect unlocalized legacy URLs to /tr/...
-  RewriteRule ^(about|faq|guide|testimonials|routes)(/.*)?$ /tr/$1$2 [R=301,L]
+  # 5. Redirect legacy unlocalized URLs to /tr/...
+  RewriteRule ^(about|faq|guide|testimonials|routes)(/.*)?$ /tr/$1$2/ [R=301,L]
 
-  # 4. Serve static html files directly if file exists
+  # 6. Compatibility: If tr.html / en.html exists in root and user requests /tr/ or /en/
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(tr|en)/?$ /$1.html [L]
+
+  # 7. Compatibility: If user requests /tr/routes/ and routes.html exists
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/index.html !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.*)/$ /$1.html [L]
+
+  # 8. Clean URLs: if request is /path and path.html exists
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f

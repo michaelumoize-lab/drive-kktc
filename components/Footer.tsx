@@ -12,6 +12,7 @@ import { getDictionary, Locale } from "@/lib/i18n";
 export default function Footer() {
   const pathname = usePathname();
   const lang: Locale = pathname?.startsWith("/en") ? "en" : "tr";
+  const homeHref = lang === "tr" ? "/" : "/en";
   const dict = getDictionary(lang);
   const currentYear = new Date().getFullYear();
 
@@ -29,7 +30,7 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link
-              href={`/${lang}`}
+              href={homeHref}
               className="inline-block"
               aria-label="Drive North Cyprus Home"
             >

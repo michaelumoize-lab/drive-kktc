@@ -1,43 +1,29 @@
 // app/page.tsx
-"use client";
+import Hero from "@/components/Hero";
+import Newsletter from "@/components/Newsletter";
+import RoutesGrid from "@/components/RoutesGrid";
+import Testimonials from "@/components/Testimonials";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+export const metadata = {
+  title: "Drive North Cyprus – Kuzey Kıbrıs Rota ve Gezi Rehberi",
+  description:
+    "Kuzey Kıbrıs'ın en güzel sürüş rotalarını keşfedin. Kalelerden el değmemiş kumsallara, eksiksiz yol rehberi.",
+  alternates: {
+    canonical: "/",
+    languages: {
+      tr: "/",
+      en: "/en",
+    },
+  },
+};
 
 export default function RootPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    try {
-      const savedLang = localStorage.getItem("drive_kktc_lang");
-      if (savedLang === "en") {
-        router.replace("/en");
-        return;
-      }
-    } catch {
-      // Ignore
-    }
-    router.replace("/tr");
-  }, [router]);
-
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-background">
-      <div className="flex flex-col items-center gap-3">
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-        <p className="text-sm text-muted-foreground animate-pulse">Yükleniyor...</p>
-      </div>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            try {
-              var l = localStorage.getItem('drive_kktc_lang');
-              window.location.replace(l === 'en' ? '/en' : '/tr');
-            } catch(e) {
-              window.location.replace('/tr');
-            }
-          `,
-        }}
-      />
+    <main>
+      <Hero />
+      <RoutesGrid lang="tr" />
+      <Testimonials lang="tr" />
+      <Newsletter />
     </main>
   );
 }
